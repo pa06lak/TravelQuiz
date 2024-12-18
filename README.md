@@ -1,1 +1,21 @@
 # ProgBlackCoursework
+Sources of images: 
+Plane: "https://uk.pinterest.com/pin/342344009195111029/"
+Train: "https://uk.pinterest.com/pin/434245589092341017/"
+Friends: "https://uk.pinterest.com/pin/77546424828499686/"
+Family: "https://uk.pinterest.com/pin/889038782719779696/"
+Dolphins: "https://uk.pinterest.com/pin/5066618329708432/"
+Bungee: "https://uk.pinterest.com/pin/12807180186960126/"
+City: "https://uk.pinterest.com/pin/108016091059804402/"
+Countryside: "https://uk.pinterest.com/pin/11681280279053062/"
+Cook: "https://uk.pinterest.com/pin/9781324185751661/"
+Eatout: "https://uk.pinterest.com/pin/19351473393647709/"
+Photographer: "https://uk.pinterest.com/pin/864409722250716903/"
+Chef: "https://uk.pinterest.com/pin/1142436630476512999/"
+London: "https://uk.pinterest.com/pin/13299761392464846/"
+NYC: "https://uk.pinterest.com/pin/222928250299600365/"
+Pool: "https://uk.pinterest.com/pin/310115124360201304/"
+Beach: "https://uk.pinterest.com/pin/472033604713509522/"
+Night: "https://uk.pinterest.com/pin/408842472440838819/"
+Daytime: "https://uk.pinterest.com/pin/985231163559845/"
+Singapore: 
