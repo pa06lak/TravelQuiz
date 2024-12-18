@@ -18,4 +18,5 @@ Pool: "https://uk.pinterest.com/pin/310115124360201304/"
 Beach: "https://uk.pinterest.com/pin/472033604713509522/"
 Night: "https://uk.pinterest.com/pin/408842472440838819/"
 Daytime: "https://uk.pinterest.com/pin/985231163559845/"
-Singapore: 
+Singapore: "https://uk.pinterest.com/pin/3377768466686561/"
+Tokyo: "https://uk.pinterest.com/pin/539306124139258336/"
