@@ -1,0 +1,11 @@
+/* styles.css */
+.option-img {
+    width: 30vw;
+    height: 30vw;
+    object-fit: cover;
+    cursor: pointer;
+  }
+  
+  .question {
+    margin-bottom: 1.5rem;
+  }
