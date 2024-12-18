@@ -141,13 +141,20 @@
     images.forEach(image => {
       image.addEventListener('click', () => {
         const selectedAnswer = image.getAttribute('data-answer');
+        
+        // Remove the 'selected' class from all options in the same question
         image.closest('.question').querySelectorAll('.form-check-inline').forEach(option => {
           option.classList.remove('selected');
         });
+  
+        // Add the 'selected' class to the clicked option (image)
         image.closest('.form-check-inline').classList.add('selected');
+  
+        // Optional: Log the selected answer (or do something with it)
+        console.log(`Selected Answer: ${selectedAnswer}`);
       });
     });
-
+  
     // Handle Form Submission
     document.getElementById('quizForm').addEventListener('submit', function(e) {
       e.preventDefault();
@@ -160,5 +167,6 @@
       alert("Quiz Submitted! Check the console for results.");
     });
   </script>
+  
 </body>
 </html>

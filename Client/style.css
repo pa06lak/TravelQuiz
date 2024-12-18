@@ -1,9 +1,11 @@
 /* styles.css */
 .option-img {
-    width: 30vw;
-    height: 30vw;
+    width: 28vw;
+    height: 28vw;
     object-fit: cover;
     cursor: pointer;
+    transition: box-shadow 0.3s ease; /* Smooth transition for the glow effect */
+    margin-right: 2vw; /* Space between images (right margin) */
   }
   
 .question {
@@ -11,6 +13,9 @@
   }
 
 .selected {
-    box-shadow: 0 0 10px 4px rgba(0, 123, 255, 0.7); /* Blue glow effect */
-    border-radius: 5px;  /* Optional: to make the corners rounded */
+    box-shadow: 0 0 3vw 2vw rgba(0, 123, 255, 0.7); /* Proportional glow */
+    border-radius: 10px; /* Optional: to make the corners rounded */
   }
+
+
+  
