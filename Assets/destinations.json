@@ -1,0 +1,503 @@
+[
+    {
+      "id": 1,
+      "name": "London",
+      "continent": "Europe",
+      "budget": "high",
+      "duration": "short",
+      "popularity": 5,
+      "description": "A bustling city known for its rich history, iconic landmarks, and vibrant culture.",
+      "image": "images/london.jpg"
+    },
+    {
+      "id": 2,
+      "name": "New York",
+      "continent": "North America",
+      "budget": "high",
+      "duration": "short",
+      "popularity": 5,
+      "description": "The city that never sleeps, famous for its skyline, Broadway shows, and diverse cuisine.",
+      "image": "images/new_york.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Bali",
+      "continent": "Asia",
+      "budget": "medium",
+      "duration": "long",
+      "popularity": 4,
+      "description": "A tropical paradise known for its beaches, temples, and vibrant culture.",
+      "image": "images/bali.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Paris",
+      "continent": "Europe",
+      "budget": "high",
+      "duration": "short",
+      "popularity": 5,
+      "description": "The city of love, renowned for its art, architecture, and cuisine.",
+      "image": "images/paris.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Tokyo",
+      "continent": "Asia",
+      "budget": "high",
+      "duration": "medium",
+      "popularity": 5,
+      "description": "A vibrant city blending traditional culture with cutting-edge technology.",
+      "image": "images/tokyo.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Cape Town",
+      "continent": "Africa",
+      "budget": "medium",
+      "duration": "long",
+      "popularity": 4,
+      "description": "A coastal city with stunning landscapes and a rich cultural heritage.",
+      "image": "images/cape_town.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Rio de Janeiro",
+      "continent": "South America",
+      "budget": "medium",
+      "duration": "medium",
+      "popularity": 5,
+      "description": "Famous for its beaches, carnival, and the iconic Christ the Redeemer statue.",
+      "image": "images/rio.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Sydney",
+      "continent": "Australia",
+      "budget": "high",
+      "duration": "long",
+      "popularity": 5,
+      "description": "Known for its iconic Opera House, beaches, and vibrant harbor.",
+      "image": "images/sydney.jpg"
+    },
+    {
+      "id": 9,
+      "name": "Marrakech",
+      "continent": "Africa",
+      "budget": "low",
+      "duration": "short",
+      "popularity": 4,
+      "description": "A bustling city known for its markets, palaces, and historic sites.",
+      "image": "images/marrakech.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Bangkok",
+      "continent": "Asia",
+      "budget": "low",
+      "duration": "short",
+      "popularity": 4,
+      "description": "A city known for its vibrant street life and ornate temples.",
+      "image": "images/bangkok.jpg"
+    },
+    {
+      "id": 11,
+      "name": "Los Angeles",
+      "continent": "North America",
+      "budget": "high",
+      "duration": "medium",
+      "popularity": 4,
+      "description": "A sprawling city known for Hollywood, beaches, and entertainment.",
+      "image": "images/los_angeles.jpg"
+    },
+    {
+      "id": 12,
+      "name": "Rome",
+      "continent": "Europe",
+      "budget": "medium",
+      "duration": "medium",
+      "popularity": 5,
+      "description": "An ancient city rich in history, art, and architecture.",
+      "image": "images/rome.jpg"
+    },
+    {
+      "id": 13,
+      "name": "Santorini",
+      "continent": "Europe",
+      "budget": "high",
+      "duration": "short",
+      "popularity": 4,
+      "description": "A picturesque island known for its whitewashed buildings and stunning sunsets.",
+      "image": "images/santorini.jpg"
+    },
+    {
+      "id": 14,
+      "name": "Dubai",
+      "continent": "Asia",
+      "budget": "high",
+      "duration": "short",
+      "popularity": 5,
+      "description": "A modern city known for luxury shopping, ultramodern architecture, and nightlife.",
+      "image": "images/dubai.jpg"
+    },
+    {
+      "id": 15,
+      "name": "Hawaii",
+      "continent": "North America",
+      "budget": "medium",
+      "duration": "long",
+      "popularity": 5,
+      "description": "A tropical paradise known for its beaches, volcanoes, and unique culture.",
+      "image": "images/hawaii.jpg"
+    },
+    {
+      "id": 16,
+      "name": "Cairo",
+      "continent": "Africa",
+      "budget": "low",
+      "duration": "short",
+      "popularity": 4,
+      "description": "Home to the Pyramids of Giza and a city steeped in history.",
+      "image": "images/cairo.jpg"
+    },
+    {
+      "id": 17,
+      "name": "Istanbul",
+      "continent": "Europe",
+      "budget": "low",
+      "duration": "short",
+      "popularity": 4,
+      "description": "A city that straddles Europe and Asia, rich in history and culture.",
+      "image": "images/istanbul.jpg"
+    },
+    {
+      "id": 18,
+      "name": "Prague",
+      "continent": "Europe",
+      "budget": "medium",
+      "duration": "short",
+      "popularity": 4,
+      "description": "A city known for its well-preserved medieval architecture and vibrant atmosphere.",
+      "image": "images/prague.jpg"
+    },
+    {
+      "id": 19,
+      "name": "Buenos Aires",
+      "continent": "South America",
+      "budget": "medium",
+      "duration": "medium",
+      "popularity": 4,
+      "description": "Known for its European-style architecture and tango music.",
+      "image": "images/buenos_aires.jpg"
+    },
+    {
+      "id": 20,
+      "name": "Singapore",
+      "continent": "Asia",
+      "budget": "high",
+      "duration": "short",
+      "popularity": 5,
+      "description": "A modern city-state known for its cleanliness, gardens, and skyline.",
+      "image": "images/singapore.jpg"
+    },
+    {
+      "id": 21,
+      "name": "Amsterdam",
+      "continent": "Europe",
+      "budget": "medium",
+      "duration": "short",
+      "popularity": 4,
+      "description": "A charming city with canals, bicycles, and art museums.",
+      "image": "images/amsterdam.jpg"
+    },
+    {
+      "id": 22,
+      "name": "Seoul",
+      "continent": "Asia",
+      "budget": "medium",
+      "duration": "medium",
+      "popularity": 5,
+      "description": "A vibrant city blending modern technology with traditional temples.",
+      "image": "images/seoul.jpg"
+    },
+    {
+      "id": 23,
+      "name": "San Francisco",
+      "continent": "North America",
+      "budget": "high",
+      "duration": "medium",
+      "popularity": 4,
+      "description": "Known for its iconic Golden Gate Bridge, cable cars, and tech scene.",
+      "image": "images/san_francisco.jpg"
+    },
+    {
+      "id": 24,
+      "name": "Moscow",
+      "continent": "Europe",
+      "budget": "medium",
+      "duration": "medium",
+      "popularity": 3,
+      "description": "A city known for its historic Kremlin and Red Square.",
+      "image": "images/moscow.jpg"
+    },
+    {
+      "id": 25,
+      "name": "Lisbon",
+      "continent": "Europe",
+      "budget": "low",
+      "duration": "short",
+      "popularity": 4,
+      "description": "A city with colorful streets, historic trams, and ocean views.",
+      "image": "images/lisbon.jpg"
+    },
+    {
+      "id": 26,
+      "name": "Venice",
+      "continent": "Europe",
+      "budget": "high",
+      "duration": "short",
+      "popularity": 5,
+      "description": "A romantic city built on canals, known for gondolas and charming alleys.",
+      "image": "images/venice.jpg"
+    },
+    {
+      "id": 27,
+      "name": "Reykjavik",
+      "continent": "Europe",
+      "budget": "medium",
+      "duration": "medium",
+      "popularity": 4,
+      "description": "A gateway to Iceland's stunning landscapes and natural wonders.",
+      "image": "images/reykjavik.jpg"
+    },
+    {
+      "id": 28,
+      "name": "Maldives",
+      "continent": "Asia",
+      "budget": "high",
+      "duration": "long",
+      "popularity": 5,
+      "description": "An idyllic tropical paradise with turquoise waters and luxury resorts.",
+      "image": "images/maldives.jpg"
+    },
+    {
+      "id": 29,
+      "name": "Barcelona",
+      "continent": "Europe",
+      "budget": "medium",
+      "duration": "short",
+      "popularity": 5,
+      "description": "A vibrant city famous for its architecture, beaches, and culture.",
+      "image": "images/barcelona.jpg"
+    },
+    {
+      "id": 30,
+      "name": "Hong Kong",
+      "continent": "Asia",
+      "budget": "high",
+      "duration": "medium",
+      "popularity": 4,
+      "description": "A dynamic city known for its skyline, food, and bustling markets.",
+      "image": "images/hong_kong.jpg"
+    },
+    {
+      "id": 31,
+      "name": "Vienna",
+      "continent": "Europe",
+      "budget": "medium",
+      "duration": "short",
+      "popularity": 4,
+      "description": "A city of classical music, imperial palaces, and coffee houses.",
+      "image": "images/vienna.jpg"
+    },
+    {
+      "id": 32,
+      "name": "Vancouver",
+      "continent": "North America",
+      "budget": "medium",
+      "duration": "medium",
+      "popularity": 4,
+      "description": "A city surrounded by mountains and sea, offering natural beauty and urban amenities.",
+      "image": "images/vancouver.jpg"
+    },
+    {
+      "id": 33,
+      "name": "Cusco",
+      "continent": "South America",
+      "budget": "low",
+      "duration": "medium",
+      "popularity": 4,
+      "description": "A historic city and the gateway to Machu Picchu.",
+      "image": "images/cusco.jpg"
+    },
+    {
+      "id": 34,
+      "name": "Zurich",
+      "continent": "Europe",
+      "budget": "high",
+      "duration": "short",
+      "popularity": 3,
+      "description": "A city known for its financial district, museums, and lakeside views.",
+      "image": "images/zurich.jpg"
+    },
+    {
+      "id": 35,
+      "name": "Athens",
+      "continent": "Europe",
+      "budget": "medium",
+      "duration": "short",
+      "popularity": 4,
+      "description": "The cradle of Western civilization with ancient ruins and vibrant streets.",
+      "image": "images/athens.jpg"
+    },
+    {
+      "id": 36,
+      "name": "Mexico City",
+      "continent": "North America",
+      "budget": "low",
+      "duration": "medium",
+      "popularity": 4,
+      "description": "A sprawling city with rich history, culture, and cuisine.",
+      "image": "images/mexico_city.jpg"
+    },
+    {
+      "id": 37,
+      "name": "Edinburgh",
+      "continent": "Europe",
+      "budget": "medium",
+      "duration": "short",
+      "popularity": 4,
+      "description": "A historic city known for its castle, festivals, and charming streets.",
+      "image": "images/edinburgh.jpg"
+    },
+    {
+      "id": 38,
+      "name": "Florence",
+      "continent": "Europe",
+      "budget": "medium",
+      "duration": "short",
+      "popularity": 5,
+      "description": "The birthplace of the Renaissance, with incredible art and architecture.",
+      "image": "images/florence.jpg"
+    },
+    {
+      "id": 39,
+      "name": "Queenstown",
+      "continent": "Australia",
+      "budget": "high",
+      "duration": "long",
+      "popularity": 4,
+      "description": "An adventure capital surrounded by stunning natural beauty.",
+      "image": "images/queenstown.jpg"
+    },
+    {
+      "id": 40,
+      "name": "Kyoto",
+      "continent": "Asia",
+      "budget": "medium",
+      "duration": "medium",
+      "popularity": 5,
+      "description": "A city known for its classical Buddhist temples, gardens, and traditional geisha culture.",
+      "image": "images/kyoto.jpg"
+    },
+    {
+        "id": 41,
+        "name": "Reykjavik",
+        "continent": "Europe",
+        "budget": "high",
+        "duration": "medium",
+        "popularity": 3,
+        "description": "The northernmost capital of the world, known for its vibrant culture and proximity to natural wonders.",
+        "image": "images/reykjavik.jpg"
+      },
+      {
+        "id": 42,
+        "name": "La Paz",
+        "continent": "South America",
+        "budget": "low",
+        "duration": "medium",
+        "popularity": 3,
+        "description": "A city in the clouds, offering stunning views and unique experiences at high altitude.",
+        "image": "images/la_paz.jpg"
+      },
+      {
+        "id": 43,
+        "name": "Oslo",
+        "continent": "Europe",
+        "budget": "high",
+        "duration": "short",
+        "popularity": 3,
+        "description": "A modern city surrounded by nature, with museums, fjords, and a focus on sustainability.",
+        "image": "images/oslo.jpg"
+      },
+      {
+        "id": 44,
+        "name": "Hanoi",
+        "continent": "Asia",
+        "budget": "low",
+        "duration": "medium",
+        "popularity": 3,
+        "description": "A bustling city with rich history, vibrant street markets, and delicious cuisine.",
+        "image": "images/hanoi.jpg"
+      },
+      {
+        "id": 45,
+        "name": "Cape Town",
+        "continent": "Africa",
+        "budget": "medium",
+        "duration": "medium",
+        "popularity": 3,
+        "description": "A city with breathtaking views, rich history, and diverse cultures.",
+        "image": "images/cape_town.jpg"
+      },
+      {
+        "id": 46,
+        "name": "Muscat",
+        "continent": "Asia",
+        "budget": "medium",
+        "duration": "short",
+        "popularity": 2,
+        "description": "A serene city with stunning beaches, traditional souks, and impressive architecture.",
+        "image": "images/muscat.jpg"
+      },
+      {
+        "id": 47,
+        "name": "Riga",
+        "continent": "Europe",
+        "budget": "low",
+        "duration": "short",
+        "popularity": 3,
+        "description": "The capital of Latvia, known for its Art Nouveau architecture and charming old town.",
+        "image": "images/riga.jpg"
+      },
+      {
+        "id": 48,
+        "name": "Nairobi",
+        "continent": "Africa",
+        "budget": "low",
+        "duration": "medium",
+        "popularity": 3,
+        "description": "A vibrant city that blends urban life with nearby wildlife safari experiences.",
+        "image": "images/nairobi.jpg"
+      },
+      {
+        "id": 49,
+        "name": "Porto",
+        "continent": "Europe",
+        "budget": "medium",
+        "duration": "short",
+        "popularity": 3,
+        "description": "A charming coastal city famous for its port wine and colorful architecture.",
+        "image": "images/porto.jpg"
+      },
+      {
+        "id": 50,
+        "name": "Minsk",
+        "continent": "Europe",
+        "budget": "low",
+        "duration": "short",
+        "popularity": 2,
+        "description": "The capital of Belarus, offering Soviet-era architecture and a growing cultural scene.",
+        "image": "images/minsk.jpg"
+      }
+    ]
+  
