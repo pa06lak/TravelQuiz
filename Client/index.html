@@ -9,7 +9,7 @@
 </head>
 <body>
   <div class="container mt-5">
-    <h1 class="text-center mb-4">This or That Quiz</h1>
+    <h1 class="text-center mb-4">This or That Quiz (Travel Edition)</h1>
     <form id="quizForm">
       
       <!-- User's Name -->
@@ -135,38 +135,6 @@
     </form>
   </div>
 
-  <script>
-    // Handle Image Click for Answer Selection
-    const images = document.querySelectorAll('.option-img');
-    images.forEach(image => {
-      image.addEventListener('click', () => {
-        const selectedAnswer = image.getAttribute('data-answer');
-        
-        // Remove the 'selected' class from all options in the same question
-        image.closest('.question').querySelectorAll('.form-check-inline').forEach(option => {
-          option.classList.remove('selected');
-        });
-  
-        // Add the 'selected' class to the clicked option (image)
-        image.closest('.form-check-inline').classList.add('selected');
-  
-        // Optional: Log the selected answer (or do something with it)
-        console.log(`Selected Answer: ${selectedAnswer}`);
-      });
-    });
-  
-    // Handle Form Submission
-    document.getElementById('quizForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const formData = new FormData(e.target);
-      const results = {};
-      formData.forEach((value, key) => {
-        results[key] = value;
-      });
-      console.log('Quiz Results:', results);
-      alert("Quiz Submitted! Check the console for results.");
-    });
-  </script>
-  
+  <script src="../script.js"></script>
 </body>
 </html>
