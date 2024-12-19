@@ -441,13 +441,13 @@
       },
       {
         "id": 45,
-        "name": "Cape Town",
-        "continent": "Africa",
-        "budget": "medium",
-        "duration": "medium",
-        "popularity": 3,
+        "name": "Durham",
+        "continent": "Europe",
+        "budget": "low",
+        "duration": "low",
+        "popularity": 2,
         "description": "A city with breathtaking views, rich history, and diverse cultures.",
-        "image": "images/cape_town.jpg"
+        "image": "images/durham.jpg"
       },
       {
         "id": 46,
