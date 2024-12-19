@@ -261,13 +261,13 @@
     },
     {
       "id": 27,
-      "name": "Reykjavik",
-      "continent": "Europe",
+      "name": "Mumbai",
+      "continent": "Asia",
       "budget": "medium",
       "duration": "medium",
       "popularity": 4,
-      "description": "A gateway to Iceland's stunning landscapes and natural wonders.",
-      "image": "images/reykjavik.jpg"
+      "description": "Vibrant metropolis where modernity meets tradition. A city that never sleeps",
+      "image": "images/mumbai.jpg"
     },
     {
       "id": 28,
