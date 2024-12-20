@@ -25,7 +25,7 @@ function fetchDestinationsByIds(ids) {
       const newDestinations = data.map(destination => destination.id);
       selectedDestinations = [...selectedDestinations, ...newDestinations];
 
-      //displayDestinations(data); // Function to display the fetched data
+      displayDestinations(data); // Function to display the fetched data
     })
     .catch(error => {
       console.error('Error fetching destination data:', error);
@@ -33,25 +33,54 @@ function fetchDestinationsByIds(ids) {
 }
 
 
-// Function to display the fetched destination data
 function displayDestinations(data) {
-  const resultDiv = document.getElementById('result');  // Fixed typo here
+  const resultDiv = document.getElementById('result');
 
   // Clear previous results
   resultDiv.innerHTML = '';
 
   // Loop through the data and create elements to display it
   data.forEach(item => {
+    // Create a container for each destination
     const itemDiv = document.createElement('div');
-    itemDiv.classList.add('result-item');
-    
-    itemDiv.innerHTML = `
-      <h4>${item.name}</h4>
-      <img src="${item.image}" alt="${item.name}" style="width: 100px;">
-      <p>${item.description}</p>
-    `;
-    
-    resultDiv.appendChild(itemDiv);  // Append each item to the result div
+    itemDiv.classList.add('destination-box');
+
+    // Image element
+    const img = document.createElement('img');
+    img.src = item.image;
+    img.alt = item.name;
+    img.classList.add('destination-image');
+
+    // Details container
+    const detailsDiv = document.createElement('div');
+    detailsDiv.classList.add('destination-details');
+
+    // Name element
+    const name = document.createElement('h3');
+    name.textContent = item.name;
+    name.classList.add('destination-name');
+
+    // Description element
+    const description = document.createElement('p');
+    description.textContent = item.description;
+    description.classList.add('destination-description');
+
+    // Rating element (if applicable)
+    const rating = document.createElement('span');
+    rating.textContent = `Rating: ${item.rating}`;
+    rating.classList.add('destination-rating');
+
+    // Append name, description, and rating to the details container
+    detailsDiv.appendChild(name);
+    detailsDiv.appendChild(description);
+    detailsDiv.appendChild(rating);
+
+    // Append image and details to the item container
+    itemDiv.appendChild(img);
+    itemDiv.appendChild(detailsDiv);
+
+    // Append the item container to the results div
+    resultDiv.appendChild(itemDiv);
   });
 }
 

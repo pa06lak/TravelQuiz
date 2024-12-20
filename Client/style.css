@@ -17,4 +17,50 @@
     border-radius: 10px; /* Optional: to make the corners rounded */
   }
 
+/* Container for the destination box */
+.destination-box {
+  display: flex;
+  align-items: flex-start;
+  border: 1px solid #ddd; /* Light border around the box */
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds depth */
+  background-color: #fff; /* Background color */
+}
+
+/* Image styling */
+.destination-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px; /* Optional: Rounds edges */
+  margin-right: 16px; /* Spacing between image and details */
+}
+
+/* Details container */
+.destination-details {
+  flex: 1; /* Takes up remaining space */
+}
+
+/* Destination name styling */
+.destination-name {
+  font-size: 1.5em;
+  margin: 0 0 8px;
+  color: #333; /* Dark text */
+}
+
+/* Destination description styling */
+.destination-description {
+  font-size: 1em;
+  margin: 0 0 12px;
+  color: #555; /* Slightly lighter text */
+}
+
+/* Destination rating styling */
+.destination-rating {
+  font-size: 0.9em;
+  color: #888; /* Gray text */
+}
+
 
