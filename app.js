@@ -1,52 +1,32 @@
 const express = require('express');
-const path = require('path');
-const fs = require('fs');
-
 const app = express();
+const path = require('path');
 
-// Serve static files from the 'Client' folder
-app.use(express.static(path.join(__dirname, 'Client')));
+// Serve static files (such as images) from the 'client' folder
+app.use(express.static(path.join(__dirname, 'client')));
 
-// Serve static files from the 'Images' folder
-app.use('/Images', express.static(path.join(__dirname, 'Images')));
+// Serve static files (images) from the 'images' folder
+app.use('/images', express.static(path.join(__dirname, 'images')));  // Adjust this if your images are in a different folder
+app.use('/destImages', express.static(path.join(__dirname, 'destImages')));
 
-// Route to fetch locations based on the answer (e.g., 'Tropical' or 'Snowy')
-app.get('/api/locations/', (req, res) => {
-    const { answer } = req.params.toLowerCase(); // Normalize to lowercase
-  
-    // Define the mapping between answer and location IDs
-    const answerMap = {
-      tropical: [1, 2, 3],
-      snowy: [4, 5, 6]
+// Route to serve the index.html file for the root URL
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'index.html'));  // Ensure index.html exists inside the 'client' folder
+});
 
-    };
-  
-    const ids = answerMap[answer];
-    if (!ids) {
-      console.error('Invalid answer:', answer);
-      return res.status(400).send('Invalid answer');
-    }
-  
-    // Read the JSON file containing location data
-    fs.readFile(path.join(__dirname, 'data', 'locations.json'), 'utf-8', (err, data) => {
-      if (err) {
-        console.error('Error reading JSON file:', err);
-        return res.status(500).send('Internal Server Error');
-      }
-  
-      // Parse the JSON data
-      const locations = JSON.parse(data);
-  
-      // Filter locations based on the IDs
-      const filteredLocations = locations.filter(location => ids.includes(location.id));
-  
-      if (filteredLocations.length > 0) {
-        res.json(filteredLocations); // Send the filtered locations as JSON response
-      } else {
-        res.status(404).send('No locations found for the given answer');
-      }
-    });
-  });
-  
+// Example travel destinations data
+const travelDestinations = [
+  { id: 1, name: 'Paris', description: 'City of Lights', image: '/destImages/Paris.jpeg' },
+  { id: 2, name: 'New York', description: 'The Big Apple', image: '/destImages/NYC.jpeg' },
+  { id: 3, name: 'Tokyo', description: 'The Capital of Japan', image: '/destImages/Tokyo.jpeg' },
+  // Add more destinations as necessary
+];
 
-module.exports = app;
+// API endpoint to get data by ID(s)
+app.get('/api/destinations', (req, res) => {
+  const ids = req.query.ids ? req.query.ids.split(',') : [];
+  const filteredDestinations = travelDestinations.filter(dest => ids.includes(dest.id.toString()));
+  res.json(filteredDestinations);
+});
+
+module.exports = app;  // Export the app object
