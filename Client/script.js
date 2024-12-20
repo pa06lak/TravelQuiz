@@ -4,20 +4,38 @@ document.querySelectorAll('.option-img').forEach(image => {
     // Ensure you're not calling blur() here, which would remove focus
   });
 });
+
+// Keep track of selected destination IDs globally
+let selectedDestinations = [];
+
 function fetchDestinationsByIds(ids) {
-  fetch(`http://localhost:3000/api/destinations?ids=${ids.join(',')}`)
+  console.log(selectedDestinations)
+  // Filter out already selected destinations from the IDs
+  const newIds = ids.filter(id => !selectedDestinations.includes(id));
+
+  if (newIds.length === 0) {
+    //console.log('All destinations have already been selected.');
+    return; // Exit early if no new destinations to fetch
+  }
+
+  fetch(`http://localhost:3000/api/destinations?ids=${newIds.join(',')}`)
     .then(response => response.json())
     .then(data => {
-      displayDestinations(data); // Function to display the fetched data
+      // Update the selectedDestinations list with the newly fetched destinations
+      const newDestinations = data.map(destination => destination.id);
+      selectedDestinations = [...selectedDestinations, ...newDestinations];
+
+      //displayDestinations(data); // Function to display the fetched data
     })
     .catch(error => {
       console.error('Error fetching destination data:', error);
     });
 }
 
+
 // Function to display the fetched destination data
 function displayDestinations(data) {
-  const resultDiv = document.getElementById('result'); 
+  const resultDiv = document.getElementById('result');  // Fixed typo here
 
   // Clear previous results
   resultDiv.innerHTML = '';
