@@ -1,3 +1,55 @@
+document.addEventListener("DOMContentLoaded", () => {
+  // Select all option images
+  const optionImages = document.querySelectorAll(".option-img");
+
+  // Add click event listeners to each image
+  optionImages.forEach((image) => {
+    image.addEventListener("click", (event) => {
+      const clickedImage = event.target;
+
+      // Get the parent question container
+      const questionContainer = clickedImage.closest(".question");
+
+      // Deselect any previously selected image in this question
+      const selectedImages = questionContainer.querySelectorAll(".selected");
+      selectedImages.forEach((selected) => {
+        selected.classList.remove("selected");
+      });
+
+      // Select the clicked image
+      clickedImage.classList.add("selected");
+    });
+  });
+
+  // Form submission handler
+  const form = document.getElementById("quizForm");
+  form.addEventListener("submit", (event) => {
+    event.preventDefault(); // Prevent form from reloading the page
+
+    const name = document.getElementById("name").value;
+    const questions = document.querySelectorAll(".question");
+
+    // Collect the user's answers
+    const answers = [];
+    questions.forEach((question) => {
+      const selected = question.querySelector(".selected");
+      if (selected) {
+        answers.push(selected.dataset.answer); // Use the data-answer attribute for the answer
+      }
+    });
+
+    if (answers.length < questions.length) {
+      alert("Please answer all the questions!");
+      return;
+    }
+
+    // Display the result (or send to the backend via AJAX)
+    const resultDiv = document.getElementById("result");
+    resultDiv.innerHTML = `<h3>Thank you, ${name}!</h3>
+                           <p>Your answers: ${answers.join(", ")}</p>`;
+  });
+});
+
 // Function to fetch destinations by IDs
 document.querySelectorAll('.option-img').forEach(image => {
   image.addEventListener('click', () => {
