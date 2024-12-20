@@ -1,7 +1,7 @@
 /* styles.css */
 .option-img {
-    width: 28vw;
-    height: 28vw;
+    width: 25vw;
+    height: 25vw;
     object-fit: cover;
     cursor: pointer;
     transition: box-shadow 0.3s ease; /* Smooth transition for the glow effect */
