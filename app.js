@@ -5,6 +5,8 @@ const fs = require('fs');
 
 // Serve static files (such as images) from the 'client' folder
 app.use(express.static(path.join(__dirname, 'client')));
+// Serve static files from the 'Assets' folder
+app.use(express.static(path.join(__dirname, 'Assets')));
 
 const travelDestinations = JSON.parse(
     fs.readFileSync(path.join(__dirname, 'Assets/destinations.json'), 'utf-8')

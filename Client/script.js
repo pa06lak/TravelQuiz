@@ -45,6 +45,20 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    // Assuming you have selectedDestinations array populated with the necessary destination data
+    console.log(selectedDestinations);
+
+    // Assuming selectedDestinations is an array of IDs like [1, 2]
+// Fetch the destinations data from the JSON file
+  for (let destinationId of selectedDestinations) {
+    fetch(`http://localhost:3000/api/destinations?ids=${destinationId}`)
+     .then(response => response.json())
+     .then(data => {
+        console.log(data)
+        displayDestinations(data); // Function to display the fetched data
+      })
+     .catch(error => console.error('Error:', error));
+  }
 
   
 
@@ -62,6 +76,7 @@ document.querySelectorAll('.option-img').forEach(image => {
 let selectedDestinations = [];
 
 function fetchDestinationsByIds(ids) {
+  console.log(ids, "these are the ids")
   console.log(selectedDestinations);
   
   // Filter out already selected destinations from the IDs
@@ -78,8 +93,8 @@ function fetchDestinationsByIds(ids) {
       // Update the selectedDestinations list with the newly fetched destinations
       const newDestinations = data.map(destination => destination.id);
       selectedDestinations = [...selectedDestinations, ...newDestinations];
-
-      displayDestinations(data); // Function to display the fetched data
+      console.log(data)
+      //displayDestinations(data); // Function to display the fetched data
       return data; // Return the fetched data for further chaining
     })
     .catch(error => {
@@ -91,53 +106,51 @@ function fetchDestinationsByIds(ids) {
 function displayDestinations(data) {
   const resultDiv = document.getElementById('result');
 
-  // Clear previous results
-  resultDiv.innerHTML = '';
+  if (!data || data.length === 0) {
+    resultDiv.innerHTML = '<p>No destinations to display.</p>';
+    return;
+  }
 
   // Loop through the data and create elements to display it
   data.forEach(item => {
-    // Create a container for each destination
+    if (!item.name || !item.image || !item.description) {
+      console.warn('Invalid destination data:', item);
+      return;
+    }
+
     const itemDiv = document.createElement('div');
     itemDiv.classList.add('destination-box');
 
-    // Image element
     const img = document.createElement('img');
     img.src = item.image;
     img.alt = item.name;
     img.classList.add('destination-image');
 
-    // Details container
     const detailsDiv = document.createElement('div');
     detailsDiv.classList.add('destination-details');
 
-    // Name element
     const name = document.createElement('h3');
     name.textContent = item.name;
     name.classList.add('destination-name');
 
-    // Description element
     const description = document.createElement('p');
     description.textContent = item.description;
     description.classList.add('destination-description');
 
-    // Rating element (if applicable)
     const rating = document.createElement('span');
     rating.textContent = `Rating: ${item.rating}`;
     rating.classList.add('destination-rating');
 
-    // Append name, description, and rating to the details container
     detailsDiv.appendChild(name);
     detailsDiv.appendChild(description);
     detailsDiv.appendChild(rating);
 
-    // Append image and details to the item container
     itemDiv.appendChild(img);
     itemDiv.appendChild(detailsDiv);
-
-    // Append the item container to the results div
     resultDiv.appendChild(itemDiv);
   });
 }
+
 
 // Event listeners for image clicks
 const planeImage = document.getElementById('plane');  
