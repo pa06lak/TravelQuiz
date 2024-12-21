@@ -128,10 +128,51 @@
         </div>
       </div>
 
+
+
       <!-- Submit Button -->
       <div class="text-center">
         <button type="submit" class="btn btn-primary">Submit</button>
       </div>
+
+      <div style="height: 20px;"></div>
+      <div style="height: 20px;"></div>
+
+      <div id="filters">
+        <select id="continentFilter">
+          <option value="">Select Continent</option>
+          <option value="Europe">Europe</option>
+          <option value="Asia">Asia</option>
+          <option value="North America">North America</option>
+          <option value="Africa">Africa</option>
+        </select>
+      
+        <select id="budgetFilter">
+          <option value="">Select Budget</option>
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+      
+        <select id="durationFilter">
+          <option value="">Select Duration</option>
+          <option value="short">Short</option>
+          <option value="medium">Medium</option>
+          <option value="long">Long</option>
+        </select>
+      
+        <select id="popularityFilter">
+          <option value="">Select Popularity</option>
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+      
+        <button id="applyFilters">Apply Filters</button>
+      </div>
+      
+      <div id="filtered-results"></div>
+      
     </form>
     <div id="result" class="mt-4"></div>
   </div>
@@ -139,6 +180,5 @@
        <script src="script.js"></script>
        <div id="result"></div>
        <div id="answers"></div>
-  
 </body>
 </html>
