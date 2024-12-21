@@ -45,10 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Display the result (or send to the backend via AJAX)
-    const resultDiv = document.getElementById("answers");
-    resultDiv.innerHTML = `<h3>Thank you, ${name}!</h3>
-                           <p>Your answers: ${answers.join(", ")}</p>`;
+
+  
 
   });
 });
@@ -64,16 +62,17 @@ document.querySelectorAll('.option-img').forEach(image => {
 let selectedDestinations = [];
 
 function fetchDestinationsByIds(ids) {
-  console.log(selectedDestinations)
+  console.log(selectedDestinations);
+  
   // Filter out already selected destinations from the IDs
   const newIds = ids.filter(id => !selectedDestinations.includes(id));
 
   if (newIds.length === 0) {
-    //console.log('All destinations have already been selected.');
-    return; // Exit early if no new destinations to fetch
+    console.log('All destinations have already been selected.');
+    return Promise.resolve([]); // Return a resolved Promise with an empty array
   }
 
-  fetch(`http://localhost:3000/api/destinations?ids=${newIds.join(',')}`)
+  return fetch(`http://localhost:3000/api/destinations?ids=${newIds.join(',')}`)
     .then(response => response.json())
     .then(data => {
       // Update the selectedDestinations list with the newly fetched destinations
@@ -81,12 +80,13 @@ function fetchDestinationsByIds(ids) {
       selectedDestinations = [...selectedDestinations, ...newDestinations];
 
       displayDestinations(data); // Function to display the fetched data
+      return data; // Return the fetched data for further chaining
     })
     .catch(error => {
       console.error('Error fetching destination data:', error);
+      throw error; // Re-throw the error for handling in the caller
     });
 }
-
 
 function displayDestinations(data) {
   const resultDiv = document.getElementById('result');
