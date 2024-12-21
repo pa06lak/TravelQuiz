@@ -30,4 +30,16 @@ app.get('/api/destinations', (req, res) => {
     res.json(filteredDestinations);
   });
 
+// Middleware to parse JSON
+app.use(express.json());
+
+// Load the destinations data from the JSON file
+const destinations = JSON.parse(fs.readFileSync(path.join(__dirname, 'Assets/destinations.json'), 'utf-8'));
+
+// Sample route to serve all destinations
+app.get('/api/destinations', (req, res) => {
+  res.json(destinations);
+});
+  
+
 module.exports = app;  // Export the app object

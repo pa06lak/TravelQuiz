@@ -65,6 +65,32 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  // Add event listener to the "Apply Filters" button
+  document.getElementById("apply-filters").addEventListener("click", () => {
+    // Collect filter values
+    const filters = {
+      continent: document.getElementById("continent").value,
+      budget: document.getElementById("budget").value,
+      duration: document.getElementById("duration").value,
+      popularity: document.getElementById("popularity").value,
+    };
+
+    // Pass filters to the filtering function
+    applyFilters(filters);
+  });
+});
+
+shortList = [];
+
+// Function to apply filters
+function applyFilters(filters) {
+  console.log("Filters applied:", filters);
+  document.body.innerHTML = '';
+}
+
+
+
 // Function to fetch destinations by IDs
 document.querySelectorAll('.option-img').forEach(image => {
   image.addEventListener('click', () => {
