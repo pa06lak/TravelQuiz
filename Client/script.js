@@ -38,15 +38,18 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
+    
+
     if (answers.length < questions.length) {
       alert("Please answer all the questions!");
       return;
     }
 
     // Display the result (or send to the backend via AJAX)
-    const resultDiv = document.getElementById("result");
+    const resultDiv = document.getElementById("answers");
     resultDiv.innerHTML = `<h3>Thank you, ${name}!</h3>
                            <p>Your answers: ${answers.join(", ")}</p>`;
+
   });
 });
 
