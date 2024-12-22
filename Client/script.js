@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
 shortList = [];
 
 // Function to apply filters
-function applyFilters(filters) {
+async function applyFilters(filters) {
   console.log("Filters applied:", filters);
 
   // Check if filters are empty or null
@@ -100,38 +100,38 @@ function applyFilters(filters) {
   console.log("Selected Destinations:", selectedDestinations);
 
   // Shortlist destinations based on filters
-  var filteredDestinations = shortlistDestinations(selectedDestinations, filters);
+  var filteredDestinations = await shortlistDestinations(selectedDestinations, filters);
   console.log("Filtered Destinations:", filteredDestinations);
 
   // Display the filtered destinations
   displayDestinationsInteractive(filteredDestinations);
 }
 
-function shortlistDestinations(destinations, filters) {
+async function shortlistDestinations(destinations, filters) {
   const { continent, budget, duration, popularity } = filters;
 
-  const ids = selectedDestinations.join(',');
-fetch(`http://localhost:3000/api/destinations?ids=${ids}`)
-  .then(response => response.json())
-  .then(data => {
-    var filteredDestinations = []; // Ensure this is defined
+  const ids = destinations.join(',');
+  const response = await fetch(`http://localhost:3000/api/destinations?ids=${ids}`);
+  const data = await response.json();
 
-    data.forEach(destination => {
-      if (continent && destination.continent !== continent) {
-        filteredDestinations.push(destination);
-      } else if (budget && destination.budget > budget) {
-        filteredDestinations.push(destination);
-      } else if (duration && destination.duration > duration) {
-        filteredDestinations.push(destination);
-      } else if (popularity && destination.popularity < popularity) {
-        filteredDestinations.push(destination.id);
-      }
-    });
+  // Filter destinations and return only the ids of those that match the criteria
+  const filteredIds = data.filter(destination => {
+    if (continent && destination.continent !== continent) {
+      return false; // Exclude if continent doesn't match
+    }
+    if (budget && destination.budget > budget) {
+      return false; // Exclude if budget is too high
+    }
+    if (duration && destination.duration > duration) {
+      return false; // Exclude if duration is too long
+    }
+    if (popularity && destination.popularity < popularity) {
+      return false; // Exclude if popularity is too low
+    }
+    return true; // Include if all conditions are met
+  }).map(destination => destination.id); // Map to only return the ids
 
-    console.log(filteredDestinations);
-    return filteredDestinations;
-  })
-  .catch(error => console.error("Error fetching destinations:", error));
+  return filteredIds; // Return the array of ids
 }
 function displayDestinationsInteractive(data) {
 
