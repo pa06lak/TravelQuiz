@@ -129,14 +129,14 @@ async function shortlistDestinations(destinations, filters) {
       return false; // Exclude if popularity is too low
     }
     return true; // Include if all conditions are met
-  }).map(destination => destination.id); // Map to only return the ids
+  })
 
   return filteredIds; // Return the array of ids
 }
 function displayDestinationsInteractive(data) {
 
   // Loop through the data and create elements to display it
-  data.forEach(item => {
+  data.id.forEach(item => {
     if (!item.name || !item.image || !item.description) {
       console.warn('Invalid destination data:', item);
       return;
