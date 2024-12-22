@@ -100,7 +100,7 @@ function applyFilters(filters) {
   console.log("Selected Destinations:", selectedDestinations);
 
   // Shortlist destinations based on filters
-  const filteredDestinations = shortlistDestinations(selectedDestinations, filters);
+  var filteredDestinations = shortlistDestinations(selectedDestinations, filters);
   console.log("Filtered Destinations:", filteredDestinations);
 
   // Display the filtered destinations
@@ -108,14 +108,13 @@ function applyFilters(filters) {
 }
 
 function shortlistDestinations(destinations, filters) {
-  const filteredDestinations = []
   const { continent, budget, duration, popularity } = filters;
 
   const ids = selectedDestinations.join(',');
 fetch(`http://localhost:3000/api/destinations?ids=${ids}`)
   .then(response => response.json())
   .then(data => {
-    const filteredDestinations = []; // Ensure this is defined
+    var filteredDestinations = []; // Ensure this is defined
 
     data.forEach(destination => {
       if (continent && destination.continent !== continent) {
@@ -125,7 +124,7 @@ fetch(`http://localhost:3000/api/destinations?ids=${ids}`)
       } else if (duration && destination.duration > duration) {
         filteredDestinations.push(destination);
       } else if (popularity && destination.popularity < popularity) {
-        filteredDestinations.push(destination);
+        filteredDestinations.push(destination.id);
       }
     });
 
@@ -134,34 +133,47 @@ fetch(`http://localhost:3000/api/destinations?ids=${ids}`)
   })
   .catch(error => console.error("Error fetching destinations:", error));
 }
-function displayDestinationsInteractive(destinations) {
-  // Clear the body content
-  document.body.innerHTML = '';
+function displayDestinationsInteractive(data) {
 
-  if (destinations.length === 0) {
-    const noResultsMessage = document.createElement('p');
-    noResultsMessage.textContent = 'No destinations found with the selected filters.';
-    document.body.appendChild(noResultsMessage);
-    return;
-  }
+  // Loop through the data and create elements to display it
+  data.forEach(item => {
+    if (!item.name || !item.image || !item.description) {
+      console.warn('Invalid destination data:', item);
+      return;
+    }
 
-  // Render the filtered destinations
-  destinations.forEach(destination => {
-    const destinationDiv = document.createElement('div');
-    destinationDiv.classList.add('destination');
+    const itemDiv = document.createElement('div');
+    itemDiv.classList.add('destination-box');
+
+    const img = document.createElement('img');
+    img.src = item.image;
+    img.alt = item.name;
+    img.classList.add('destination-image');
+
+    const detailsDiv = document.createElement('div');
+    detailsDiv.classList.add('destination-details');
 
     const name = document.createElement('h3');
-    name.textContent = destination.name;
-    destinationDiv.appendChild(name);
+    name.textContent = item.name;
+    name.classList.add('destination-name');
 
-    const details = document.createElement('p');
-    details.textContent = `Rating: ${destination.popularity}`;
-    destinationDiv.appendChild(details);
+    const description = document.createElement('p');
+    description.textContent = item.description;
+    description.classList.add('destination-description');
 
-    document.body.appendChild(destinationDiv);
+    const rating = document.createElement('span');
+    rating.textContent = `Rating: ${item.rating}`;
+    rating.classList.add('destination-rating');
+
+    detailsDiv.appendChild(name);
+    detailsDiv.appendChild(description);
+    detailsDiv.appendChild(rating);
+
+    itemDiv.appendChild(img);
+    itemDiv.appendChild(detailsDiv);
+    resultDiv.appendChild(itemDiv);
   });
 }
-
 
 
 
