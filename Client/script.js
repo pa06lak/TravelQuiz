@@ -68,13 +68,16 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
   // Add event listener to the "Apply Filters" button
   document.getElementById("apply-filters").addEventListener("click", () => {
-    // Collect filter values
+    // Collect filter values from the DOM
     const filters = {
       continent: document.getElementById("continent").value,
       budget: document.getElementById("budget").value,
       duration: document.getElementById("duration").value,
       popularity: document.getElementById("popularity").value,
     };
+
+    // Clear the body content before displaying filtered results
+    document.body.innerHTML = '';
 
     // Pass filters to the filtering function
     applyFilters(filters);
@@ -86,8 +89,82 @@ shortList = [];
 // Function to apply filters
 function applyFilters(filters) {
   console.log("Filters applied:", filters);
-  document.body.innerHTML = '';
+
+  // Check if filters are empty or null
+  const noFiltersSelected = !filters.continent && !filters.budget && !filters.duration && !filters.popularity;
+  if (noFiltersSelected) {
+    alert("Please select at least one filter.");
+    return; // Exit if no filters are selected
+  }
+
+  console.log("Selected Destinations:", selectedDestinations);
+
+  // Shortlist destinations based on filters
+  const filteredDestinations = shortlistDestinations(selectedDestinations, filters);
+  console.log("Filtered Destinations:", filteredDestinations);
+
+  // Display the filtered destinations
+  displayDestinationsInteractive(filteredDestinations);
 }
+
+function shortlistDestinations(destinations, filters) {
+  const filteredDestinations = []
+  const { continent, budget, duration, popularity } = filters;
+
+  const ids = selectedDestinations.join(',');
+fetch(`http://localhost:3000/api/destinations?ids=${ids}`)
+  .then(response => response.json())
+  .then(data => {
+    const filteredDestinations = []; // Ensure this is defined
+
+    data.forEach(destination => {
+      if (continent && destination.continent !== continent) {
+        filteredDestinations.push(destination);
+      } else if (budget && destination.budget > budget) {
+        filteredDestinations.push(destination);
+      } else if (duration && destination.duration > duration) {
+        filteredDestinations.push(destination);
+      } else if (popularity && destination.popularity < popularity) {
+        filteredDestinations.push(destination);
+      }
+    });
+
+    console.log(filteredDestinations);
+    return filteredDestinations;
+  })
+  .catch(error => console.error("Error fetching destinations:", error));
+}
+function displayDestinationsInteractive(destinations) {
+  // Clear the body content
+  document.body.innerHTML = '';
+
+  if (destinations.length === 0) {
+    const noResultsMessage = document.createElement('p');
+    noResultsMessage.textContent = 'No destinations found with the selected filters.';
+    document.body.appendChild(noResultsMessage);
+    return;
+  }
+
+  // Render the filtered destinations
+  destinations.forEach(destination => {
+    const destinationDiv = document.createElement('div');
+    destinationDiv.classList.add('destination');
+
+    const name = document.createElement('h3');
+    name.textContent = destination.name;
+    destinationDiv.appendChild(name);
+
+    const details = document.createElement('p');
+    details.textContent = `Rating: ${destination.popularity}`;
+    destinationDiv.appendChild(details);
+
+    document.body.appendChild(destinationDiv);
+  });
+}
+
+
+
+
 
 
 
@@ -131,11 +208,6 @@ function fetchDestinationsByIds(ids) {
 
 function displayDestinations(data) {
   const resultDiv = document.getElementById('result');
-
-  if (!data || data.length === 0) {
-    resultDiv.innerHTML = '<p>No destinations to display.</p>';
-    return;
-  }
 
   // Loop through the data and create elements to display it
   data.forEach(item => {

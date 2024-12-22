@@ -3,6 +3,9 @@ const app = express();
 const path = require('path');
 const fs = require('fs');
 
+// Serve static files (like HTML, CSS, JS)
+app.use(express.static('public'));
+
 // Serve static files (such as images) from the 'client' folder
 app.use(express.static(path.join(__dirname, 'client')));
 // Serve static files from the 'Assets' folder
@@ -28,6 +31,17 @@ app.get('/api/destinations', (req, res) => {
       ids.includes(dest.id.toString())
     );
     res.json(filteredDestinations);
+  });
+
+  app.get('/api/destinationsTwo', (req, res) => {
+    const filePath = path.join(__dirname, 'Assets/destinations.json');
+    
+    fs.readFile(filePath, 'utf8', (err, data) => {
+      if (err) {
+        return res.status(500).send('Error reading destinations file');
+      }
+      res.json(JSON.parse(data));
+    });
   });
 
 // Middleware to parse JSON
