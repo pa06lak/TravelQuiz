@@ -184,10 +184,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
       itemDiv.appendChild(img);
       itemDiv.appendChild(detailsDiv);
+      // Add click event listener for interaction
+      itemDiv.addEventListener('click', () => {
+        handleDestinationClick(item, rating);
+    });
 
       resultDiv.appendChild(itemDiv);
     });
   }
+  
+  // Function to handle destination interaction
+function handleDestinationClick(destination, ratingElement) {
+  const visited = confirm(`Have you been to ${destination.name}?`);
+
+  if (visited) {
+      const userRating = prompt(`Please rate ${destination.name} (1-5):`);
+      const ratingValue = parseInt(userRating);
+
+      if (!isNaN(ratingValue) && ratingValue >= 1 && ratingValue <= 5) {
+          // Update the destination's rating
+          destination.rating = ratingValue;
+
+          // Update the rating displayed on the page
+          ratingElement.textContent = `Rating: ${destination.rating}`;
+
+          alert(`Thank you for rating ${destination.name} with a ${ratingValue}!`);
+      } else {
+          alert('Invalid rating. Please enter a number between 1 and 5.');
+      }
+  } else {
+      alert('Have a pleasant trip!');
+  }
+}
+
+
 });
 
 
