@@ -75,105 +75,108 @@ document.addEventListener("DOMContentLoaded", () => {
       duration: document.getElementById("duration").value,
       popularity: document.getElementById("popularity").value,
     };
-
+    const resultDiv = document.getElementById('resultDiv'); // Fetch the existing div
     // Clear the body content before displaying filtered results
-    document.body.innerHTML = '';
 
     // Pass filters to the filtering function
-    applyFilters(filters);
+    applyFilters(filters, resultDiv);
   });
-});
 
-shortList = [];
+  // Function to apply filters
+  async function applyFilters(filters, resultDiv) {
+    console.log("Filters applied:", filters);
 
-// Function to apply filters
-async function applyFilters(filters) {
-  console.log("Filters applied:", filters);
+    // Check if filters are empty or null
+    const noFiltersSelected = !filters.continent && !filters.budget && !filters.duration && !filters.popularity;
+    if (noFiltersSelected) {
+      alert("Please select at least one filter.");
+      return; // Exit if no filters are selected
+    }
 
-  // Check if filters are empty or null
-  const noFiltersSelected = !filters.continent && !filters.budget && !filters.duration && !filters.popularity;
-  if (noFiltersSelected) {
-    alert("Please select at least one filter.");
-    return; // Exit if no filters are selected
+    console.log("Selected Destinations:", selectedDestinations);
+
+    // Shortlist destinations based on filters
+    var filteredDestinations = await shortlistDestinations(selectedDestinations, filters);
+    console.log("Filtered Destinations:", filteredDestinations);
+
+    // Display the filtered destinations
+    displayDestinationsInteractive(filteredDestinations, resultDiv);
   }
 
-  console.log("Selected Destinations:", selectedDestinations);
+  async function shortlistDestinations(destinations, filters) {
+    const { continent, budget, duration, popularity } = filters;
 
-  // Shortlist destinations based on filters
-  var filteredDestinations = await shortlistDestinations(selectedDestinations, filters);
-  console.log("Filtered Destinations:", filteredDestinations);
+    const ids = destinations.join(',');
+    const response = await fetch(`http://localhost:3000/api/destinations?ids=${ids}`);
+    const data = await response.json();
 
-  // Display the filtered destinations
-  displayDestinationsInteractive(filteredDestinations);
-}
+    // Filter destinations and keep the full object for matched items
+    const filteredDestinations = data.filter(destination => {
+      if (continent && destination.continent !== continent) {
+        return false; 
+      }
+      if (budget && destination.budget > budget) {
+        return false; 
+      }
+      if (duration && destination.duration > duration) {
+        return false; 
+      }
+      if (popularity && destination.popularity < popularity) {
+        return false; 
+      }
+      return true; 
+    });
 
-async function shortlistDestinations(destinations, filters) {
-  const { continent, budget, duration, popularity } = filters;
+    return filteredDestinations; // Return the filtered destinations
+  }
 
-  const ids = destinations.join(',');
-  const response = await fetch(`http://localhost:3000/api/destinations?ids=${ids}`);
-  const data = await response.json();
+  function displayDestinationsInteractive(data, resultDiv) {
+    console.log(data, "filtered destination 2");
 
-  // Filter destinations and return only the ids of those that match the criteria
-  const filteredIds = data.filter(destination => {
-    if (continent && destination.continent !== continent) {
-      return false; // Exclude if continent doesn't match
-    }
-    if (budget && destination.budget > budget) {
-      return false; // Exclude if budget is too high
-    }
-    if (duration && destination.duration > duration) {
-      return false; // Exclude if duration is too long
-    }
-    if (popularity && destination.popularity < popularity) {
-      return false; // Exclude if popularity is too low
-    }
-    return true; // Include if all conditions are met
-  })
-
-  return filteredIds; // Return the array of ids
-}
-function displayDestinationsInteractive(data) {
-
-  // Loop through the data and create elements to display it
-  data.id.forEach(item => {
-    if (!item.name || !item.image || !item.description) {
-      console.warn('Invalid destination data:', item);
+    if (!resultDiv) {
+      console.error('Result container (resultDiv) not found in the DOM.');
       return;
     }
 
-    const itemDiv = document.createElement('div');
-    itemDiv.classList.add('destination-box');
+    data.forEach(item => {
+      if (!item.name || !item.image || !item.description) {
+        console.warn('Invalid destination data:', item);
+        return;
+      }
+      console.log("This has gotten to this point")
+      const itemDiv = document.createElement('div');
+      itemDiv.classList.add('destination-box');
 
-    const img = document.createElement('img');
-    img.src = item.image;
-    img.alt = item.name;
-    img.classList.add('destination-image');
+      const img = document.createElement('img');
+      img.src = item.image;
+      img.alt = item.name;
+      img.classList.add('destination-image');
 
-    const detailsDiv = document.createElement('div');
-    detailsDiv.classList.add('destination-details');
+      const detailsDiv = document.createElement('div');
+      detailsDiv.classList.add('destination-details');
 
-    const name = document.createElement('h3');
-    name.textContent = item.name;
-    name.classList.add('destination-name');
+      const name = document.createElement('h3');
+      name.textContent = item.name;
+      name.classList.add('destination-name');
 
-    const description = document.createElement('p');
-    description.textContent = item.description;
-    description.classList.add('destination-description');
+      const description = document.createElement('p');
+      description.textContent = item.description;
+      description.classList.add('destination-description');
 
-    const rating = document.createElement('span');
-    rating.textContent = `Rating: ${item.rating}`;
-    rating.classList.add('destination-rating');
+      const rating = document.createElement('span');
+      rating.textContent = `Rating: ${item.rating}`;
+      rating.classList.add('destination-rating');
 
-    detailsDiv.appendChild(name);
-    detailsDiv.appendChild(description);
-    detailsDiv.appendChild(rating);
+      detailsDiv.appendChild(name);
+      detailsDiv.appendChild(description);
+      detailsDiv.appendChild(rating);
 
-    itemDiv.appendChild(img);
-    itemDiv.appendChild(detailsDiv);
-    resultDiv.appendChild(itemDiv);
-  });
-}
+      itemDiv.appendChild(img);
+      itemDiv.appendChild(detailsDiv);
+      resultDiv.appendChild(itemDiv);
+    });
+  }
+});
 
 
 
@@ -219,7 +222,7 @@ function fetchDestinationsByIds(ids) {
 }
 
 function displayDestinations(data) {
-  const resultDiv = document.getElementById('result');
+  const resultDiv = document.getElementById('resultDiv');
 
   // Loop through the data and create elements to display it
   data.forEach(item => {

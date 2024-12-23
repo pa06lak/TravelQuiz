@@ -3,22 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Travel</title>
+  <title>Travel Quiz</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css"> <!-- Link to the external CSS file -->
+  <link rel="stylesheet" href="./style.css"> <!-- Link to external CSS file -->
 </head>
 <body>
+
   <div class="container mt-5">
     <h1 class="text-center mb-4">This or That Quiz (Travel Edition)</h1>
-    <h7> Most of us do not get to travel often, 
-      so when we do we should pick the right destination for us.
-    This quiz is designed to make sure you get the best holiday for you!  </h7>
+    <h7>Most of us do not get to travel often, so when we do, we should pick the right destination for us. This quiz is designed to make sure you get the best holiday for you!</h7>
 
-  <div style="height: 20px;"></div>
-  <div style="height: 20px;"></div>
+    <div style="height: 20px;"></div>
 
     <form id="quizForm">
-      
       <!-- User's Name -->
       <div class="mb-4">
         <label for="name" class="form-label">Your Name:</label>
@@ -29,7 +26,7 @@
       <div class="question">
         <h5>1. Would you rather travel by plane or train?</h5>
         <div class="form-check form-check-inline">
-          <img src="../Images/Flight.jpeg" alt="Plane" class="option-img" id="plane" data-answer="Plane" >
+          <img src="../Images/Flight.jpeg" alt="Plane" class="option-img" id="plane" data-answer="Plane">
         </div>
         <div class="form-check form-check-inline">
           <img src="../Images/Train.jpeg" alt="Train" class="option-img" id="train" data-answer="Train">
@@ -93,7 +90,7 @@
 
       <!-- Question 7 -->
       <div class="question">
-        <h5>7. Would you rather visit visit ancient ruins or modern city landmarks</h5>
+        <h5>7. Would you rather visit ancient ruins or modern city landmarks?</h5>
         <div class="form-check form-check-inline">
           <img src="../Images/Ancient.jpeg" alt="Ancient Ruins" class="option-img" id="ancient" data-answer="Ancient">
         </div>
@@ -135,16 +132,12 @@
         </div>
       </div>
 
-
-
       <!-- Submit Button -->
       <div class="text-center">
         <button type="submit" class="btn btn-primary">Submit</button>
       </div>
 
       <div style="height: 20px;"></div>
-      <div style="height: 20px;"></div>
-
 
       <div id="filter-section">
         <h3>Filter Destinations</h3>
@@ -160,17 +153,17 @@
         
         <label for="budget">Budget:</label>
         <select id="budget">
-        <option value="low">low</option>   
-        <option value="medium">medium</option>   
-        <option value="high">high</option>
-          </select>
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
 
         <label for="duration">Duration:</label>
         <select id="duration">
-        <option value="short">short</option>   
-        <option value="medium">medium</option>   
-        <option value="long">long</option>
-          </select>
+          <option value="short">Short</option>
+          <option value="medium">Medium</option>
+          <option value="long">Long</option>
+        </select>
       
         <label for="popularity">Popularity:</label>
         <select id="popularity">
@@ -183,18 +176,18 @@
       
         <button id="apply-filters">Apply Filters</button>
       </div>
-      <div id="result"></div>
-      <div id="destinations-list"></div> <!-- Container to display filtered destinations -->
 
-
-    
+      <div id="destinations-list"></div> <!-- Container for filtered destinations -->
 
     </form>
-    <div id="result" class="mt-4"></div>
   </div>
 
-       <script src="script.js"></script>
-       <div id="result"></div>
-       <div id="answers"></div>
+  <div id="resultDiv" class="mt-4"></div>
+
+  <div id="answers"></div>
+
+  <!-- Add script at the end of body -->
+  <script src="script.js"></script>
+
 </body>
 </html>
