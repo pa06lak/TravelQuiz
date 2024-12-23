@@ -10,7 +10,8 @@ app.use(express.static('public'));
 app.use(express.static(path.join(__dirname, 'client')));
 // Serve static files from the 'Assets' folder
 app.use(express.static(path.join(__dirname, 'Assets')));
-
+// Middleware to parse JSON
+app.use(express.json());
 const travelDestinations = JSON.parse(
     fs.readFileSync(path.join(__dirname, 'Assets/destinations.json'), 'utf-8')
   );
@@ -44,8 +45,7 @@ app.get('/api/destinations', (req, res) => {
     });
   });
 
-// Middleware to parse JSON
-app.use(express.json());
+
 
 // Load the destinations data from the JSON file
 const destinations = JSON.parse(fs.readFileSync(path.join(__dirname, 'Assets/destinations.json'), 'utf-8'));
@@ -54,6 +54,8 @@ const destinations = JSON.parse(fs.readFileSync(path.join(__dirname, 'Assets/des
 app.get('/api/destinations', (req, res) => {
   res.json(destinations);
 });
+
+
 
 app.post('/update-rating', (req, res) => {
   try {

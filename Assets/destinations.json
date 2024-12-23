@@ -533,7 +533,7 @@
         "name": "Durham",
         "continent": "Europe",
         "budget": "low",
-        "duration": "low",
+        "duration": "short",
         "popularity": 2,
         "description": "A city with breathtaking views, rich history, and diverse cultures.",
         "image": "../destImages/Durham.jpeg",
