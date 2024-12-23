@@ -184,6 +184,22 @@
     </form>
   </div>
 
+  <!-- Modal Structure -->
+<div id="ratingModal" class="modal">
+  <div class="modal-content">
+    <span class="close-button">&times;</span>
+    <h2 id="modalTitle">Destination Rating</h2>
+    <p id="modalPrompt">Have you been to this destination?</p>
+    <button id="yesButton">Yes</button>
+    <button id="noButton">No</button>
+    <div id="ratingInputContainer" style="display: none;">
+      <label for="ratingInput">Rate this destination (1-5):</label>
+      <input type="number" id="ratingInput" min="1" max="5">
+      <button id="submitRatingButton">Submit</button>
+    </div>
+  </div>
+</div>
+
   <div id="resultDiv" class="mt-4"></div>
 
   <div id="answers"></div>

@@ -194,29 +194,81 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   
   // Function to handle destination interaction
-function handleDestinationClick(destination, ratingElement) {
-  const visited = confirm(`Have you been to ${destination.name}?`);
-
-  if (visited) {
-      const userRating = prompt(`Please rate ${destination.name} (1-5):`);
-      const ratingValue = parseInt(userRating);
-
-      if (!isNaN(ratingValue) && ratingValue >= 1 && ratingValue <= 5) {
-          // Update the destination's rating
-          destination.rating = ratingValue;
-
-          // Update the rating displayed on the page
-          ratingElement.textContent = `Rating: ${destination.rating}`;
-
-          alert(`Thank you for rating ${destination.name} with a ${ratingValue}!`);
+  function handleDestinationClick(destination, ratingElement) {
+    const modal = document.getElementById('ratingModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalPrompt = document.getElementById('modalPrompt');
+    const yesButton = document.getElementById('yesButton');
+    const noButton = document.getElementById('noButton');
+    const ratingInputContainer = document.getElementById('ratingInputContainer');
+    const ratingInput = document.getElementById('ratingInput');
+    const submitRatingButton = document.getElementById('submitRatingButton');
+    const closeButton = document.querySelector('.close-button');
+  
+    // Reset modal state
+    modal.style.display = 'block';
+    modalTitle.textContent = `Rate ${destination.name}`;
+    modalPrompt.textContent = 'Have you been to this destination?';
+    ratingInputContainer.style.display = 'none';
+    ratingInput.value = '';
+  
+    // Close button logic
+    closeButton.onclick = () => {
+      modal.style.display = 'none';
+    };
+  
+    // Handle "Yes" button click
+    yesButton.onclick = () => {
+      modalPrompt.textContent = 'Please rate this destination (1-5):';
+      ratingInputContainer.style.display = 'block';
+    };
+  
+    // Handle "No" button click
+    noButton.onclick = () => {
+      modalPrompt.textContent = 'Have a pleasant trip!';
+      ratingInputContainer.style.display = 'none';
+  
+      setTimeout(() => {
+        modal.style.display = 'none';
+      }, 2000); // Close modal after a short delay
+    };
+  
+    // Submit rating
+    submitRatingButton.onclick = () => {
+      const userRating = parseInt(ratingInput.value);
+  
+      if (!isNaN(userRating) && userRating >= 1 && userRating <= 5) {
+        // Make POST request to update rating
+        fetch('http://localhost:3000/update-rating', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            destinationName: destination.name,
+            userRating: userRating,
+          }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.error) {
+              console.error('Error updating rating:', data.error);
+            } else {
+              console.log('Rating updated successfully:', data);
+  
+              // Update destination rating locally
+              destination.rating = data.destination.rating;
+              ratingElement.textContent = `Rating: ${destination.rating.toFixed(2)}`;
+            }
+            modal.style.display = 'none';
+          })
+          .catch((err) => console.error('Request failed:', err));
       } else {
-          alert('Invalid rating. Please enter a number between 1 and 5.');
+        alert('Please enter a valid rating between 1 and 5.');
       }
-  } else {
-      alert('Have a pleasant trip!');
+    };
   }
-}
-
+  
 
 });
 

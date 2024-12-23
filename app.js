@@ -54,6 +54,40 @@ const destinations = JSON.parse(fs.readFileSync(path.join(__dirname, 'Assets/des
 app.get('/api/destinations', (req, res) => {
   res.json(destinations);
 });
+
+app.post('/update-rating', (req, res) => {
+  try {
+    const { destinationName, userRating } = req.body;
+
+    if (!destinationName || isNaN(userRating)) {
+      return res.status(400).json({ error: 'Invalid input' });
+    }
+
+    // Load destinations from JSON file
+    const destinations = require('Assets/destinations.json');
+
+    // Find the destination
+    const destination = destinations.find(dest => dest.name === destinationName);
+    if (!destination) {
+      return res.status(404).json({ error: 'Destination not found' });
+    }
+
+    // Update the rating
+    destination.ratings.push(userRating); // Assuming an array of ratings exists
+    const total = destination.ratings.reduce((sum, r) => sum + r, 0);
+    destination.rating = total / destination.ratings.length;
+
+    // Save updated destinations back to file
+    const fs = require('fs');
+    fs.writeFileSync('./destinations.json', JSON.stringify(destinations, null, 2));
+
+    res.json({ destination });
+  } catch (err) {
+    console.error('Server error:', err);
+    res.status(500).json({ error: 'Internal server error occurred' });
+  }
+});
+
   
 
 module.exports = app;  // Export the app object
