@@ -31,8 +31,8 @@
 
 /* Image styling */
 .destination-image {
-  width: 150px;
-  height: 150px;
+  width: 30vw;
+  height: 30vw;
   object-fit: cover;
   border-radius: 8px; /* Optional: Rounds edges */
   margin-right: 16px; /* Spacing between image and details */
@@ -62,5 +62,14 @@
   font-size: 0.9em;
   color: #888; /* Gray text */
 }
+
+.destination-location,
+.destination-budget,
+.destination-duration,
+.destination-popularity {
+  font-size: 0.9em;
+  color: #555;
+}
+
 
 

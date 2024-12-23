@@ -65,6 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+
 document.addEventListener("DOMContentLoaded", () => {
   // Add event listener to the "Apply Filters" button
   document.getElementById("apply-filters").addEventListener("click", () => {
@@ -86,6 +87,9 @@ document.addEventListener("DOMContentLoaded", () => {
   async function applyFilters(filters, resultDiv) {
     console.log("Filters applied:", filters);
 
+    isFiltered = false;
+
+
     // Check if filters are empty or null
     const noFiltersSelected = !filters.continent && !filters.budget && !filters.duration && !filters.popularity;
     if (noFiltersSelected) {
@@ -94,13 +98,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     console.log("Selected Destinations:", selectedDestinations);
+     // Clear the resultDiv to remove previous destinations
+  resultDiv.innerHTML = '';
 
     // Shortlist destinations based on filters
     var filteredDestinations = await shortlistDestinations(selectedDestinations, filters);
     console.log("Filtered Destinations:", filteredDestinations);
-
     // Display the filtered destinations
     displayDestinationsInteractive(filteredDestinations, resultDiv);
+    // Remove the search bar from the DOM
+    const searchBar = document.getElementById('searchBar'); // Assuming the search bar has an ID 'searchBar'
+    if (searchBar) {
+    searchBar.style.display = 'none'; // Hide the search bar
+  }
   }
 
   async function shortlistDestinations(destinations, filters) {
@@ -115,10 +125,10 @@ document.addEventListener("DOMContentLoaded", () => {
       if (continent && destination.continent !== continent) {
         return false; 
       }
-      if (budget && destination.budget > budget) {
+      if (budget && destination.budget < budget) {
         return false; 
       }
-      if (duration && destination.duration > duration) {
+      if (duration && destination.duration < duration) {
         return false; 
       }
       if (popularity && destination.popularity < popularity) {
@@ -137,6 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error('Result container (resultDiv) not found in the DOM.');
       return;
     }
+    resultDiv.innerHTML = ''; // Clear the existing content
 
     data.forEach(item => {
       if (!item.name || !item.image || !item.description) {
@@ -173,6 +184,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       itemDiv.appendChild(img);
       itemDiv.appendChild(detailsDiv);
+
       resultDiv.appendChild(itemDiv);
     });
   }
@@ -181,7 +193,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
+let isFiltered = true;
 
 // Function to fetch destinations by IDs
 document.querySelectorAll('.option-img').forEach(image => {
@@ -194,6 +206,7 @@ document.querySelectorAll('.option-img').forEach(image => {
 let selectedDestinations = [];
 
 function fetchDestinationsByIds(ids) {
+  
   console.log(ids, "these are the ids")
   console.log(selectedDestinations);
   
@@ -222,46 +235,73 @@ function fetchDestinationsByIds(ids) {
 }
 
 function displayDestinations(data) {
+
+  if (isFiltered) {
   const resultDiv = document.getElementById('resultDiv');
 
   // Loop through the data and create elements to display it
-  data.forEach(item => {
-    if (!item.name || !item.image || !item.description) {
-      console.warn('Invalid destination data:', item);
-      return;
-    }
+    data.forEach(item => {
+      if (!item.name || !item.image || !item.description) {
+        console.warn('Invalid destination data:', item);
+        return;
+      }
 
-    const itemDiv = document.createElement('div');
-    itemDiv.classList.add('destination-box');
+      const itemDiv = document.createElement('div');
+      itemDiv.classList.add('destination-box');
 
-    const img = document.createElement('img');
-    img.src = item.image;
-    img.alt = item.name;
-    img.classList.add('destination-image');
+      const img = document.createElement('img');
+      img.src = item.image;
+      img.alt = item.name;
+      img.classList.add('destination-image');
 
-    const detailsDiv = document.createElement('div');
-    detailsDiv.classList.add('destination-details');
+      const detailsDiv = document.createElement('div');
+      detailsDiv.classList.add('destination-details');
 
-    const name = document.createElement('h3');
-    name.textContent = item.name;
-    name.classList.add('destination-name');
+      const name = document.createElement('h3');
+      name.textContent = item.name;
+      name.classList.add('destination-name');
 
-    const description = document.createElement('p');
-    description.textContent = item.description;
-    description.classList.add('destination-description');
+      const description = document.createElement('p');
+      description.textContent = item.description;
+      description.classList.add('destination-description');
 
-    const rating = document.createElement('span');
-    rating.textContent = `Rating: ${item.rating}`;
-    rating.classList.add('destination-rating');
+      const location = document.createElement('p');
+      location.textContent = `Location: ${item.continent || 'Unknown'}`;
+      location.classList.add('destination-location');
 
-    detailsDiv.appendChild(name);
-    detailsDiv.appendChild(description);
-    detailsDiv.appendChild(rating);
+      const budget = document.createElement('p');
+      budget.textContent = `Budget: ${item.budget || 'Not specified'}`;
+      budget.classList.add('destination-budget');
 
-    itemDiv.appendChild(img);
-    itemDiv.appendChild(detailsDiv);
-    resultDiv.appendChild(itemDiv);
-  });
+      const duration = document.createElement('p');
+      duration.textContent = `Duration: ${item.duration || 'Not specified'} days`;
+      duration.classList.add('destination-duration');
+
+      const popularity = document.createElement('p');
+      popularity.textContent = `Popularity: ${item.popularity || 'Not rated'}`;
+      popularity.classList.add('destination-popularity');
+
+      const rating = document.createElement('span');
+      rating.textContent = `Rating: ${item.rating}`;
+      rating.classList.add('destination-rating');
+
+      // Append all details to the detailsDiv
+      detailsDiv.appendChild(name);
+      detailsDiv.appendChild(description);
+      detailsDiv.appendChild(location);
+      detailsDiv.appendChild(budget);
+      detailsDiv.appendChild(duration);
+      detailsDiv.appendChild(popularity);
+      detailsDiv.appendChild(rating);
+
+      // Append image and detailsDiv to the itemDiv
+      itemDiv.appendChild(img);
+      itemDiv.appendChild(detailsDiv);
+
+      // Append itemDiv to the resultDiv
+      resultDiv.appendChild(itemDiv);
+    });
+  }
 }
 
 
@@ -308,3 +348,4 @@ nightImage.addEventListener('click', () => fetchDestinationsByIds([22,25,27,48])
 dayImage.addEventListener('click', () => fetchDestinationsByIds([31,33,42,50]));
 tropicalImage.addEventListener('click', () => fetchDestinationsByIds([7,10,15]));
 snowyImage.addEventListener('click', () => fetchDestinationsByIds([24,34,41,43]));
+
