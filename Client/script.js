@@ -1,6 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Select all option images
-  const optionImages = document.querySelectorAll(".option-img");
+    // Select all option images
+    const optionImages = document.querySelectorAll(".option-img");
+
+    if (!optionImages.length) {
+      throw new Error("No option images found!");
+    }
+
 
   // Add click event listeners to each image
   optionImages.forEach((image) => {
@@ -9,7 +14,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Get the parent question container
       const questionContainer = clickedImage.closest(".question");
+      
+      if (!questionContainer) {
+        throw new Error("Question container not found.");
+      }
 
+      
       // Deselect any previously selected image in this question
       const selectedImages = questionContainer.querySelectorAll(".selected");
       selectedImages.forEach((selected) => {
@@ -27,6 +37,10 @@ document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault(); // Prevent form from reloading the page
 
     const name = document.getElementById("name").value;
+    if (!name) {
+      alert("Please enter your name.");
+      return;
+    }
     const questions = document.querySelectorAll(".question");
 
     // Collect the user's answers
@@ -65,10 +79,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-
 document.addEventListener("DOMContentLoaded", () => {
   // Add event listener to the "Apply Filters" button
-  document.getElementById("apply-filters").addEventListener("click", () => {
+  document.getElementById("apply-filters").addEventListener("click", async () => {
     // Collect filter values from the DOM
     const filters = {
       continent: document.getElementById("continent").value,
@@ -80,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Clear the body content before displaying filtered results
 
     // Pass filters to the filtering function
-    applyFilters(filters, resultDiv);
+    await applyFilters(filters, resultDiv);
   });
 
   // Function to apply filters
@@ -114,83 +127,107 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   async function shortlistDestinations(destinations, filters) {
-    const { continent, budget, duration, popularity } = filters;
+    try {
+      const { continent, budget, duration, popularity } = filters;
 
-    const ids = destinations.join(',');
-    const response = await fetch(`http://localhost:3000/api/destinations?ids=${ids}`);
-    const data = await response.json();
+      const ids = destinations.join(',');
+      const response = await fetch(`http://localhost:3000/api/destinations?ids=${ids}`);
+      // Check if the response is successful (HTTP 200 OK)
+    if (!response.ok) {
+      throw new Error(`Failed to fetch destinations. Status: ${response.status}`);
+    }
+      const data = await response.json();
 
-    // Filter destinations and keep the full object for matched items
-    const filteredDestinations = data.filter(destination => {
-      if (continent && destination.continent !== continent) {
-        return false; 
-      }
-      if (budget && destination.budget < budget) {
-        return false; 
-      }
-      if (duration && destination.duration < duration) {
-        return false; 
-      }
-      if (popularity && destination.popularity < popularity) {
-        return false; 
-      }
-      return true; 
-    });
+      // Ensure the response contains valid data
+    if (!Array.isArray(data)) {
+      throw new Error('Invalid response format. Expected an array of destinations.');
+    }
 
-    return filteredDestinations; // Return the filtered destinations
+      // Filter destinations and keep the full object for matched items
+      const filteredDestinations = data.filter(destination => {
+        // Validate destination properties
+      if (!destination || typeof destination !== 'object') {
+        console.warn('Invalid destination data:', destination);
+        return false; // Skip invalid data
+      }
+        if (continent && destination.continent !== continent) {
+          return false; 
+        }
+        if (budget && destination.budget < budget) {
+          return false; 
+        }
+        if (duration && destination.duration < duration) {
+          return false; 
+        }
+        if (popularity && destination.popularity < popularity) {
+          return false; 
+        }
+        return true; 
+      });
+
+      return filteredDestinations; // Return the filtered destinations
+    } catch (error) {
+      console.error('Error while shortlisting destinations:', error);
+      throw error; // Re-throw to be handled by the caller
+    }
   }
 
   function displayDestinationsInteractive(data, resultDiv) {
-    console.log(data, "filtered destination 2");
+    try {
+      console.log(data, "filtered destination 2");
 
-    if (!resultDiv) {
-      console.error('Result container (resultDiv) not found in the DOM.');
-      return;
-    }
-    resultDiv.innerHTML = ''; // Clear the existing content
-
-    data.forEach(item => {
-      if (!item.name || !item.image || !item.description) {
-        console.warn('Invalid destination data:', item);
+      if (!resultDiv) {
+        console.error('Result container (resultDiv) not found in the DOM.');
         return;
       }
-      console.log("This has gotten to this point")
-      const itemDiv = document.createElement('div');
-      itemDiv.classList.add('destination-box');
+      resultDiv.innerHTML = ''; // Clear the existing content
 
-      const img = document.createElement('img');
-      img.src = item.image;
-      img.alt = item.name;
-      img.classList.add('destination-image');
+      data.forEach(item => {
+        if (!item.name || !item.image || !item.description) {
+          console.warn('Invalid destination data:', item);
+          return;
+        }
+        console.log("This has gotten to this point")
+        const itemDiv = document.createElement('div');
+        itemDiv.classList.add('destination-box');
 
-      const detailsDiv = document.createElement('div');
-      detailsDiv.classList.add('destination-details');
+        const img = document.createElement('img');
+        img.src = item.image;
+        img.alt = item.name;
+        img.classList.add('destination-image');
 
-      const name = document.createElement('h3');
-      name.textContent = item.name;
-      name.classList.add('destination-name');
+        const detailsDiv = document.createElement('div');
+        detailsDiv.classList.add('destination-details');
 
-      const description = document.createElement('p');
-      description.textContent = item.description;
-      description.classList.add('destination-description');
+        const name = document.createElement('h3');
+        name.textContent = item.name;
+        name.classList.add('destination-name');
 
-      const rating = document.createElement('span');
-      rating.textContent = `Rating: ${item.rating}`;
-      rating.classList.add('destination-rating');
+        const description = document.createElement('p');
+        description.textContent = item.description;
+        description.classList.add('destination-description');
 
-      detailsDiv.appendChild(name);
-      detailsDiv.appendChild(description);
-      detailsDiv.appendChild(rating);
+        const rating = document.createElement('span');
+        rating.textContent = `Rating: ${item.rating}`;
+        rating.classList.add('destination-rating');
 
-      itemDiv.appendChild(img);
-      itemDiv.appendChild(detailsDiv);
-      // Add click event listener for interaction
-      itemDiv.addEventListener('click', () => {
-        handleDestinationClick(item, rating);
-    });
+        detailsDiv.appendChild(name);
+        detailsDiv.appendChild(description);
+        detailsDiv.appendChild(rating);
 
-      resultDiv.appendChild(itemDiv);
-    });
+        itemDiv.appendChild(img);
+        itemDiv.appendChild(detailsDiv);
+        // Add click event listener for interaction
+        itemDiv.addEventListener('click', () => {
+          handleDestinationClick(item, rating);
+      });
+
+        resultDiv.appendChild(itemDiv);
+      });
+    }catch (error) {
+      console.error('Error while applying filters:', error);
+      alert("There was an error while applying the filters.");
+    }
   }
   
   // Function to handle destination interaction
@@ -249,7 +286,14 @@ document.addEventListener("DOMContentLoaded", () => {
             userRating: userRating,
           }),
         })
-          .then((response) => response.json())
+        .then((response) => {
+          if (!response.ok) {
+            // If HTTP status code is not in the 200-299 range, handle the error
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.json();
+        })
+
           .then((data) => {
             if (data.error) {
               console.error('Error updating rating:', data.error);
@@ -301,8 +345,18 @@ function fetchDestinationsByIds(ids) {
   }
 
   return fetch(`http://localhost:3000/api/destinations?ids=${newIds.join(',')}`)
-    .then(response => response.json())
+  .then(response => {
+    // Check if the response status is ok (200-299)
+    if (!response.ok) {
+      throw new Error(`Failed to fetch destinations. Status: ${response.status}`);
+    }
+    return response.json(); // Parse the JSON if the response is valid
+  })
     .then(data => {
+      if (!Array.isArray(data)) {
+        throw new Error('Invalid response format. Expected an array of destinations.');
+      }
+
       // Update the selectedDestinations list with the newly fetched destinations
       const newDestinations = data.map(destination => destination.id);
       selectedDestinations = [...selectedDestinations, ...newDestinations];

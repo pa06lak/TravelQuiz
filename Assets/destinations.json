@@ -20,8 +20,8 @@
     "popularity": 5,
     "description": "The city that never sleeps, famous for its skyline, Broadway shows, and diverse cuisine.",
     "image": "../destImages/NYC.jpeg",
-    "rating": 0,
-    "count": 0
+    "rating": 4,
+    "count": 1
   },
   {
     "id": 3,
@@ -68,8 +68,8 @@
     "popularity": 4,
     "description": "A coastal city with stunning landscapes and a rich cultural heritage.",
     "image": "../destImages/Capetown.jpeg",
-    "rating": 0,
-    "count": 0
+    "rating": 3,
+    "count": 1
   },
   {
     "id": 7,
@@ -92,8 +92,8 @@
     "popularity": 5,
     "description": "Known for its iconic Opera House, beaches, and vibrant harbor.",
     "image": "../destImages/Sydney.jpeg",
-    "rating": 0,
-    "count": 0
+    "rating": 4,
+    "count": 1
   },
   {
     "id": 9,
@@ -104,8 +104,8 @@
     "popularity": 4,
     "description": "A bustling city known for its markets, palaces, and historic sites.",
     "image": "../destImages/Marrakech.jpeg",
-    "rating": 0,
-    "count": 0
+    "rating": 4,
+    "count": 1
   },
   {
     "id": 10,
@@ -116,8 +116,8 @@
     "popularity": 4,
     "description": "A city known for its vibrant street life and ornate temples.",
     "image": "../destImages/Bangkok.jpeg",
-    "rating": 0,
-    "count": 0
+    "rating": 2,
+    "count": 5
   },
   {
     "id": 11,
@@ -128,8 +128,8 @@
     "popularity": 4,
     "description": "A sprawling city known for Hollywood, beaches, and entertainment.",
     "image": "../destImages/LA.jpeg",
-    "rating": 0,
-    "count": 0
+    "rating": 4,
+    "count": 1
   },
   {
     "id": 12,
@@ -176,8 +176,8 @@
     "popularity": 5,
     "description": "A tropical paradise known for its beaches, volcanoes, and unique culture.",
     "image": "../destImages/Hawaii.jpeg",
-    "rating": 0,
-    "count": 0
+    "rating": 5,
+    "count": 1
   },
   {
     "id": 16,
@@ -188,8 +188,8 @@
     "popularity": 4,
     "description": "Home to the Pyramids of Giza and a city steeped in history.",
     "image": "../destImages/Cairo.jpeg",
-    "rating": 0,
-    "count": 0
+    "rating": 3,
+    "count": 2
   },
   {
     "id": 17,
@@ -224,8 +224,8 @@
     "popularity": 4,
     "description": "Known for its European-style architecture and tango music.",
     "image": "../destImages/Buenos.jpeg",
-    "rating": 4,
-    "count": 1
+    "rating": 3,
+    "count": 2
   },
   {
     "id": 20,
@@ -272,8 +272,8 @@
     "popularity": 4,
     "description": "Known for its iconic Golden Gate Bridge, cable cars, and tech scene.",
     "image": "../destImages/SF.jpeg",
-    "rating": 0,
-    "count": 0
+    "rating": 3,
+    "count": 1
   },
   {
     "id": 24,
@@ -428,8 +428,8 @@
     "popularity": 4,
     "description": "A sprawling city with rich history, culture, and cuisine.",
     "image": "../destImages/Mexico.jpeg",
-    "rating": 0,
-    "count": 0
+    "rating": 3,
+    "count": 1
   },
   {
     "id": 37,
