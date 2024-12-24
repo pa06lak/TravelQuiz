@@ -240,14 +240,6 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!isNaN(userRating) && userRating >= 1 && userRating <= 5) {
         // Make POST request to update rating
         fetch('http://localhost:3000/update-rating', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            destinationName: destination.name,
-            userRating: userRating,
-          }),
         })
           .then((response) => response.json())
           .then((data) => {
