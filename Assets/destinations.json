@@ -32,8 +32,8 @@
     "popularity": 4,
     "description": "A tropical paradise known for its beaches, temples, and vibrant culture.",
     "image": "../destImages/Bali.jpeg",
-    "rating": 0,
-    "count": 0
+    "rating": 5,
+    "count": 1
   },
   {
     "id": 4,
@@ -116,8 +116,8 @@
     "popularity": 4,
     "description": "A city known for its vibrant street life and ornate temples.",
     "image": "../destImages/Bangkok.jpeg",
-    "rating": 2,
-    "count": 5
+    "rating": 2.5,
+    "count": 6
   },
   {
     "id": 11,
@@ -164,8 +164,8 @@
     "popularity": 5,
     "description": "A modern city known for luxury shopping, ultramodern architecture, and nightlife.",
     "image": "../destImages/Dubai.jpeg",
-    "rating": 0,
-    "count": 0
+    "rating": 5,
+    "count": 1
   },
   {
     "id": 15,
@@ -332,8 +332,8 @@
     "popularity": 5,
     "description": "An idyllic tropical paradise with turquoise waters and luxury resorts.",
     "image": "../destImages/Maldives.jpeg",
-    "rating": 0,
-    "count": 0
+    "rating": 3,
+    "count": 1
   },
   {
     "id": 29,
@@ -392,8 +392,8 @@
     "popularity": 4,
     "description": "A historic city and the gateway to Machu Picchu.",
     "image": "../destImages/Cusco.jpeg",
-    "rating": 0,
-    "count": 0
+    "rating": 2.6666666666666665,
+    "count": 3
   },
   {
     "id": 34,
@@ -476,8 +476,8 @@
     "popularity": 5,
     "description": "A city known for its classical Buddhist temples, gardens, and traditional geisha culture.",
     "image": "../destImages/Kyoto.jpeg",
-    "rating": 0,
-    "count": 0
+    "rating": 3,
+    "count": 1
   },
   {
     "id": 41,
@@ -500,8 +500,8 @@
     "popularity": 3,
     "description": "A city in the clouds, offering stunning views and unique experiences at high altitude.",
     "image": "../destImages/Paz.jpeg",
-    "rating": 0,
-    "count": 0
+    "rating": 2.3333333333333335,
+    "count": 3
   },
   {
     "id": 43,
@@ -548,8 +548,8 @@
     "popularity": 2,
     "description": "A serene city with stunning beaches, traditional souks, and impressive architecture.",
     "image": "../destImages/Muscat.jpeg",
-    "rating": 0,
-    "count": 0
+    "rating": 4,
+    "count": 1
   },
   {
     "id": 47,

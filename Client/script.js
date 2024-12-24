@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Assuming you have selectedDestinations array populated with the necessary destination data
     console.log(selectedDestinations);
-
+    document.getElementById('resultDiv').innerHTML='';
     // Assuming selectedDestinations is an array of IDs like [1, 2]
 // Fetch the destinations data from the JSON file
   for (let destinationId of selectedDestinations) {
@@ -69,6 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
      .then(response => response.json())
      .then(data => {
         console.log(data)
+        
         displayDestinations(data); // Function to display the fetched data
       })
      .catch(error => console.error('Error:', error));
