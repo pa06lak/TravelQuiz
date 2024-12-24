@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const fs = require('fs');
-
+ 
 // Serve static files (like HTML, CSS, JS)
 app.use(express.static('public'));
 
@@ -57,39 +57,48 @@ app.get('/api/destinations', (req, res) => {
 
 
 
+// Middleware to parse JSON
+app.use(express.json());
+
+let destinationInteractive = require('./Assets/destinations.json');
+
+// Endpoint to update the rating of a destination
 app.post('/update-rating', (req, res) => {
-  try {
     const { destinationName, userRating } = req.body;
 
-    if (!destinationName || isNaN(userRating)) {
-      return res.status(400).json({ error: 'Invalid input' });
+    if (!destinationName || userRating === undefined) {
+        return res.status(400).json({ error: 'Invalid request payload' });
     }
 
-    // Load destinations from JSON file
-    const destinations = require('Assets/destinations.json');
+    const destination = destinationInteractive.find(dest => dest.name === destinationName);
 
-    // Find the destination
-    const destination = destinations.find(dest => dest.name === destinationName);
     if (!destination) {
-      return res.status(404).json({ error: 'Destination not found' });
+        return res.status(404).json({ error: 'Destination not found' });
     }
 
-    // Update the rating
-    destination.ratings.push(userRating); // Assuming an array of ratings exists
-    const total = destination.ratings.reduce((sum, r) => sum + r, 0);
-    destination.rating = total / destination.ratings.length;
+    // Ensure the destination has a rating and count initialized
+    if (!destination.rating) destination.rating = 0;
+    if (!destination.count) destination.count = 0;
 
-    // Save updated destinations back to file
-    const fs = require('fs');
-    fs.writeFileSync('./destinations.json', JSON.stringify(destinations, null, 2));
+    // Calculate the new average rating
+    const newRating = parseFloat(userRating);
+    const newCount = destination.count + 1;
+    const newAverageRating = ((destination.rating * destination.count) + newRating) / newCount;
 
-    res.json({ destination });
-  } catch (err) {
-    console.error('Server error:', err);
-    res.status(500).json({ error: 'Internal server error occurred' });
-  }
+    // Update the destination object
+    destination.rating = newAverageRating;
+    destination.count = newCount;
+
+    // Write the updated destinations back to the JSON file
+    fs.writeFile('./Assets/destinations.json', JSON.stringify(destinationInteractive, null, 2), (err) => {
+        if (err) {
+            console.error('Error updating destinations file:', err);
+            return res.status(500).json({ error: 'Internal server error occurred' });
+        }
+
+        res.json({ message: 'Rating updated successfully', destination });
+    });
 });
-
   
 
 module.exports = app;  // Export the app object
