@@ -44,8 +44,8 @@
     "popularity": 5,
     "description": "The city of love, renowned for its art, architecture, and cuisine.",
     "image": "../destImages/Paris.jpeg",
-    "rating": 0,
-    "count": 0
+    "rating": 2,
+    "count": 4
   },
   {
     "id": 5,
@@ -224,8 +224,8 @@
     "popularity": 4,
     "description": "Known for its European-style architecture and tango music.",
     "image": "../destImages/Buenos.jpeg",
-    "rating": 0,
-    "count": 0
+    "rating": 4,
+    "count": 1
   },
   {
     "id": 20,
@@ -536,8 +536,8 @@
     "popularity": 2,
     "description": "A city with breathtaking views, rich history, and diverse cultures.",
     "image": "../destImages/Durham.jpeg",
-    "rating": 0,
-    "count": 0
+    "rating": 5,
+    "count": 1
   },
   {
     "id": 46,
