@@ -21,7 +21,7 @@
     "description": "The city that never sleeps, famous for its skyline, Broadway shows, and diverse cuisine.",
     "image": "../destImages/NYC.jpeg",
     "rating": 4,
-    "count": 1
+    "count": 2
   },
   {
     "id": 3,
@@ -128,8 +128,8 @@
     "popularity": 4,
     "description": "A sprawling city known for Hollywood, beaches, and entertainment.",
     "image": "../destImages/LA.jpeg",
-    "rating": 4,
-    "count": 1
+    "rating": 3.5,
+    "count": 2
   },
   {
     "id": 12,
@@ -176,8 +176,8 @@
     "popularity": 5,
     "description": "A tropical paradise known for its beaches, volcanoes, and unique culture.",
     "image": "../destImages/Hawaii.jpeg",
-    "rating": 5,
-    "count": 1
+    "rating": 3,
+    "count": 2
   },
   {
     "id": 16,
