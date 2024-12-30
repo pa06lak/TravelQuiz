@@ -8,7 +8,7 @@
     "popularity": 5,
     "description": "A bustling city known for its rich history, iconic landmarks, and vibrant culture.",
     "image": "../destImages/london.jpeg",
-    "rating": 0,
+    "rating": 3.00,
     "count": 0
   },
   {
@@ -20,7 +20,7 @@
     "popularity": 5,
     "description": "The city that never sleeps, famous for its skyline, Broadway shows, and diverse cuisine.",
     "image": "../destImages/NYC.jpeg",
-    "rating": 4,
+    "rating": 4.00,
     "count": 2
   },
   {
@@ -32,7 +32,7 @@
     "popularity": 4,
     "description": "A tropical paradise known for its beaches, temples, and vibrant culture.",
     "image": "../destImages/Bali.jpeg",
-    "rating": 4,
+    "rating": 4.00,
     "count": 2
   },
   {
@@ -44,7 +44,7 @@
     "popularity": 5,
     "description": "The city of love, renowned for its art, architecture, and cuisine.",
     "image": "../destImages/Paris.jpeg",
-    "rating": 2,
+    "rating": 2.00,
     "count": 4
   },
   {
@@ -56,7 +56,7 @@
     "popularity": 5,
     "description": "A vibrant city blending traditional culture with cutting-edge technology.",
     "image": "../destImages/Tokyo.jpeg",
-    "rating": 0,
+    "rating": 5.00,
     "count": 0
   },
   {
@@ -68,7 +68,7 @@
     "popularity": 4,
     "description": "A coastal city with stunning landscapes and a rich cultural heritage.",
     "image": "../destImages/Capetown.jpeg",
-    "rating": 3,
+    "rating": 3.00,
     "count": 1
   },
   {
@@ -80,7 +80,7 @@
     "popularity": 5,
     "description": "Famous for its beaches, carnival, and the iconic Christ the Redeemer statue.",
     "image": "../destImages/Rio.jpeg",
-    "rating": 3.5,
+    "rating": 3.50,
     "count": 2
   },
   {
@@ -92,7 +92,7 @@
     "popularity": 5,
     "description": "Known for its iconic Opera House, beaches, and vibrant harbor.",
     "image": "../destImages/Sydney.jpeg",
-    "rating": 4,
+    "rating": 4.00,
     "count": 1
   },
   {
@@ -104,7 +104,7 @@
     "popularity": 4,
     "description": "A bustling city known for its markets, palaces, and historic sites.",
     "image": "../destImages/Marrakech.jpeg",
-    "rating": 4,
+    "rating": 4.00,
     "count": 1
   },
   {
@@ -116,7 +116,7 @@
     "popularity": 4,
     "description": "A city known for its vibrant street life and ornate temples.",
     "image": "../destImages/Bangkok.jpeg",
-    "rating": 2.875,
+    "rating": 3.00,
     "count": 8
   },
   {
@@ -128,7 +128,7 @@
     "popularity": 4,
     "description": "A sprawling city known for Hollywood, beaches, and entertainment.",
     "image": "../destImages/LA.jpeg",
-    "rating": 3.5,
+    "rating": 3.50,
     "count": 2
   },
   {
@@ -140,7 +140,7 @@
     "popularity": 5,
     "description": "An ancient city rich in history, art, and architecture.",
     "image": "../destImages/Rome.jpeg",
-    "rating": 3,
+    "rating": 3.00,
     "count": 1
   },
   {
@@ -152,7 +152,7 @@
     "popularity": 4,
     "description": "A picturesque island known for its whitewashed buildings and stunning sunsets.",
     "image": "../destImages/Santorini.jpeg",
-    "rating": 0,
+    "rating": 4.00,
     "count": 0
   },
   {
@@ -164,7 +164,7 @@
     "popularity": 5,
     "description": "A modern city known for luxury shopping, ultramodern architecture, and nightlife.",
     "image": "../destImages/Dubai.jpeg",
-    "rating": 5,
+    "rating": 5.00,
     "count": 1
   },
   {
@@ -176,7 +176,7 @@
     "popularity": 5,
     "description": "A tropical paradise known for its beaches, volcanoes, and unique culture.",
     "image": "../destImages/Hawaii.jpeg",
-    "rating": 3,
+    "rating": 3.00,
     "count": 2
   },
   {
@@ -188,7 +188,7 @@
     "popularity": 4,
     "description": "Home to the Pyramids of Giza and a city steeped in history.",
     "image": "../destImages/Cairo.jpeg",
-    "rating": 3,
+    "rating": 3.00,
     "count": 2
   },
   {
@@ -200,7 +200,7 @@
     "popularity": 4,
     "description": "A city that straddles Europe and Asia, rich in history and culture.",
     "image": "../destImages/Istanbul.jpeg",
-    "rating": 4,
+    "rating": 4.00,
     "count": 1
   },
   {
@@ -212,7 +212,7 @@
     "popularity": 4,
     "description": "A city known for its well-preserved medieval architecture and vibrant atmosphere.",
     "image": "../destImages/Prague.jpeg",
-    "rating": 0,
+    "rating": 3.50,
     "count": 0
   },
   {
@@ -224,7 +224,7 @@
     "popularity": 4,
     "description": "Known for its European-style architecture and tango music.",
     "image": "../destImages/Buenos.jpeg",
-    "rating": 3,
+    "rating": 3.00,
     "count": 2
   },
   {
@@ -236,7 +236,7 @@
     "popularity": 5,
     "description": "A modern city-state known for its cleanliness, gardens, and skyline.",
     "image": "../destImages/Singapore.jpeg",
-    "rating": 0,
+    "rating": 5.00,
     "count": 0
   },
   {
@@ -248,7 +248,7 @@
     "popularity": 4,
     "description": "A charming city with canals, bicycles, and art museums.",
     "image": "../destImages/Amsterdam.jpeg",
-    "rating": 0,
+    "rating": 5.00,
     "count": 0
   },
   {
@@ -260,7 +260,7 @@
     "popularity": 5,
     "description": "A vibrant city blending modern technology with traditional temples.",
     "image": "../destImages/Seoul.jpeg",
-    "rating": 5,
+    "rating": 5.00,
     "count": 1
   },
   {
@@ -272,7 +272,7 @@
     "popularity": 4,
     "description": "Known for its iconic Golden Gate Bridge, cable cars, and tech scene.",
     "image": "../destImages/SF.jpeg",
-    "rating": 3,
+    "rating": 3.00,
     "count": 1
   },
   {
@@ -284,7 +284,7 @@
     "popularity": 3,
     "description": "A city known for its historic Kremlin and Red Square.",
     "image": "../destImages/Moscow.jpeg",
-    "rating": 3,
+    "rating": 3.00,
     "count": 1
   },
   {
@@ -296,7 +296,7 @@
     "popularity": 4,
     "description": "A city with colorful streets, historic trams, and ocean views.",
     "image": "../destImages/Lisbon.jpeg",
-    "rating": 4,
+    "rating": 4.00,
     "count": 1
   },
   {
@@ -308,7 +308,7 @@
     "popularity": 5,
     "description": "A romantic city built on canals, known for gondolas and charming alleys.",
     "image": "../destImages/Venice.jpeg",
-    "rating": 0,
+    "rating": 4.00,
     "count": 0
   },
   {
@@ -320,7 +320,7 @@
     "popularity": 4,
     "description": "Vibrant metropolis where modernity meets tradition. A city that never sleeps",
     "image": "../destImages/Mumbai.jpeg",
-    "rating": 2.5,
+    "rating": 2.50,
     "count": 2
   },
   {
@@ -332,7 +332,7 @@
     "popularity": 5,
     "description": "An idyllic tropical paradise with turquoise waters and luxury resorts.",
     "image": "../destImages/Maldives.jpeg",
-    "rating": 4,
+    "rating": 4.00,
     "count": 2
   },
   {
@@ -344,7 +344,7 @@
     "popularity": 5,
     "description": "A vibrant city famous for its architecture, beaches, and culture.",
     "image": "../destImages/Barcelona.jpeg",
-    "rating": 4,
+    "rating": 4.00,
     "count": 1
   },
   {
@@ -356,7 +356,7 @@
     "popularity": 4,
     "description": "A dynamic city known for its skyline, food, and bustling markets.",
     "image": "../destImages/HK.jpeg",
-    "rating": 0,
+    "rating": 4.50,
     "count": 0
   },
   {
@@ -368,7 +368,7 @@
     "popularity": 4,
     "description": "A city of classical music, imperial palaces, and coffee houses.",
     "image": "../destImages/Vienna.jpeg",
-    "rating": 0,
+    "rating": 3.50,
     "count": 0
   },
   {
@@ -380,7 +380,7 @@
     "popularity": 4,
     "description": "A city surrounded by mountains and sea, offering natural beauty and urban amenities.",
     "image": "../destImages/Vancouver.jpeg",
-    "rating": 0,
+    "rating": 3.50,
     "count": 0
   },
   {
@@ -392,7 +392,7 @@
     "popularity": 4,
     "description": "A historic city and the gateway to Machu Picchu.",
     "image": "../destImages/Cusco.jpeg",
-    "rating": 2.6666666666666665,
+    "rating": 2,
     "count": 3
   },
   {
@@ -404,7 +404,7 @@
     "popularity": 3,
     "description": "A city known for its financial district, museums, and lakeside views.",
     "image": "../destImages/Zurich.jpeg",
-    "rating": 4,
+    "rating": 4.00,
     "count": 1
   },
   {
@@ -416,7 +416,7 @@
     "popularity": 4,
     "description": "The cradle of Western civilization with ancient ruins and vibrant streets.",
     "image": "../destImages/Athens.jpeg",
-    "rating": 0,
+    "rating": 4.50,
     "count": 0
   },
   {
@@ -428,7 +428,7 @@
     "popularity": 4,
     "description": "A sprawling city with rich history, culture, and cuisine.",
     "image": "../destImages/Mexico.jpeg",
-    "rating": 3,
+    "rating": 3.00,
     "count": 1
   },
   {
@@ -440,7 +440,7 @@
     "popularity": 4,
     "description": "A historic city known for its castle, festivals, and charming streets.",
     "image": "../destImages/Edinburgh.jpeg",
-    "rating": 0,
+    "rating": 2.50,
     "count": 0
   },
   {
@@ -452,7 +452,7 @@
     "popularity": 5,
     "description": "The birthplace of the Renaissance, with incredible art and architecture.",
     "image": "../destImages/Florence.jpeg",
-    "rating": 3,
+    "rating": 3.50,
     "count": 1
   },
   {
@@ -464,7 +464,7 @@
     "popularity": 4,
     "description": "An adventure capital surrounded by stunning natural beauty.",
     "image": "../destImages/Queenstown.jpeg",
-    "rating": 0,
+    "rating": 3.00,
     "count": 0
   },
   {
@@ -476,7 +476,7 @@
     "popularity": 5,
     "description": "A city known for its classical Buddhist temples, gardens, and traditional geisha culture.",
     "image": "../destImages/Kyoto.jpeg",
-    "rating": 3,
+    "rating": 3.00,
     "count": 2
   },
   {
@@ -488,7 +488,7 @@
     "popularity": 3,
     "description": "The northernmost capital of the world, known for its vibrant culture and proximity to natural wonders.",
     "image": "../destImages/Reykjavik.jpeg",
-    "rating": 3,
+    "rating": 3.00,
     "count": 1
   },
   {
@@ -500,7 +500,7 @@
     "popularity": 3,
     "description": "A city in the clouds, offering stunning views and unique experiences at high altitude.",
     "image": "../destImages/Paz.jpeg",
-    "rating": 2.3333333333333335,
+    "rating": 2,
     "count": 3
   },
   {
@@ -512,7 +512,7 @@
     "popularity": 3,
     "description": "A modern city surrounded by nature, with museums, fjords, and a focus on sustainability.",
     "image": "../destImages/Oslo.jpeg",
-    "rating": 3,
+    "rating": 3.00,
     "count": 1
   },
   {
@@ -524,7 +524,7 @@
     "popularity": 3,
     "description": "A bustling city with rich history, vibrant street markets, and delicious cuisine.",
     "image": "../destImages/Hanoi.jpeg",
-    "rating": 0,
+    "rating": 3.50,
     "count": 0
   },
   {
@@ -536,7 +536,7 @@
     "popularity": 2,
     "description": "A city with breathtaking views, rich history, and diverse cultures.",
     "image": "../destImages/Durham.jpeg",
-    "rating": 5,
+    "rating": 5.00,
     "count": 2
   },
   {
@@ -548,7 +548,7 @@
     "popularity": 2,
     "description": "A serene city with stunning beaches, traditional souks, and impressive architecture.",
     "image": "../destImages/Muscat.jpeg",
-    "rating": 2.5,
+    "rating": 2.50,
     "count": 2
   },
   {
@@ -560,7 +560,7 @@
     "popularity": 3,
     "description": "The capital of Latvia, known for its Art Nouveau architecture and charming old town.",
     "image": "../destImages/Riga.jpeg",
-    "rating": 3,
+    "rating": 3.00,
     "count": 1
   },
   {
@@ -572,7 +572,7 @@
     "popularity": 3,
     "description": "A vibrant city that blends urban life with nearby wildlife safari experiences.",
     "image": "../destImages/Nairobi.jpeg",
-    "rating": 4,
+    "rating": 4.00,
     "count": 1
   },
   {
@@ -584,7 +584,7 @@
     "popularity": 3,
     "description": "A charming coastal city famous for its port wine and colorful architecture.",
     "image": "../destImages/Porto.jpeg",
-    "rating": 0,
+    "rating": 3.50,
     "count": 0
   },
   {
@@ -596,7 +596,7 @@
     "popularity": 2,
     "description": "The capital of Belarus, offering Soviet-era architecture and a growing cultural scene.",
     "image": "../destImages/Minsk.jpeg",
-    "rating": 0,
+    "rating": 3.50,
     "count": 0
   }
 ]
