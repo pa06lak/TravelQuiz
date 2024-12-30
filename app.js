@@ -20,11 +20,6 @@ const travelDestinations = JSON.parse(
 app.use('/images', express.static(path.join(__dirname, 'images')));  // Adjust this if your images are in a different folder
 app.use('/destImages', express.static(path.join(__dirname, 'destImages')));
 
-// Route to serve the index.html file for the root URL
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client', 'index.html'));  // Ensure index.html exists inside the 'client' folder
-});
-
 // API endpoint to fetch destinations by IDs
 app.get('/api/destinations', (req, res) => {
     const ids = req.query.ids ? req.query.ids.split(',') : [];
@@ -49,12 +44,6 @@ app.get('/api/destinations', (req, res) => {
 
 // Load the destinations data from the JSON file
 const destinations = JSON.parse(fs.readFileSync(path.join(__dirname, 'Assets/destinations.json'), 'utf-8'));
-
-// Sample route to serve all destinations
-app.get('/api/destinations', (req, res) => {
-  res.json(destinations);
-});
-
 
 
 // Middleware to parse JSON
@@ -84,9 +73,10 @@ app.post('/update-rating', (req, res) => {
     const newRating = parseFloat(userRating);
     const newCount = destination.count + 1;
     const newAverageRating = ((destination.rating * destination.count) + newRating) / newCount;
+    const roundedAverageRating = parseFloat(newAverageRating.toFixed(2));
 
     // Update the destination object
-    destination.rating = newAverageRating;
+    destination.rating = roundedAverageRating;
     destination.count = newCount;
 
     // Write the updated destinations back to the JSON file
@@ -95,8 +85,11 @@ app.post('/update-rating', (req, res) => {
             console.error('Error updating destinations file:', err);
             return res.status(500).json({ error: 'Internal server error occurred' });
         }
-
-        res.json({ message: 'Rating updated successfully', destination });
+        
+        res.status(200).json({
+          message: 'Rating updated successfully',
+          destination
+        });
     });
 });
   

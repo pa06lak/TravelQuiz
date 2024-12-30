@@ -1,3 +1,55 @@
+// Function to check server connection
+function checkServerConnection() {
+  fetch('/api/destinations')
+    .then(response => {
+      if (response.ok) {
+        // Connection is successful, proceed as normal
+        console.log("Server connected");
+      } else {
+        // If response status is not OK, treat it as a disconnection
+        showConnectionError();
+      }
+    })
+    .catch(err => {
+      // Handle server disconnection or network failure
+      showConnectionError();
+    });
+}
+
+// Display a message to the user
+function showConnectionError() {
+  const message = "We are currently disconnected from the server. Please try again later. Thank you for your co-operation";
+  alert(message); // You can replace this with a more elegant modal or toast message.
+}
+
+// Automatically retry connection every 5 seconds
+setInterval(checkServerConnection, 5000);
+
+// Restore user state on reconnect
+function restoreUserState() {
+  const userState = localStorage.getItem('userState');
+  if (userState) {
+    // Parse and restore user state (e.g., selected options, form data)
+    const state = JSON.parse(userState);
+    // Restore the state on your page (e.g., set form fields, selected options)
+    console.log(state); // Example: log the user state to console
+  }
+}
+
+// Store user state in localStorage before disconnect
+window.addEventListener('beforeunload', function() {
+  const userState = {
+    selectedDestination: document.querySelector('.destination-name').innerText, // Example field to save
+    // Add other fields you want to preserve
+  };
+  localStorage.setItem('userState', JSON.stringify(userState));
+});
+
+// Call restore function on page load
+window.addEventListener('load', restoreUserState);
+
+
+
 // Undo/Redo Stacks
 let actionStack = [];
 let redoStack = [];
@@ -162,7 +214,17 @@ document.addEventListener("DOMContentLoaded", () => {
 // Fetch the destinations data from the JSON file
   for (let destinationId of selectedDestinations) {
     fetch(`http://192.168.1.246:3000/api/destinations?ids=${destinationId}`)
-     .then(response => response.json())
+     .then(response => {
+      if (response.status === 200) {
+        return response.json(); // Successful response
+      } else if (response.status === 404) {
+        showConnectionError();
+      } else if (response.status === 500) {
+        showConnectionError();
+      } else {
+        showConnectionError();
+      }
+    })
      .then(data => {
         console.log(data)
         
@@ -186,8 +248,7 @@ document.addEventListener("DOMContentLoaded", () => {
       duration: document.getElementById("duration").value,
       popularity: document.getElementById("popularity").value,
     };
-    const resultDiv = document.getElementById('resultDiv'); // Fetch the existing div
-    // Clear the body content before displaying filtered results
+    const resultDiv = document.getElementById('resultDiv'); 
 
     // Pass filters to the filtering function
     await applyFilters(filters, resultDiv);
@@ -231,7 +292,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const response = await fetch(`http://192.168.1.246:3000/api/destinations?ids=${ids}`);
       // Check if the response is successful (HTTP 200 OK)
     if (!response.ok) {
-      throw new Error(`Failed to fetch destinations. Status: ${response.status}`);
+      showConnectionError();
     }
       const data = await response.json();
 
@@ -385,8 +446,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .then((response) => {
           if (!response.ok) {
-            // If HTTP status code is not in the 200-299 range, handle the error
-            throw new Error(`HTTP error! Status: ${response.status}`);
+            showConnectionError();
           }
           return response.json();
         })
@@ -418,7 +478,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 let isFiltered = true;
 
-// Function to fetch destinations by IDs
 document.querySelectorAll('.option-img').forEach(image => {
   image.addEventListener('click', () => {
     // Ensure you're not calling blur() here, which would remove focus
@@ -445,7 +504,7 @@ function fetchDestinationsByIds(ids) {
   .then(response => {
     // Check if the response status is ok (200-299)
     if (!response.ok) {
-      throw new Error(`Failed to fetch destinations. Status: ${response.status}`);
+      showConnectionError();
     }
     return response.json(); // Parse the JSON if the response is valid
   })
@@ -458,8 +517,7 @@ function fetchDestinationsByIds(ids) {
       const newDestinations = data.map(destination => destination.id);
       selectedDestinations = [...selectedDestinations, ...newDestinations];
       console.log(data)
-      //displayDestinations(data); // Function to display the fetched data
-      return data; // Return the fetched data for further chaining
+      return data; 
     })
     .catch(error => {
       console.error('Error fetching destination data:', error);

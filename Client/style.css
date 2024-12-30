@@ -105,6 +105,65 @@
   color: darkred;
 }
 
+/* Media Queries for Responsiveness */
 
+/* Media Queries for Responsiveness */
 
+/* Styles for tablets and smaller screens */
+@media (max-width: 768px) {
+  .option-img {
+      width: 40vw; 
+      height: 40vw;
+      margin-right: 5vw; 
+  }
 
+  .destination-image {
+      width: 30vw; /* Adjust destination image size */
+      height: 30vw; /* Keep image size consistent */
+      margin-right: 16px; /* Maintain some space between image and text */
+  }
+
+  .destination-box {
+      flex-wrap: nowrap; /* Prevent wrapping of content */
+      padding: 12px;
+  }
+
+  .destination-name {
+      font-size: 1.2em;
+  }
+
+  .destination-description {
+      font-size: 0.9em;
+  }
+}
+
+/* Styles for mobile phones */
+@media (max-width: 480px) {
+  .option-img {
+      width: 50vw; 
+      height: 50vw;
+  }
+
+  .destination-image {
+      width: 30vw; /* Adjust destination image size */
+      height: 30vw; /* Keep image size consistent */
+      margin-right: 16px; /* Maintain space between image and details */
+  }
+
+  .destination-box {
+      flex-wrap: nowrap; /* Prevent wrapping of content */
+      padding: 8px;
+  }
+
+  .destination-name {
+      font-size: 1.1em;
+  }
+
+  .destination-description {
+      font-size: 0.8em;
+  }
+
+  .modal-content {
+      width: 80%; 
+  }
+}
