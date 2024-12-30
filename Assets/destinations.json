@@ -20,7 +20,7 @@
     "popularity": 5,
     "description": "The city that never sleeps, famous for its skyline, Broadway shows, and diverse cuisine.",
     "image": "../destImages/NYC.jpeg",
-    "rating": 4.00,
+    "rating": 4,
     "count": 2
   },
   {
@@ -32,7 +32,7 @@
     "popularity": 4,
     "description": "A tropical paradise known for its beaches, temples, and vibrant culture.",
     "image": "../destImages/Bali.jpeg",
-    "rating": 4.00,
+    "rating": 4,
     "count": 2
   },
   {
@@ -44,7 +44,7 @@
     "popularity": 5,
     "description": "The city of love, renowned for its art, architecture, and cuisine.",
     "image": "../destImages/Paris.jpeg",
-    "rating": 2.00,
+    "rating": 2,
     "count": 4
   },
   {
@@ -80,7 +80,7 @@
     "popularity": 5,
     "description": "Famous for its beaches, carnival, and the iconic Christ the Redeemer statue.",
     "image": "../destImages/Rio.jpeg",
-    "rating": 3.50,
+    "rating": 3.5,
     "count": 2
   },
   {
@@ -92,7 +92,7 @@
     "popularity": 5,
     "description": "Known for its iconic Opera House, beaches, and vibrant harbor.",
     "image": "../destImages/Sydney.jpeg",
-    "rating": 4.00,
+    "rating": 4,
     "count": 1
   },
   {
@@ -104,7 +104,7 @@
     "popularity": 4,
     "description": "A bustling city known for its markets, palaces, and historic sites.",
     "image": "../destImages/Marrakech.jpeg",
-    "rating": 4.00,
+    "rating": 4,
     "count": 1
   },
   {
@@ -116,8 +116,8 @@
     "popularity": 4,
     "description": "A city known for its vibrant street life and ornate temples.",
     "image": "../destImages/Bangkok.jpeg",
-    "rating": 2.857142857142857,
-    "count": 7
+    "rating": 2.875,
+    "count": 8
   },
   {
     "id": 11,
@@ -140,8 +140,8 @@
     "popularity": 5,
     "description": "An ancient city rich in history, art, and architecture.",
     "image": "../destImages/Rome.jpeg",
-    "rating": 0,
-    "count": 0
+    "rating": 3,
+    "count": 1
   },
   {
     "id": 13,
@@ -200,8 +200,8 @@
     "popularity": 4,
     "description": "A city that straddles Europe and Asia, rich in history and culture.",
     "image": "../destImages/Istanbul.jpeg",
-    "rating": 0,
-    "count": 0
+    "rating": 4,
+    "count": 1
   },
   {
     "id": 18,
@@ -260,8 +260,8 @@
     "popularity": 5,
     "description": "A vibrant city blending modern technology with traditional temples.",
     "image": "../destImages/Seoul.jpeg",
-    "rating": 0,
-    "count": 0
+    "rating": 5,
+    "count": 1
   },
   {
     "id": 23,
@@ -284,8 +284,8 @@
     "popularity": 3,
     "description": "A city known for its historic Kremlin and Red Square.",
     "image": "../destImages/Moscow.jpeg",
-    "rating": 0,
-    "count": 0
+    "rating": 3,
+    "count": 1
   },
   {
     "id": 25,
@@ -296,8 +296,8 @@
     "popularity": 4,
     "description": "A city with colorful streets, historic trams, and ocean views.",
     "image": "../destImages/Lisbon.jpeg",
-    "rating": 0,
-    "count": 0
+    "rating": 4,
+    "count": 1
   },
   {
     "id": 26,
@@ -320,8 +320,8 @@
     "popularity": 4,
     "description": "Vibrant metropolis where modernity meets tradition. A city that never sleeps",
     "image": "../destImages/Mumbai.jpeg",
-    "rating": 2,
-    "count": 1
+    "rating": 2.5,
+    "count": 2
   },
   {
     "id": 28,
@@ -332,8 +332,8 @@
     "popularity": 5,
     "description": "An idyllic tropical paradise with turquoise waters and luxury resorts.",
     "image": "../destImages/Maldives.jpeg",
-    "rating": 3,
-    "count": 1
+    "rating": 4,
+    "count": 2
   },
   {
     "id": 29,
@@ -344,8 +344,8 @@
     "popularity": 5,
     "description": "A vibrant city famous for its architecture, beaches, and culture.",
     "image": "../destImages/Barcelona.jpeg",
-    "rating": 0,
-    "count": 0
+    "rating": 4,
+    "count": 1
   },
   {
     "id": 30,
@@ -404,8 +404,8 @@
     "popularity": 3,
     "description": "A city known for its financial district, museums, and lakeside views.",
     "image": "../destImages/Zurich.jpeg",
-    "rating": 0,
-    "count": 0
+    "rating": 4,
+    "count": 1
   },
   {
     "id": 35,
@@ -452,8 +452,8 @@
     "popularity": 5,
     "description": "The birthplace of the Renaissance, with incredible art and architecture.",
     "image": "../destImages/Florence.jpeg",
-    "rating": 0,
-    "count": 0
+    "rating": 3,
+    "count": 1
   },
   {
     "id": 39,
@@ -477,7 +477,7 @@
     "description": "A city known for its classical Buddhist temples, gardens, and traditional geisha culture.",
     "image": "../destImages/Kyoto.jpeg",
     "rating": 3,
-    "count": 1
+    "count": 2
   },
   {
     "id": 41,
@@ -488,8 +488,8 @@
     "popularity": 3,
     "description": "The northernmost capital of the world, known for its vibrant culture and proximity to natural wonders.",
     "image": "../destImages/Reykjavik.jpeg",
-    "rating": 0,
-    "count": 0
+    "rating": 3,
+    "count": 1
   },
   {
     "id": 42,
@@ -512,8 +512,8 @@
     "popularity": 3,
     "description": "A modern city surrounded by nature, with museums, fjords, and a focus on sustainability.",
     "image": "../destImages/Oslo.jpeg",
-    "rating": 0,
-    "count": 0
+    "rating": 3,
+    "count": 1
   },
   {
     "id": 44,
@@ -537,7 +537,7 @@
     "description": "A city with breathtaking views, rich history, and diverse cultures.",
     "image": "../destImages/Durham.jpeg",
     "rating": 5,
-    "count": 1
+    "count": 2
   },
   {
     "id": 46,
@@ -548,8 +548,8 @@
     "popularity": 2,
     "description": "A serene city with stunning beaches, traditional souks, and impressive architecture.",
     "image": "../destImages/Muscat.jpeg",
-    "rating": 4,
-    "count": 1
+    "rating": 2.5,
+    "count": 2
   },
   {
     "id": 47,
@@ -560,8 +560,8 @@
     "popularity": 3,
     "description": "The capital of Latvia, known for its Art Nouveau architecture and charming old town.",
     "image": "../destImages/Riga.jpeg",
-    "rating": 0,
-    "count": 0
+    "rating": 3,
+    "count": 1
   },
   {
     "id": 48,
@@ -572,8 +572,8 @@
     "popularity": 3,
     "description": "A vibrant city that blends urban life with nearby wildlife safari experiences.",
     "image": "../destImages/Nairobi.jpeg",
-    "rating": 0,
-    "count": 0
+    "rating": 4,
+    "count": 1
   },
   {
     "id": 49,
