@@ -1,3 +1,99 @@
+// Undo/Redo Stacks
+let actionStack = [];
+let redoStack = [];
+
+// Function to perform an action and track it
+function performAction(action, undoAction) {
+  action();
+  actionStack.push(undoAction);
+  redoStack = []; // Clear redo stack on new action
+}
+
+// Function to undo the last action
+function undo() {
+  if (actionStack.length > 0) {
+    const undoAction = actionStack.pop();
+    undoAction();
+    redoStack.push(undoAction);
+  }
+}
+
+// Function to redo the last undone action
+function redo() {
+  if (redoStack.length > 0) {
+    const redoAction = redoStack.pop();
+    redoAction();
+    actionStack.push(redoAction);
+  }
+}
+
+// Prevent the browser's default undo action (Back Navigation, etc.)
+window.addEventListener('keydown', (e) => {
+  const isUndo = (e.ctrlKey || e.metaKey) && e.key === 'z';
+  const isRedo = (e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'z';
+
+  // If it's the undo/redo combo, prevent default behavior
+  if (isUndo || isRedo) {
+    e.preventDefault(); // Prevent the browser's default behavior
+
+    if (isUndo) {
+      undo();
+    } else if (isRedo) {
+      redo();
+    }
+  }
+
+  // Prevent Backspace from navigating back (only if not focused on an input or textarea)
+  if (e.key === 'Backspace' && !document.activeElement.isContentEditable && 
+    !(document.activeElement.tagName === 'TEXTAREA' || document.activeElement.tagName === 'INPUT')) {
+  e.preventDefault(); // Prevent going back when Backspace is pressed
+}
+});
+
+
+
+
+// DOMContentLoaded Logic
+document.addEventListener("DOMContentLoaded", () => {
+  // Select all option images
+  const optionImages = document.querySelectorAll(".option-img");
+
+  if (!optionImages.length) {
+    console.error("No option images found!");
+    return;
+  }
+
+  // Add click event listeners to each image
+  optionImages.forEach((image) => {
+    image.addEventListener("click", (event) => {
+      const clickedImage = event.target;
+
+      // Get the parent question container
+      const questionContainer = clickedImage.closest(".question");
+
+      if (!questionContainer) {
+        console.error("Question container not found.");
+        return;
+      }
+
+      // Highlight the selected option
+      questionContainer.querySelectorAll(".option-img").forEach((img) => {
+        img.classList.remove("selected");
+      });
+      clickedImage.classList.add("selected");
+
+      // Perform action for undo/redo
+      performAction(
+        () => clickedImage.classList.add("selected"),
+        () => clickedImage.classList.remove("selected")
+      );
+    });
+  });
+});
+
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
     // Select all option images
     const optionImages = document.querySelectorAll(".option-img");
