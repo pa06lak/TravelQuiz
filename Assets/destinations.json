@@ -20,7 +20,7 @@
     "popularity": 5,
     "description": "The city that never sleeps, famous for its skyline, Broadway shows, and diverse cuisine.",
     "image": "../destImages/NYC.jpeg",
-    "rating": 4,
+    "rating": 4.00,
     "count": 2
   },
   {
@@ -32,8 +32,8 @@
     "popularity": 4,
     "description": "A tropical paradise known for its beaches, temples, and vibrant culture.",
     "image": "../destImages/Bali.jpeg",
-    "rating": 5,
-    "count": 1
+    "rating": 4.00,
+    "count": 2
   },
   {
     "id": 4,
@@ -44,7 +44,7 @@
     "popularity": 5,
     "description": "The city of love, renowned for its art, architecture, and cuisine.",
     "image": "../destImages/Paris.jpeg",
-    "rating": 2,
+    "rating": 2.00,
     "count": 4
   },
   {
@@ -80,7 +80,7 @@
     "popularity": 5,
     "description": "Famous for its beaches, carnival, and the iconic Christ the Redeemer statue.",
     "image": "../destImages/Rio.jpeg",
-    "rating": 3.5,
+    "rating": 3.50,
     "count": 2
   },
   {
@@ -92,7 +92,7 @@
     "popularity": 5,
     "description": "Known for its iconic Opera House, beaches, and vibrant harbor.",
     "image": "../destImages/Sydney.jpeg",
-    "rating": 4,
+    "rating": 4.00,
     "count": 1
   },
   {
@@ -104,7 +104,7 @@
     "popularity": 4,
     "description": "A bustling city known for its markets, palaces, and historic sites.",
     "image": "../destImages/Marrakech.jpeg",
-    "rating": 4,
+    "rating": 4.00,
     "count": 1
   },
   {
@@ -116,8 +116,8 @@
     "popularity": 4,
     "description": "A city known for its vibrant street life and ornate temples.",
     "image": "../destImages/Bangkok.jpeg",
-    "rating": 2.5,
-    "count": 6
+    "rating": 2.857142857142857,
+    "count": 7
   },
   {
     "id": 11,
@@ -320,8 +320,8 @@
     "popularity": 4,
     "description": "Vibrant metropolis where modernity meets tradition. A city that never sleeps",
     "image": "../destImages/Mumbai.jpeg",
-    "rating": 0,
-    "count": 0
+    "rating": 2,
+    "count": 1
   },
   {
     "id": 28,

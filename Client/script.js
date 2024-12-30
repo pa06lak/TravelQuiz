@@ -161,7 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Assuming selectedDestinations is an array of IDs like [1, 2]
 // Fetch the destinations data from the JSON file
   for (let destinationId of selectedDestinations) {
-    fetch(`http://localhost:3000/api/destinations?ids=${destinationId}`)
+    fetch(`http://192.168.1.246:3000/api/destinations?ids=${destinationId}`)
      .then(response => response.json())
      .then(data => {
         console.log(data)
@@ -228,7 +228,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const { continent, budget, duration, popularity } = filters;
 
       const ids = destinations.join(',');
-      const response = await fetch(`http://localhost:3000/api/destinations?ids=${ids}`);
+      const response = await fetch(`http://192.168.1.246:3000/api/destinations?ids=${ids}`);
       // Check if the response is successful (HTTP 200 OK)
     if (!response.ok) {
       throw new Error(`Failed to fetch destinations. Status: ${response.status}`);
@@ -373,7 +373,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
       if (!isNaN(userRating) && userRating >= 1 && userRating <= 5) {
         // Make POST request to update rating
-        fetch('http://localhost:3000/update-rating', {
+        fetch('http://192.168.1.246:3000/update-rating', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -441,7 +441,7 @@ function fetchDestinationsByIds(ids) {
     return Promise.resolve([]); // Return a resolved Promise with an empty array
   }
 
-  return fetch(`http://localhost:3000/api/destinations?ids=${newIds.join(',')}`)
+  return fetch(`http://192.168.1.246:3000/api/destinations?ids=${newIds.join(',')}`)
   .then(response => {
     // Check if the response status is ok (200-299)
     if (!response.ok) {
