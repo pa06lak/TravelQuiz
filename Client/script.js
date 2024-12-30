@@ -1,67 +1,64 @@
-// Function to check server connection
+//--------------------------------------------------------------------------------------------------------------------------------
+//This is all to check the server connection
 function checkServerConnection() {
   fetch('/api/destinations')
     .then(response => {
       if (response.ok) {
-        // Connection is successful, proceed as normal
         console.log("Server connected");
       } else {
-        // If response status is not OK, treat it as a disconnection
         showConnectionError();
       }
     })
     .catch(err => {
-      // Handle server disconnection or network failure
       showConnectionError();
     });
 }
-
-// Display a message to the user
+//Function to handle connection
 function showConnectionError() {
   const message = "We are currently disconnected from the server. Please try again later. Thank you for your co-operation";
-  alert(message); // You can replace this with a more elegant modal or toast message.
+  alert(message); 
 }
 
-// Automatically retry connection every 5 seconds
 setInterval(checkServerConnection, 5000);
-
-// Restore user state on reconnect
+//Function to handle connection
 function restoreUserState() {
   const userState = localStorage.getItem('userState');
   if (userState) {
-    // Parse and restore user state (e.g., selected options, form data)
     const state = JSON.parse(userState);
-    // Restore the state on your page (e.g., set form fields, selected options)
-    console.log(state); // Example: log the user state to console
+    console.log(state); 
   }
 }
 
-// Store user state in localStorage before disconnect
 window.addEventListener('beforeunload', function() {
   const userState = {
     selectedDestination: document.querySelector('.destination-name').innerText, // Example field to save
-    // Add other fields you want to preserve
   };
   localStorage.setItem('userState', JSON.stringify(userState));
 });
 
-// Call restore function on page load
 window.addEventListener('load', restoreUserState);
+//--------------------------------------------------------------------------------------------------------------------------------
 
 
 
-// Undo/Redo Stacks
+
+
+
+
+
+
+
+//--------------------------------------------------------------------------------------------------------------------------------
+//This for the undoing
 let actionStack = [];
 let redoStack = [];
-
-// Function to perform an action and track it
 function performAction(action, undoAction) {
   action();
   actionStack.push(undoAction);
-  redoStack = []; // Clear redo stack on new action
+  redoStack = []; 
 }
 
-// Function to undo the last action
+//Function to undo
 function undo() {
   if (actionStack.length > 0) {
     const undoAction = actionStack.pop();
@@ -70,7 +67,7 @@ function undo() {
   }
 }
 
-// Function to redo the last undone action
+//Function to redo
 function redo() {
   if (redoStack.length > 0) {
     const redoAction = redoStack.pop();
@@ -79,14 +76,12 @@ function redo() {
   }
 }
 
-// Prevent the browser's default undo action (Back Navigation, etc.)
+//Function to toggle
 window.addEventListener('keydown', (e) => {
   const isUndo = (e.ctrlKey || e.metaKey) && e.key === 'z';
   const isRedo = (e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'z';
-
-  // If it's the undo/redo combo, prevent default behavior
   if (isUndo || isRedo) {
-    e.preventDefault(); // Prevent the browser's default behavior
+    e.preventDefault(); 
 
     if (isUndo) {
       undo();
@@ -94,126 +89,69 @@ window.addEventListener('keydown', (e) => {
       redo();
     }
   }
-
-  // Prevent Backspace from navigating back (only if not focused on an input or textarea)
   if (e.key === 'Backspace' && !document.activeElement.isContentEditable && 
     !(document.activeElement.tagName === 'TEXTAREA' || document.activeElement.tagName === 'INPUT')) {
   e.preventDefault(); // Prevent going back when Backspace is pressed
 }
 });
+//--------------------------------------------------------------------------------------------------------------------
 
 
 
 
-// DOMContentLoaded Logic
+
+
+
+
+
+
+// --------------------------------------------------------------------------------------------------------------------
+// Here the images are loaded and if they are clicked destinations are added to selected destination
 document.addEventListener("DOMContentLoaded", () => {
-  // Select all option images
-  const optionImages = document.querySelectorAll(".option-img");
-
-  if (!optionImages.length) {
-    console.error("No option images found!");
-    return;
-  }
-
-  // Add click event listeners to each image
-  optionImages.forEach((image) => {
-    image.addEventListener("click", (event) => {
-      const clickedImage = event.target;
-
-      // Get the parent question container
-      const questionContainer = clickedImage.closest(".question");
-
-      if (!questionContainer) {
-        console.error("Question container not found.");
-        return;
-      }
-
-      // Highlight the selected option
-      questionContainer.querySelectorAll(".option-img").forEach((img) => {
-        img.classList.remove("selected");
-      });
-      clickedImage.classList.add("selected");
-
-      // Perform action for undo/redo
-      performAction(
-        () => clickedImage.classList.add("selected"),
-        () => clickedImage.classList.remove("selected")
-      );
-    });
-  });
-});
-
-
-
-
-document.addEventListener("DOMContentLoaded", () => {
-    // Select all option images
     const optionImages = document.querySelectorAll(".option-img");
-
     if (!optionImages.length) {
       throw new Error("No option images found!");
     }
 
-
-  // Add click event listeners to each image
   optionImages.forEach((image) => {
     image.addEventListener("click", (event) => {
       const clickedImage = event.target;
-
-      // Get the parent question container
       const questionContainer = clickedImage.closest(".question");
-      
       if (!questionContainer) {
         throw new Error("Question container not found.");
       }
-
-      
-      // Deselect any previously selected image in this question
       const selectedImages = questionContainer.querySelectorAll(".selected");
       selectedImages.forEach((selected) => {
         selected.classList.remove("selected");
       });
-
-      // Select the clicked image
       clickedImage.classList.add("selected");
     });
   });
-
   // Form submission handler
   const form = document.getElementById("quizForm");
   form.addEventListener("submit", (event) => {
-    event.preventDefault(); // Prevent form from reloading the page
-
+    event.preventDefault();
     const name = document.getElementById("name").value;
     if (!name) {
       alert("Please enter your name.");
       return;
     }
     const questions = document.querySelectorAll(".question");
-
-    // Collect the user's answers
     const answers = [];
     questions.forEach((question) => {
       const selected = question.querySelector(".selected");
       if (selected) {
-        answers.push(selected.dataset.answer); // Use the data-answer attribute for the answer
+        answers.push(selected.dataset.answer);
       }
     });
-
-    
-
     if (answers.length < questions.length) {
       alert("Please answer all the questions!");
       return;
     }
-
-    // Assuming you have selectedDestinations array populated with the necessary destination data
     console.log(selectedDestinations);
     document.getElementById('resultDiv').innerHTML='';
-    // Assuming selectedDestinations is an array of IDs like [1, 2]
-// Fetch the destinations data from the JSON file
   for (let destinationId of selectedDestinations) {
-    fetch(`http://192.168.1.246:3000/api/destinations?ids=${destinationId}`)
+    fetch(`/api/destinations?ids=${destinationId}`)
      .then(response => {
       if (response.status === 200) {
         return response.json(); // Successful response
@@ -232,16 +170,25 @@ document.addEventListener("DOMContentLoaded", () => {
       })
      .catch(error => console.error('Error:', error));
   }
-
-  
-
   });
 });
+//--------------------------------------------------------------------------------------------------------------------
 
+
+
+
+
+
+
+
+
+
+
+
+//--------------------------------------------------------------------------------------------------------------------
+//When the apply filters is called then we look through all the destinations and see which ones match
 document.addEventListener("DOMContentLoaded", () => {
-  // Add event listener to the "Apply Filters" button
   document.getElementById("apply-filters").addEventListener("click", async () => {
-    // Collect filter values from the DOM
     const filters = {
       continent: document.getElementById("continent").value,
       budget: document.getElementById("budget").value,
@@ -249,64 +196,46 @@ document.addEventListener("DOMContentLoaded", () => {
       popularity: document.getElementById("popularity").value,
     };
     const resultDiv = document.getElementById('resultDiv'); 
-
-    // Pass filters to the filtering function
     await applyFilters(filters, resultDiv);
   });
 
-  // Function to apply filters
+  //Function to apply filters
   async function applyFilters(filters, resultDiv) {
     console.log("Filters applied:", filters);
-
     isFiltered = false;
-
-
-    // Check if filters are empty or null
     const noFiltersSelected = !filters.continent && !filters.budget && !filters.duration && !filters.popularity;
     if (noFiltersSelected) {
       alert("Please select at least one filter.");
-      return; // Exit if no filters are selected
+      return; 
     }
-
     console.log("Selected Destinations:", selectedDestinations);
-     // Clear the resultDiv to remove previous destinations
   resultDiv.innerHTML = '';
-
-    // Shortlist destinations based on filters
     var filteredDestinations = await shortlistDestinations(selectedDestinations, filters);
     console.log("Filtered Destinations:", filteredDestinations);
-    // Display the filtered destinations
     displayDestinationsInteractive(filteredDestinations, resultDiv);
-    // Remove the search bar from the DOM
     const searchBar = document.getElementById('searchBar'); // Assuming the search bar has an ID 'searchBar'
     if (searchBar) {
     searchBar.style.display = 'none'; // Hide the search bar
   }
   }
 
+  //Function to get the search results for a given destination and search criteria
   async function shortlistDestinations(destinations, filters) {
     try {
       const { continent, budget, duration, popularity } = filters;
-
       const ids = destinations.join(',');
-      const response = await fetch(`http://192.168.1.246:3000/api/destinations?ids=${ids}`);
-      // Check if the response is successful (HTTP 200 OK)
+      const response = await fetch(`/api/destinations?ids=${ids}`);
     if (!response.ok) {
       showConnectionError();
     }
       const data = await response.json();
-
-      // Ensure the response contains valid data
     if (!Array.isArray(data)) {
       throw new Error('Invalid response format. Expected an array of destinations.');
     }
-
-      // Filter destinations and keep the full object for matched items
       const filteredDestinations = data.filter(destination => {
-        // Validate destination properties
       if (!destination || typeof destination !== 'object') {
         console.warn('Invalid destination data:', destination);
-        return false; // Skip invalid data
+        return false; 
       }
         if (continent && destination.continent !== continent) {
           return false; 
@@ -322,24 +251,22 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         return true; 
       });
-
-      return filteredDestinations; // Return the filtered destinations
+      return filteredDestinations; 
     } catch (error) {
       console.error('Error while shortlisting destinations:', error);
-      throw error; // Re-throw to be handled by the caller
+      throw error; 
     }
   }
 
+  // Function to display the fetched data
   function displayDestinationsInteractive(data, resultDiv) {
     try {
       console.log(data, "filtered destination 2");
-
       if (!resultDiv) {
         console.error('Result container (resultDiv) not found in the DOM.');
         return;
       }
-      resultDiv.innerHTML = ''; // Clear the existing content
-
+      resultDiv.innerHTML = ''; 
       data.forEach(item => {
         if (!item.name || !item.image || !item.description) {
           console.warn('Invalid destination data:', item);
@@ -375,7 +302,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         itemDiv.appendChild(img);
         itemDiv.appendChild(detailsDiv);
-        // Add click event listener for interaction
         itemDiv.addEventListener('click', () => {
           handleDestinationClick(item, rating);
       });
@@ -400,14 +326,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const submitRatingButton = document.getElementById('submitRatingButton');
     const closeButton = document.querySelector('.close-button');
   
-    // Reset modal state
     modal.style.display = 'block';
     modalTitle.textContent = `Rate ${destination.name}`;
     modalPrompt.textContent = 'Have you been to this destination?';
     ratingInputContainer.style.display = 'none';
     ratingInput.value = '';
   
-    // Close button logic
     closeButton.onclick = () => {
       modal.style.display = 'none';
     };
@@ -425,16 +349,15 @@ document.addEventListener("DOMContentLoaded", () => {
   
       setTimeout(() => {
         modal.style.display = 'none';
-      }, 2000); // Close modal after a short delay
+      }, 2000); 
     };
   
     // Submit rating
     submitRatingButton.onclick = () => {
       const userRating = parseInt(ratingInput.value);
-  
       if (!isNaN(userRating) && userRating >= 1 && userRating <= 5) {
         // Make POST request to update rating
-        fetch('http://192.168.1.246:3000/update-rating', {
+        fetch('/update-rating', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -450,14 +373,11 @@ document.addEventListener("DOMContentLoaded", () => {
           }
           return response.json();
         })
-
           .then((data) => {
             if (data.error) {
               console.error('Error updating rating:', data.error);
             } else {
               console.log('Rating updated successfully:', data);
-  
-              // Update destination rating locally
               destination.rating = data.destination.rating;
               ratingElement.textContent = `Rating: ${destination.rating.toFixed(2)}`;
             }
@@ -469,51 +389,51 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     };
   }
-  
-
 });
+// --------------------------------------------------------------------------------------------------------------------------------
+
 
 
 
 
 let isFiltered = true;
 
+
+
+
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Fetch all destinations initially
 document.querySelectorAll('.option-img').forEach(image => {
   image.addEventListener('click', () => {
     // Ensure you're not calling blur() here, which would remove focus
   });
 });
-
-// Keep track of selected destination IDs globally
 let selectedDestinations = [];
 
+// Create destination selection for the selected destination
 function fetchDestinationsByIds(ids) {
-  
   console.log(ids, "these are the ids")
   console.log(selectedDestinations);
-  
-  // Filter out already selected destinations from the IDs
   const newIds = ids.filter(id => !selectedDestinations.includes(id));
-
   if (newIds.length === 0) {
     console.log('All destinations have already been selected.');
     return Promise.resolve([]); // Return a resolved Promise with an empty array
   }
-
-  return fetch(`http://192.168.1.246:3000/api/destinations?ids=${newIds.join(',')}`)
+  return fetch(`/api/destinations?ids=${newIds.join(',')}`)
   .then(response => {
     // Check if the response status is ok (200-299)
     if (!response.ok) {
       showConnectionError();
     }
-    return response.json(); // Parse the JSON if the response is valid
+    return response.json(); 
   })
     .then(data => {
       if (!Array.isArray(data)) {
         throw new Error('Invalid response format. Expected an array of destinations.');
       }
-
-      // Update the selectedDestinations list with the newly fetched destinations
       const newDestinations = data.map(destination => destination.id);
       selectedDestinations = [...selectedDestinations, ...newDestinations];
       console.log(data)
@@ -521,22 +441,19 @@ function fetchDestinationsByIds(ids) {
     })
     .catch(error => {
       console.error('Error fetching destination data:', error);
-      throw error; // Re-throw the error for handling in the caller
+      throw error; 
     });
 }
 
+// Function to fetch destination data from the server and return it as a string with the destination data
 function displayDestinations(data) {
-
   if (isFiltered) {
   const resultDiv = document.getElementById('resultDiv');
-
-  // Loop through the data and create elements to display it
     data.forEach(item => {
       if (!item.name || !item.image || !item.description) {
         console.warn('Invalid destination data:', item);
         return;
       }
-
       const itemDiv = document.createElement('div');
       itemDiv.classList.add('destination-box');
 
@@ -585,17 +502,24 @@ function displayDestinations(data) {
       detailsDiv.appendChild(popularity);
       detailsDiv.appendChild(rating);
 
-      // Append image and detailsDiv to the itemDiv
       itemDiv.appendChild(img);
       itemDiv.appendChild(detailsDiv);
-
-      // Append itemDiv to the resultDiv
       resultDiv.appendChild(itemDiv);
     });
   }
 }
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
+
+
+
+
+
+
+
+
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Event listeners for image clicks
 const planeImage = document.getElementById('plane');  
 const trainImage = document.getElementById('train');  
@@ -640,3 +564,4 @@ dayImage.addEventListener('click', () => fetchDestinationsByIds([31,33,42,50]));
 tropicalImage.addEventListener('click', () => fetchDestinationsByIds([7,10,15]));
 snowyImage.addEventListener('click', () => fetchDestinationsByIds([24,34,41,43]));
 
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

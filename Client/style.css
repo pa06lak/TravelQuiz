@@ -4,64 +4,87 @@
     height: 25vw;
     object-fit: cover;
     cursor: pointer;
-    transition: box-shadow 0.3s ease; /* Smooth transition for the glow effect */
-    margin-right: 2vw; /* Space between images (right margin) */
+    transition: box-shadow 0.3s ease; 
+    margin-right: 2vw; 
   }
   
+
+
+
 .question {
     margin-bottom: 1.5rem;
   }
 
+
+
+
 .selected {
-    box-shadow: 0 0 3vw 2vw rgba(0, 123, 255, 0.7); /* Proportional glow */
-    border-radius: 10px; /* Optional: to make the corners rounded */
+    box-shadow: 0 0 3vw 2vw rgba(0, 123, 255, 0.7); 
+    border-radius: 10px; 
   }
 
-/* Container for the destination box */
+
+
+
 .destination-box {
   display: flex;
   align-items: flex-start;
-  border: 1px solid #ddd; /* Light border around the box */
+  border: 1px solid #ddd; 
   border-radius: 8px;
   padding: 16px;
   margin: 16px 0;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds depth */
-  background-color: #fff; /* Background color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  background-color: #fff; 
 }
 
-/* Image styling */
+
+
+
 .destination-image {
   width: 30vw;
   height: 30vw;
   object-fit: cover;
-  border-radius: 8px; /* Optional: Rounds edges */
-  margin-right: 16px; /* Spacing between image and details */
+  border-radius: 8px; 
+  margin-right: 16px; 
 }
 
-/* Details container */
+
+
+
+
 .destination-details {
-  flex: 1; /* Takes up remaining space */
+  flex: 1; 
 }
 
-/* Destination name styling */
+
+
+
 .destination-name {
   font-size: 1.5em;
   margin: 0 0 8px;
-  color: #333; /* Dark text */
+  color: #333; 
 }
 
-/* Destination description styling */
+
+
+
 .destination-description {
   font-size: 1em;
   margin: 0 0 12px;
-  color: #555; /* Slightly lighter text */
+  color: #555; 
 }
 
-/* Destination rating styling */
+
+
+
+
 .destination-rating {
   font-size: 0.9em;
-  color: #888; /* Gray text */
+  color: #888; 
 }
+
+
+
 
 .destination-location,
 .destination-budget,
@@ -70,6 +93,9 @@
   font-size: 0.9em;
   color: #555;
 }
+
+
+
 
 .modal {
   display: none;
@@ -83,6 +109,10 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+
+
+
+
 .modal-content {
   background-color: white;
   margin: 15% auto;
@@ -92,6 +122,9 @@
   text-align: center;
 }
 
+
+
+
 .close-button {
   color: red;
   float: right;
@@ -100,14 +133,15 @@
   cursor: pointer;
 }
 
+
+
+
 .close-button:hover,
 .close-button:focus {
   color: darkred;
 }
 
-/* Media Queries for Responsiveness */
 
-/* Media Queries for Responsiveness */
 
 /* Styles for tablets and smaller screens */
 @media (max-width: 768px) {
@@ -118,19 +152,28 @@
   }
 
   .destination-image {
-      width: 30vw; /* Adjust destination image size */
-      height: 30vw; /* Keep image size consistent */
-      margin-right: 16px; /* Maintain some space between image and text */
+      width: 30vw; 
+      height: 30vw; 
+      margin-right: 16px; 
   }
 
+
+
+
   .destination-box {
-      flex-wrap: nowrap; /* Prevent wrapping of content */
+      flex-wrap: nowrap; 
       padding: 12px;
   }
+
+
+
 
   .destination-name {
       font-size: 1.2em;
   }
+
+
+
 
   .destination-description {
       font-size: 0.9em;
@@ -144,24 +187,38 @@
       height: 50vw;
   }
 
+
+
   .destination-image {
-      width: 30vw; /* Adjust destination image size */
-      height: 30vw; /* Keep image size consistent */
-      margin-right: 16px; /* Maintain space between image and details */
+      width: 30vw; 
+      height: 30vw; 
+      margin-right: 16px; 
   }
 
+
+
+
   .destination-box {
-      flex-wrap: nowrap; /* Prevent wrapping of content */
+      flex-wrap: nowrap; 
       padding: 8px;
   }
+
+
+
 
   .destination-name {
       font-size: 1.1em;
   }
 
+
+
+
   .destination-description {
       font-size: 0.8em;
   }
+
+
+
 
   .modal-content {
       width: 80%; 
