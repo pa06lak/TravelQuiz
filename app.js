@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const fs = require('fs');
- 
+
 app.use(express.static('public'));
 app.use(express.static(path.join(__dirname, 'client')));
 // Serve static files from the 'Assets' folder
