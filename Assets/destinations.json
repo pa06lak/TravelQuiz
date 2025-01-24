@@ -80,8 +80,8 @@
     "popularity": 5,
     "description": "Famous for its beaches, carnival, and the iconic Christ the Redeemer statue.",
     "image": "../destImages/Rio.jpeg",
-    "rating": 4,
-    "count": 5
+    "rating": 3.83,
+    "count": 6
   },
   {
     "id": 8,
@@ -176,8 +176,8 @@
     "popularity": 5,
     "description": "A tropical paradise known for its beaches, volcanoes, and unique culture.",
     "image": "../destImages/Hawaii.jpeg",
-    "rating": 3,
-    "count": 3
+    "rating": 3.67,
+    "count": 6
   },
   {
     "id": 16,
@@ -188,8 +188,8 @@
     "popularity": 4,
     "description": "Home to the Pyramids of Giza and a city steeped in history.",
     "image": "../destImages/Cairo.jpeg",
-    "rating": 3.33,
-    "count": 3
+    "rating": 3.5,
+    "count": 4
   },
   {
     "id": 17,
@@ -380,8 +380,8 @@
     "popularity": 4,
     "description": "A city surrounded by mountains and sea, offering natural beauty and urban amenities.",
     "image": "../destImages/Vancouver.jpeg",
-    "rating": 3.5,
-    "count": 0
+    "rating": 2.5,
+    "count": 2
   },
   {
     "id": 33,
@@ -572,8 +572,8 @@
     "popularity": 3,
     "description": "A vibrant city that blends urban life with nearby wildlife safari experiences.",
     "image": "../destImages/Nairobi.jpeg",
-    "rating": 4,
-    "count": 1
+    "rating": 3.67,
+    "count": 3
   },
   {
     "id": 49,
