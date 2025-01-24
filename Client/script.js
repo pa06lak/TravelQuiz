@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Please answer all the questions!");
       return;
     }
-    console.log(selectedDestinations);
+    //console.log(selectedDestinations);
     document.getElementById('resultDiv').innerHTML='';
   for (let destinationId of selectedDestinations) {
     fetch(`/api/destinations?ids=${destinationId}`)
@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     })
      .then(data => {
-        console.log(data)
+        //console.log(data)
         
         displayDestinations(data); // Function to display the fetched data
       })
@@ -197,17 +197,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //Function to apply filters
   async function applyFilters(filters, resultDiv) {
-    console.log("Filters applied:", filters);
+    //console.log("Filters applied:", filters);
     isFiltered = false;
     const noFiltersSelected = !filters.continent && !filters.budget && !filters.duration && !filters.popularity;
     if (noFiltersSelected) {
       alert("Please select at least one filter.");
       return; 
     }
-    console.log("Selected Destinations:", selectedDestinations);
+    //console.log("Selected Destinations:", selectedDestinations);
   resultDiv.innerHTML = '';
     var filteredDestinations = await shortlistDestinations(selectedDestinations, filters);
-    console.log("Filtered Destinations:", filteredDestinations);
+    //console.log("Filtered Destinations:", filteredDestinations);
     displayDestinationsInteractive(filteredDestinations, resultDiv);
     const searchBar = document.getElementById('searchBar'); // Assuming the search bar has an ID 'searchBar'
     if (searchBar) {
@@ -257,7 +257,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Function to display the fetched data
   function displayDestinationsInteractive(data, resultDiv) {
     try {
-      console.log(data, "filtered destination 2");
+      //console.log(data, "filtered destination 2");
       if (!resultDiv) {
         console.error('Result container (resultDiv) not found in the DOM.');
         return;
@@ -268,7 +268,7 @@ document.addEventListener("DOMContentLoaded", () => {
           console.warn('Invalid destination data:', item);
           return;
         }
-        console.log("This has gotten to this point")
+        //console.log("This has gotten to this point")
         const itemDiv = document.createElement('div');
         itemDiv.classList.add('destination-box');
 
@@ -415,7 +415,7 @@ fetch('/api/questions')
         if (question && question.destinationIds) {
           // Add the destination IDs to the selectedDestinations array
           selectedDestinations = [...new Set([...selectedDestinations, ...question.destinationIds])];
-          console.log(selectedDestinations); // Log the updated selected destinations
+          //console.log(selectedDestinations); // Log the updated selected destinations
         } else {
           console.error('No destinationIds found for the clicked image');
         }
@@ -429,8 +429,8 @@ fetch('/api/questions')
 
 // Create destination selection for the selected destination
 function fetchDestinationsByIds(ids) {
-  console.log(ids, "these are the ids")
-  console.log(selectedDestinations);
+  //console.log(ids, "these are the ids")
+  //console.log(selectedDestinations);
   const newIds = ids.filter(id => !selectedDestinations.includes(id));
   if (newIds.length === 0) {
     console.log('All destinations have already been selected.');
@@ -450,7 +450,7 @@ function fetchDestinationsByIds(ids) {
       }
       const newDestinations = data.map(destination => destination.id);
       selectedDestinations = [...selectedDestinations, ...newDestinations];
-      console.log(data)
+      //console.log(data)
       return data; 
     })
     .catch(error => {
