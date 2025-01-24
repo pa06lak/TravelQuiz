@@ -16,7 +16,7 @@ function checkServerConnection() {
 }
 //Function to handle connection
 function showConnectionError() {
-  const message = "We are currently disconnected from the server. Please try again later. Thank you for your co-operation";
+  const message = "We are currently disconnected from the server. Please run npm start or try again later. Thank you for your co-operation.";
   alert(message); 
 }
 
