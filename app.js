@@ -30,9 +30,6 @@ app.get('/api/destinations', (req, res) => {
 //--------------------------------------------------------------------------------------------------------------------------------
 
 
-
-
-
 // --------------------------------------------------------------------------------------------------------------------
 // Build the destination list for the specified options selected by the user
   app.get('/api/destinationsTwo', (req, res) => {
@@ -91,7 +88,8 @@ app.post('/update-rating', (req, res) => {
     });
 });
 
-
+// --------------------------------------------------------------------------------------------------------------------
+// Get request for the question.json file to get the destinations
 const questions = JSON.parse(fs.readFileSync(path.join(__dirname, 'Assets/questions.json'), 'utf-8'));
 
 app.get('/api/questions', (req, res) => {

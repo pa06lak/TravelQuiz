@@ -8,8 +8,8 @@
     "popularity": 5,
     "description": "A bustling city known for its rich history, iconic landmarks, and vibrant culture.",
     "image": "../destImages/london.jpeg",
-    "rating": 5,
-    "count": 1
+    "rating": 4.5,
+    "count": 2
   },
   {
     "id": 2,
@@ -57,7 +57,7 @@
     "description": "A vibrant city blending traditional culture with cutting-edge technology.",
     "image": "../destImages/Tokyo.jpeg",
     "rating": 4,
-    "count": 1
+    "count": 2
   },
   {
     "id": 6,
@@ -80,8 +80,8 @@
     "popularity": 5,
     "description": "Famous for its beaches, carnival, and the iconic Christ the Redeemer statue.",
     "image": "../destImages/Rio.jpeg",
-    "rating": 3.83,
-    "count": 6
+    "rating": 3.45,
+    "count": 11
   },
   {
     "id": 8,
@@ -116,8 +116,8 @@
     "popularity": 4,
     "description": "A city known for its vibrant street life and ornate temples.",
     "image": "../destImages/Bangkok.jpeg",
-    "rating": 3.11,
-    "count": 9
+    "rating": 3.2,
+    "count": 10
   },
   {
     "id": 11,
@@ -140,8 +140,8 @@
     "popularity": 5,
     "description": "An ancient city rich in history, art, and architecture.",
     "image": "../destImages/Rome.jpeg",
-    "rating": 3.67,
-    "count": 3
+    "rating": 4,
+    "count": 4
   },
   {
     "id": 13,
@@ -213,7 +213,7 @@
     "description": "A city known for its well-preserved medieval architecture and vibrant atmosphere.",
     "image": "../destImages/Prague.jpeg",
     "rating": 3.5,
-    "count": 0
+    "count": 2
   },
   {
     "id": 19,
@@ -224,8 +224,8 @@
     "popularity": 4,
     "description": "Known for its European-style architecture and tango music.",
     "image": "../destImages/Buenos.jpeg",
-    "rating": 3,
-    "count": 4
+    "rating": 3.2,
+    "count": 5
   },
   {
     "id": 20,
@@ -236,8 +236,8 @@
     "popularity": 5,
     "description": "A modern city-state known for its cleanliness, gardens, and skyline.",
     "image": "../destImages/Singapore.jpeg",
-    "rating": 5,
-    "count": 0
+    "rating": 3.5,
+    "count": 2
   },
   {
     "id": 21,
@@ -260,8 +260,8 @@
     "popularity": 5,
     "description": "A vibrant city blending modern technology with traditional temples.",
     "image": "../destImages/Seoul.jpeg",
-    "rating": 4.5,
-    "count": 2
+    "rating": 4.67,
+    "count": 3
   },
   {
     "id": 23,
@@ -296,8 +296,8 @@
     "popularity": 4,
     "description": "A city with colorful streets, historic trams, and ocean views.",
     "image": "../destImages/Lisbon.jpeg",
-    "rating": 3.33,
-    "count": 3
+    "rating": 3.5,
+    "count": 4
   },
   {
     "id": 26,
@@ -320,8 +320,8 @@
     "popularity": 4,
     "description": "Vibrant metropolis where modernity meets tradition. A city that never sleeps",
     "image": "../destImages/Mumbai.jpeg",
-    "rating": 3.83,
-    "count": 6
+    "rating": 3.85,
+    "count": 7
   },
   {
     "id": 28,
@@ -344,8 +344,8 @@
     "popularity": 5,
     "description": "A vibrant city famous for its architecture, beaches, and culture.",
     "image": "../destImages/Barcelona.jpeg",
-    "rating": 3.5,
-    "count": 2
+    "rating": 3.67,
+    "count": 3
   },
   {
     "id": 30,
@@ -404,8 +404,8 @@
     "popularity": 3,
     "description": "A city known for its financial district, museums, and lakeside views.",
     "image": "../destImages/Zurich.jpeg",
-    "rating": 3.67,
-    "count": 3
+    "rating": 3.75,
+    "count": 4
   },
   {
     "id": 35,
@@ -440,8 +440,8 @@
     "popularity": 4,
     "description": "A historic city known for its castle, festivals, and charming streets.",
     "image": "../destImages/Edinburgh.jpeg",
-    "rating": 2.5,
-    "count": 0
+    "rating": 4,
+    "count": 1
   },
   {
     "id": 38,
@@ -536,8 +536,8 @@
     "popularity": 2,
     "description": "A city with breathtaking views, rich history, and diverse cultures.",
     "image": "../destImages/Durham.jpeg",
-    "rating": 4.33,
-    "count": 3
+    "rating": 4,
+    "count": 4
   },
   {
     "id": 46,
