@@ -16,6 +16,7 @@
     "eslint-plugin-jest": "^28.10.0",
     "globals": "^15.14.0",
     "jest": "^29.7.0",
+    "nodemon": "^3.1.9",
     "structured-clone": "^0.2.2",
     "supertest": "^7.0.0"
   },
@@ -147,7 +148,6 @@
     "natural-compare": "^1.4.0",
     "node-int64": "^0.4.0",
     "node-releases": "^2.0.19",
-    "nodemon": "^3.1.9",
     "normalize-path": "^3.0.0",
     "npm-run-path": "^4.0.1",
     "once": "^1.4.0",

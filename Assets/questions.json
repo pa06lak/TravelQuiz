@@ -1,0 +1,102 @@
+[
+  {
+    "id": "plane",
+    "question": "Do you prefer traveling by plane?",
+    "destinationIds": [8, 11, 16]
+  },
+  {
+    "id": "train",
+    "question": "Do you prefer traveling by train?",
+    "destinationIds": [1, 18, 44, 37]
+  },
+  {
+    "id": "friends",
+    "question": "Do you want to travel with friends?",
+    "destinationIds": [10, 23, 29, 36]
+  },
+  {
+    "id": "family",
+    "question": "Do you want to travel with family?",
+    "destinationIds": [21, 35, 45, 49]
+  },
+  {
+    "id": "dolphin",
+    "question": "Do you enjoy swimming with dolphins?",
+    "destinationIds": [14, 8, 7, 9]
+  },
+  {
+    "id": "bungee",
+    "question": "Do you want to try bungee jumping?",
+    "destinationIds": [6, 34]
+  },
+  {
+    "id": "city",
+    "question": "Do you enjoy exploring cities?",
+    "destinationIds": [2, 5, 4, 22, 27]
+  },
+  {
+    "id": "countryside",
+    "question": "Do you prefer the countryside?",
+    "destinationIds": [3, 40, 45]
+  },
+  {
+    "id": "cook",
+    "question": "Do you enjoy cooking?",
+    "destinationIds": [15, 39, 45]
+  },
+  {
+    "id": "eat",
+    "question": "Do you enjoy eating out?",
+    "destinationIds": [5, 9, 10]
+  },
+  {
+    "id": "photographer",
+    "question": "Do you enjoy photography?",
+    "destinationIds": [13, 19, 26, 41]
+  },
+  {
+    "id": "chef",
+    "question": "Do you want to learn professional cooking?",
+    "destinationIds": [12, 14, 28]
+  },
+  {
+    "id": "ancient",
+    "question": "Do you enjoy exploring ancient sites?",
+    "destinationIds": [12, 17, 24, 38, 46, 47]
+  },
+  {
+    "id": "modern",
+    "question": "Do you enjoy modern attractions?",
+    "destinationIds": [20, 22, 30, 32, 34]
+  },
+  {
+    "id": "pool",
+    "question": "Do you enjoy swimming in pools?",
+    "destinationIds": [15, 29]
+  },
+  {
+    "id": "beach",
+    "question": "Do you love visiting beaches?",
+    "destinationIds": [15, 16, 25, 26]
+  },
+  {
+    "id": "night",
+    "question": "Do you prefer nightlife activities?",
+    "destinationIds": [22, 25, 27, 48]
+  },
+  {
+    "id": "day",
+    "question": "Do you enjoy daytime activities?",
+    "destinationIds": [31, 33, 42, 50]
+  },
+  {
+    "id": "tropical",
+    "question": "Do you prefer tropical destinations?",
+    "destinationIds": [7, 10, 15]
+  },
+  {
+    "id": "snowy",
+    "question": "Do you enjoy snowy locations?",
+    "destinationIds": [24, 34, 41, 43]
+  }
+]

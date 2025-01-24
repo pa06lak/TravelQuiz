@@ -90,6 +90,14 @@ app.post('/update-rating', (req, res) => {
         });
     });
 });
-  
+
+
+const questions = JSON.parse(fs.readFileSync(path.join(__dirname, 'Assets/questions.json'), 'utf-8'));
+
+app.get('/api/questions', (req, res) => {
+  res.status(200).json(questions);
+});
+
+
 
 module.exports = app;  // Export the app object
