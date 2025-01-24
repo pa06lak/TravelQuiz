@@ -55,7 +55,6 @@ app.get('/api/destinations', (req, res) => {
 
 
 // Load the destinations data from the JSON file
-const destinations = JSON.parse(fs.readFileSync(path.join(__dirname, 'Assets/destinations.json'), 'utf-8'));
 app.use(express.json());
 let destinationInteractive = require('./Assets/destinations.json');
 

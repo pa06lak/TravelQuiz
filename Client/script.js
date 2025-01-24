@@ -10,6 +10,7 @@ function checkServerConnection() {
       }
     })
     .catch(err => {
+      console.log(err)
       showConnectionError();
     });
 }
@@ -52,11 +53,6 @@ window.addEventListener('load', restoreUserState);
 //This for the undoing
 let actionStack = [];
 let redoStack = [];
-function performAction(action, undoAction) {
-  action();
-  actionStack.push(undoAction);
-  redoStack = []; 
-}
 
 //Function to undo
 function undo() {
