@@ -176,8 +176,8 @@
     "popularity": 5,
     "description": "A tropical paradise known for its beaches, volcanoes, and unique culture.",
     "image": "../destImages/Hawaii.jpeg",
-    "rating": 3.72,
-    "count": 7
+    "rating": 3.88,
+    "count": 8
   },
   {
     "id": 16,
@@ -272,8 +272,8 @@
     "popularity": 4,
     "description": "Known for its iconic Golden Gate Bridge, cable cars, and tech scene.",
     "image": "../destImages/SF.jpeg",
-    "rating": 3.5,
-    "count": 2
+    "rating": 3.33,
+    "count": 3
   },
   {
     "id": 24,
@@ -428,8 +428,8 @@
     "popularity": 4,
     "description": "A sprawling city with rich history, culture, and cuisine.",
     "image": "../destImages/Mexico.jpeg",
-    "rating": 3.5,
-    "count": 2
+    "rating": 3.67,
+    "count": 3
   },
   {
     "id": 37,
