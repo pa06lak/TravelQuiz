@@ -145,10 +145,16 @@ document.addEventListener("DOMContentLoaded", () => {
   resultDiv.innerHTML = '';
     var filteredDestinations = await shortlistDestinations(selectedDestinations, filters);
     //console.log("Filtered Destinations:", filteredDestinations);
+    if (filteredDestinations.length == 0) {
+      alert("No destinations match the selected filters. Please change the filters and click apply filters again.");
+      return;
+    }
+    else {
     displayDestinationsInteractive(filteredDestinations, resultDiv);
     const searchBar = document.getElementById('searchBar'); // Assuming the search bar has an ID 'searchBar'
     if (searchBar) {
     searchBar.style.display = 'none'; // Hide the search bar
+    }
   }
   }
 
@@ -452,3 +458,5 @@ function displayDestinations(data) {
   }
 }
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
