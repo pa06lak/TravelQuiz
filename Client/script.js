@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
     var filteredDestinations = await shortlistDestinations(selectedDestinations, filters);
     //console.log("Filtered Destinations:", filteredDestinations);
     if (filteredDestinations.length == 0) {
-      alert("No destinations match the selected filters. Please change the filters and click apply filters again.");
+      alert("No destinations match the selected filters. Please change the filters and click the apply filters button again.");
       return;
     }
     else {
@@ -347,14 +347,45 @@ fetch('/api/questions')
       image.addEventListener('click', () => {
         // Find the question corresponding to the clicked image
         const question = questions.find(q => q.id === image.id);
+      
         if (question && question.destinationIds) {
           // Add the destination IDs to the selectedDestinations array
           selectedDestinations = [...new Set([...selectedDestinations, ...question.destinationIds])];
-          //console.log(selectedDestinations); // Log the updated selected destinations
+          // console.log(selectedDestinations); // Log the updated selected destinations
         } else {
           console.error('No destinationIds found for the clicked image');
         }
+      
+        // Extract the selected ID from the clicked image
+        const selectedId = image.id;
+      
+        if (!selectedId) {
+          console.error('No ID found for the clicked image');
+          return;
+        }
+      
+        // Send a POST request to update the count for the selected ID
+        fetch('/api/update-count', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ id: selectedId })
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(`Failed to update: ${response.status} ${response.statusText}`);
+            }
+            return response.json();
+          })
+          .then(data => {
+            console.log('Count updated successfully:', data);
+          })
+          .catch(error => {
+            console.error('Error updating count:', error);
+          });
       });
+      
     });
   })
   .catch(error => {

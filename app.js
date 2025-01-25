@@ -97,6 +97,45 @@ app.get('/api/questions', (req, res) => {
   res.status(200).json(questions);
 });
 
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+
+
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// This would update the count of each option in the question.json file. 
+// I have implemented this because I can use it for future research 
+app.post('/api/update-count', (req, res) => {
+  const { id } = req.body;
+  if (!id) {
+    return res.status(400).json({ message: 'ID is required' });
+  }
+  const filePath = './Assets/questions.json';
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) {
+      return res.status(500).json({ message: 'Error reading file' });
+    }
+    let jsonData;
+    try {
+      jsonData = JSON.parse(data); 
+    } catch (parseErr) {
+      return res.status(500).json({ message: 'Error parsing JSON' });
+    }
+    const question = jsonData.find(q => q.id === id);
+    if (question) {
+      question.count = (question.count || 0) + 1; 
+    } else {
+      return res.status(404).json({ message: 'Question not found' });
+    }
+    fs.writeFile(filePath, JSON.stringify(jsonData, null, 2), 'utf8', writeErr => {
+      if (writeErr) {
+        return res.status(500).json({ message: 'Error writing file' });
+      }
+      res.status(200).json({ message: 'Count updated successfully', question });
+    });
+  });
+});
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 module.exports = app;  // Export the app object
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -20,8 +20,8 @@
     "popularity": 5,
     "description": "The city that never sleeps, famous for its skyline, Broadway shows, and diverse cuisine.",
     "image": "../destImages/NYC.jpeg",
-    "rating": 4.33,
-    "count": 3
+    "rating": 4.25,
+    "count": 4
   },
   {
     "id": 3,
@@ -128,8 +128,8 @@
     "popularity": 4,
     "description": "A sprawling city known for Hollywood, beaches, and entertainment.",
     "image": "../destImages/LA.jpeg",
-    "rating": 2.83,
-    "count": 6
+    "rating": 3,
+    "count": 7
   },
   {
     "id": 12,
@@ -176,8 +176,8 @@
     "popularity": 5,
     "description": "A tropical paradise known for its beaches, volcanoes, and unique culture.",
     "image": "../destImages/Hawaii.jpeg",
-    "rating": 3.88,
-    "count": 8
+    "rating": 3.56,
+    "count": 9
   },
   {
     "id": 16,
@@ -224,8 +224,8 @@
     "popularity": 4,
     "description": "Known for its European-style architecture and tango music.",
     "image": "../destImages/Buenos.jpeg",
-    "rating": 3.2,
-    "count": 5
+    "rating": 3.57,
+    "count": 7
   },
   {
     "id": 20,
@@ -320,8 +320,8 @@
     "popularity": 4,
     "description": "Vibrant metropolis where modernity meets tradition. A city that never sleeps",
     "image": "../destImages/Mumbai.jpeg",
-    "rating": 3.85,
-    "count": 7
+    "rating": 3.87,
+    "count": 8
   },
   {
     "id": 28,
@@ -344,8 +344,8 @@
     "popularity": 5,
     "description": "A vibrant city famous for its architecture, beaches, and culture.",
     "image": "../destImages/Barcelona.jpeg",
-    "rating": 3.67,
-    "count": 3
+    "rating": 3.75,
+    "count": 4
   },
   {
     "id": 30,
@@ -380,8 +380,8 @@
     "popularity": 4,
     "description": "A city surrounded by mountains and sea, offering natural beauty and urban amenities.",
     "image": "../destImages/Vancouver.jpeg",
-    "rating": 3.33,
-    "count": 3
+    "rating": 3.75,
+    "count": 4
   },
   {
     "id": 33,
