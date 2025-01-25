@@ -48,66 +48,6 @@ window.addEventListener('load', restoreUserState);
 //--------------------------------------------------------------------------------------------------------------------------------
 
 
-
-
-
-
-
-
-
-
-//--------------------------------------------------------------------------------------------------------------------------------
-//This for the undoing
-let actionStack = [];
-let redoStack = [];
-
-//Function to undo
-function undo() {
-  if (actionStack.length > 0) {
-    const undoAction = actionStack.pop();
-    undoAction();
-    redoStack.push(undoAction);
-  }
-}
-
-//Function to redo
-function redo() {
-  if (redoStack.length > 0) {
-    const redoAction = redoStack.pop();
-    redoAction();
-    actionStack.push(redoAction);
-  }
-}
-
-//Function to toggle
-window.addEventListener('keydown', (e) => {
-  const isUndo = (e.ctrlKey || e.metaKey) && e.key === 'z';
-  const isRedo = (e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'z';
-  if (isUndo || isRedo) {
-    e.preventDefault(); 
-
-    if (isUndo) {
-      undo();
-    } else if (isRedo) {
-      redo();
-    }
-  }
-  if (e.key === 'Backspace' && !document.activeElement.isContentEditable && 
-    !(document.activeElement.tagName === 'TEXTAREA' || document.activeElement.tagName === 'INPUT')) {
-  e.preventDefault(); // Prevent going back when Backspace is pressed
-}
-});
-//--------------------------------------------------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
 // --------------------------------------------------------------------------------------------------------------------
 // Here the images are loaded and if they are clicked destinations are added to selected destination
 document.addEventListener("DOMContentLoaded", () => {
