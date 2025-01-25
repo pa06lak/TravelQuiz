@@ -1,5 +1,12 @@
+// My two entities are the destinations and the questions. There is a many to many relationship here
+// This is because many destinations match to many questions, linked by the two JSON files
+
+// This would understand of the nature of imperative programming in an OOP style
+// Throughout this code there is exception and exception handling through the try and catch statements
+// There is also promises being made
 //--------------------------------------------------------------------------------------------------------------------------------
 //This is all to check the server connection
+// This would gracefully handle server disconnection, send useful error messages and recommend on server restart
 function checkServerConnection() {
   fetch('/api/destinations')
     .then(response => {
@@ -108,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!optionImages.length) {
       throw new Error("No option images found!");
     }
-
+//Here I have used control statements to loop and make a decision
   optionImages.forEach((image) => {
     image.addEventListener("click", (event) => {
       const clickedImage = event.target;
@@ -151,6 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
      .then(response => {
       if (response.status === 200) {
         return response.json(); // Successful response
+        //This uses authentication in the form of numbers
       } else if (response.status === 404) {
         showConnectionError();
       } else if (response.status === 500) {
@@ -179,8 +187,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
-
+// I have created a filter function for this which acts for searching
+// This is loading dynamic JSON content from the server via AJAX requests
 //--------------------------------------------------------------------------------------------------------------------
 //When the apply filters is called then we look through all the destinations and see which ones match
 document.addEventListener("DOMContentLoaded", () => {
@@ -398,8 +406,7 @@ let isFiltered = true;
 
 
 
-
-
+// Here the fetch API call and this uses the JSON model
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Fetch all destinations initially
 let selectedDestinations = [];

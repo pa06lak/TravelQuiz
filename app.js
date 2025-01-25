@@ -1,3 +1,4 @@
+// This is my app written in nodejs to provide JSON through rest API
 const express = require('express');
 const app = express();
 const path = require('path');
