@@ -141,7 +141,7 @@
     "description": "An ancient city rich in history, art, and architecture.",
     "image": "../destImages/Rome.jpeg",
     "rating": 4,
-    "count": 4
+    "count": 5
   },
   {
     "id": 13,
@@ -248,8 +248,8 @@
     "popularity": 4,
     "description": "A charming city with canals, bicycles, and art museums.",
     "image": "../destImages/Amsterdam.jpeg",
-    "rating": 3,
-    "count": 2
+    "rating": 3.33,
+    "count": 3
   },
   {
     "id": 22,

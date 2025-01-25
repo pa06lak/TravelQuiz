@@ -74,11 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("quizForm");
   form.addEventListener("submit", (event) => {
     event.preventDefault();
-    const name = document.getElementById("name").value;
-    if (!name) {
-      alert("Please enter your name.");
-      return;
-    }
     const questions = document.querySelectorAll(".question");
     const answers = [];
     questions.forEach((question) => {
@@ -117,14 +112,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 //--------------------------------------------------------------------------------------------------------------------
-
-
-
-
-
-
-
-
 
 
 // I have created a filter function for this which acts for searching
@@ -336,15 +323,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 // --------------------------------------------------------------------------------------------------------------------------------
 
-
-
-
-
 let isFiltered = true;
-
-
-
-
 
 // Here the fetch API call and this uses the JSON model
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -470,13 +449,3 @@ function displayDestinations(data) {
   }
 }
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
