@@ -7,6 +7,7 @@
 //--------------------------------------------------------------------------------------------------------------------------------
 //This is all to check the server connection
 // This would gracefully handle server disconnection, send useful error messages and recommend on server restart
+// This is the webiste I have referenced for the server connection -> "https://stackoverflow.com/questions/42304996/javascript-using-promises-on-websocket"
 function checkServerConnection() {
   fetch('/api/destinations')
     .then(response => {
@@ -87,6 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
     //console.log(selectedDestinations);
+    // This is the website I have referenced for the error testing is -> "https://stackoverflow.com/questions/39297345/fetch-resolves-even-if-404"
     document.getElementById('resultDiv').innerHTML='';
   for (let destinationId of selectedDestinations) {
     fetch(`/api/destinations?ids=${destinationId}`)
@@ -288,6 +290,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const userRating = parseInt(ratingInput.value);
       if (!isNaN(userRating) && userRating >= 1 && userRating <= 5) {
         // Make POST request to update rating
+        // This is the website I have referenced to create this POST request -> "https://www.freecodecamp.org/news/javascript-post-request-how-to-send-an-http-post-request-in-js/"
         fetch('/update-rating', {
           method: 'POST',
           headers: {
