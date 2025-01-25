@@ -20,8 +20,8 @@
     "popularity": 5,
     "description": "The city that never sleeps, famous for its skyline, Broadway shows, and diverse cuisine.",
     "image": "../destImages/NYC.jpeg",
-    "rating": 4,
-    "count": 2
+    "rating": 4.33,
+    "count": 3
   },
   {
     "id": 3,
@@ -128,8 +128,8 @@
     "popularity": 4,
     "description": "A sprawling city known for Hollywood, beaches, and entertainment.",
     "image": "../destImages/LA.jpeg",
-    "rating": 2.6,
-    "count": 5
+    "rating": 2.83,
+    "count": 6
   },
   {
     "id": 12,
@@ -164,8 +164,8 @@
     "popularity": 5,
     "description": "A modern city known for luxury shopping, ultramodern architecture, and nightlife.",
     "image": "../destImages/Dubai.jpeg",
-    "rating": 5,
-    "count": 1
+    "rating": 4.5,
+    "count": 2
   },
   {
     "id": 15,
