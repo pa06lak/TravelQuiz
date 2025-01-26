@@ -9,7 +9,7 @@
 // This would gracefully handle server disconnection, send useful error messages and recommend on server restart
 // This is the webiste I have referenced for the server connection -> "https://stackoverflow.com/questions/42304996/javascript-using-promises-on-websocket"
 function checkServerConnection() {
-  fetch('/api/destinations')
+  fetch('/api/destinationsTwo')
     .then(response => {
       if (response.ok) {
         console.log("Server connected");

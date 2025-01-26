@@ -15,7 +15,9 @@ const travelDestinations = JSON.parse(
 app.use('/images', express.static(path.join(__dirname, 'images')));  // Adjust this if your images are in a different folder
 app.use('/destImages', express.static(path.join(__dirname, 'destImages')));
 
-
+app.get('/', (req, res) => {
+  res.send('Hello, World!');
+});
 
 
 
@@ -25,7 +27,8 @@ app.get('/api/destinations', (req, res) => {
     const ids = req.query.ids ? req.query.ids.split(',') : [];
     const filteredDestinations = travelDestinations.filter(dest =>
       ids.includes(dest.id.toString())
-    );
+    )
+    travelDestinations;
     res.json(filteredDestinations);
   });
 //--------------------------------------------------------------------------------------------------------------------------------
@@ -44,6 +47,7 @@ app.get('/api/destinations', (req, res) => {
     });
   });
 // --------------------------------------------------------------------------------------------------------------------
+
 
 
 
