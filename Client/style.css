@@ -1,12 +1,13 @@
 /* styles.css */
 .option-img {
-    width: 25vw;
-    height: 25vw;
-    object-fit: cover;
-    cursor: pointer;
-    transition: box-shadow 0.3s ease; 
-    margin-right: 2vw; 
-  }
+  width: 25vw;              /* Width is based on viewport width */
+  height: 25vw;             /* Let height adjust automatically to maintain aspect ratio */
+  max-width: 100%;          /* Ensures the image won't overflow the container */
+  object-fit: cover;        /* Keeps the image filling the container without stretching */
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+  margin-right: 2vw;
+}
   
 
 

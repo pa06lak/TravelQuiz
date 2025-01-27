@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Documentation</title>
+  <link rel="stylesheet" href="stylesAPI.css">
+</head>
+<body>
+  <header>
+    <h1>API Documentation</h1>
+    <p>Comprehensive details for using the provided endpoints.</p>
+  </header>
+
+  <main>
+    <!-- GET Destinations Based on IDs -->
+    <section>
+      <h2>GET Destinations Based on IDs</h2>
+      <p>Retrieve destination details based on the provided IDs.</p>
+      <h3>Endpoint</h3>
+      <p><code>GET /api/destinations</code></p>
+      <h3>Request</h3>
+      <ul>
+        <li><strong>Method:</strong> GET</li>
+        <li><strong>URL:</strong> <code>http://localhost:3000/api/destinations</code></li>
+        <li><strong>Query Parameters:</strong>
+          <ul>
+            <li><code>ids</code> (string, required): Comma-separated IDs of the destinations to retrieve.</li>
+          </ul>
+        </li>
+      </ul>
+      <h3>Response</h3>
+      <pre><code>[
+  {
+    "id": "number",
+    "name": "string",
+    "continent": "string",
+    "budget": "string",
+    "duration": "string",
+    "popularity": "number",
+    "description": "string",
+    "image": "string",
+    "rating": "number",
+    "count": "number"
+  }
+]</code></pre>
+    </section>
+
+    <!-- GET List of Travel Destinations -->
+    <section>
+      <h2>GET List of Travel Destinations</h2>
+      <p>Retrieve a list of all destinations.</p>
+      <h3>Endpoint</h3>
+      <p><code>GET /api/destinationsRead</code></p>
+      <h3>Response</h3>
+      <pre><code>[
+  {
+    "id": 0,
+    "name": "",
+    "continent": "",
+    "budget": "",
+    "duration": "",
+    "popularity": 0,
+    "description": "",
+    "image": "",
+    "rating": 0,
+    "count": 0
+  }
+]</code></pre>
+    </section>
+
+    <!-- GET Question Options -->
+    <section>
+      <h2>GET Question Options</h2>
+      <p>Retrieve a list of questions and their associated destination IDs.</p>
+      <h3>Endpoint</h3>
+      <p><code>GET /api/questions</code></p>
+      <h3>Response</h3>
+      <pre><code>[
+  {
+    "id": "",
+    "question": "",
+    "destinationIds": [0],
+    "count": 0
+  }
+]</code></pre>
+    </section>
+
+    <!-- POST Update Destination Ratings -->
+    <section>
+      <h2>POST Update Destination Ratings</h2>
+      <p>Update the rating for a specific destination.</p>
+      <h3>Endpoint</h3>
+      <p><code>POST /update-rating</code></p>
+      <h3>Request Body</h3>
+      <pre><code>{
+  "destinationName": "Paris",
+  "userRating": 4.5
+}</code></pre>
+      <h3>Response</h3>
+      <pre><code>{
+  "message": "Rating updated successfully",
+  "destination": {
+    "id": "number",
+    "name": "string",
+    "rating": "number",
+    "count": "number"
+  }
+}</code></pre>
+    </section>
+
+    <!-- POST Update Count of Question Options -->
+    <section>
+      <h2>POST Update Count of Question Options</h2>
+      <p>Update the count for a specific question option.</p>
+      <h3>Endpoint</h3>
+      <p><code>POST /api/update-count</code></p>
+      <h3>Request Body</h3>
+      <pre><code>{
+  "id": "string"
+}</code></pre>
+      <h3>Response</h3>
+      <pre><code>{
+  "message": "Count updated successfully",
+  "question": {
+    "id": "string",
+    "question": "string",
+    "destinationIds": [0],
+    "count": 0
+  }
+}</code></pre>
+    </section>
+  </main>
+
+</body>
+</html>

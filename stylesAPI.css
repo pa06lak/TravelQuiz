@@ -1,0 +1,47 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+  header {
+    background: #4CAF50;
+    color: white;
+    padding: 1em 0;
+    text-align: center;
+  }
+  
+  main {
+    padding: 2em;
+  }
+  
+  h1, h2 {
+    color: #333;
+  }
+  
+  h2 {
+    margin-top: 2em;
+  }
+  
+  pre {
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 1em;
+    overflow-x: auto;
+  }
+  
+  code {
+    color: #d63384;
+  }
+  
+  footer {
+    text-align: center;
+    margin-top: 2em;
+    padding: 1em;
+    background: #4CAF50;
+    color: white;
+  }
+  

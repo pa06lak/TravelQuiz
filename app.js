@@ -15,11 +15,6 @@ const travelDestinations = JSON.parse(
 app.use('/images', express.static(path.join(__dirname, 'images')));  // Adjust this if your images are in a different folder
 app.use('/destImages', express.static(path.join(__dirname, 'destImages')));
 
-app.get('/', (req, res) => {
-  res.send('Hello, World!');
-});
-
-
 
 //--------------------------------------------------------------------------------------------------------------------------------
 // Public Interface 
@@ -36,7 +31,7 @@ app.get('/api/destinations', (req, res) => {
 
 // --------------------------------------------------------------------------------------------------------------------
 // Build the destination list for the specified options selected by the user
-  app.get('/api/destinationsTwo', (req, res) => {
+  app.get('/api/destinationsRead', (req, res) => {
     const filePath = path.join(__dirname, 'Assets/destinations.json');
     
     fs.readFile(filePath, 'utf8', (err, data) => {
