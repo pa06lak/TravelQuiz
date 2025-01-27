@@ -297,7 +297,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!isNaN(userRating) && userRating >= 1 && userRating <= 5) {
         // Make POST request to update rating
         // This is the website I have referenced to create this POST request -> "https://www.freecodecamp.org/news/javascript-post-request-how-to-send-an-http-post-request-in-js/"
-        fetch('/update-rating', {
+        fetch('/api/update-rating', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

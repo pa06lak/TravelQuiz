@@ -59,7 +59,7 @@ let destinationInteractive = require('./Assets/destinations.json');
 
 // ------------------------------------------------------------------------------------------------
 // Endpoint to update the rating of a destination
-app.post('/update-rating', (req, res) => {
+app.post('/api/update-rating', (req, res) => {
     const { destinationName, userRating } = req.body;
     if (!destinationName || userRating === undefined) {
         return res.status(400).json({ error: 'Invalid request payload' });

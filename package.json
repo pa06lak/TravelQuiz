@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "pretest": "eslint .",
     "test": "jest",
     "start": "nodemon server.js"
   },
