@@ -2,6 +2,7 @@ const request = require('supertest');
 const app = require('./app');
 const fs = require('fs');
 
+
 describe('Test the travel quiz', () => {
     // 1. API Destinations Searching Testing ----------------------------------------------------------------
     test('Should return a 200 response for /api/destinations', () => {
@@ -104,7 +105,7 @@ describe('Test the travel quiz', () => {
 
       // 4. API Question Count Update
       //Sample Data
-      test('Should return a 400 if the request body is missing an id', () => {
+    test('Should return a 400 if the request body is missing an id', () => {
         return request(app)
            .post('/api/update-count')
            .send({})
@@ -142,8 +143,21 @@ describe('Test the travel quiz', () => {
           .expect(500)
           .then((response) => {
             expect(response.body.message).toBe('Error parsing JSON');
+        });
+    });
+    test('POST /api/update-count should return 200 if question count is updated successfully', () => {
+        const requestBody = { id: 'plane' };
+        return request(app)
+         .post('/api/update-count')
+         .send(requestBody)
+         .expect(200)
+         .then((response) => {
+            expect(response.body.message).toBe('Count updated successfully');
+            expect(response.body.question.count).toBeGreaterThan(0);
           });
-      });
+  
+    });
+
       
 
 

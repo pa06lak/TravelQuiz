@@ -45,12 +45,6 @@ app.get('/api/destinations', (req, res) => {
 
 
 
-
-
-
-
-
-
 // Load the destinations data from the JSON file
 app.use(express.json());
 let destinationInteractive = require('./Assets/destinations.json');
