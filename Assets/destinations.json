@@ -44,8 +44,8 @@
     "popularity": 5,
     "description": "The city of love, renowned for its art, architecture, and cuisine.",
     "image": "../destImages/Paris.jpeg",
-    "rating": 3.7,
-    "count": 10
+    "rating": 4.3,
+    "count": 42
   },
   {
     "id": 5,
@@ -164,8 +164,8 @@
     "popularity": 5,
     "description": "A modern city known for luxury shopping, ultramodern architecture, and nightlife.",
     "image": "../destImages/Dubai.jpeg",
-    "rating": 4.5,
-    "count": 2
+    "rating": 4.33,
+    "count": 3
   },
   {
     "id": 15,
@@ -188,8 +188,8 @@
     "popularity": 4,
     "description": "Home to the Pyramids of Giza and a city steeped in history.",
     "image": "../destImages/Cairo.jpeg",
-    "rating": 3.5,
-    "count": 4
+    "rating": 3.6,
+    "count": 5
   },
   {
     "id": 17,
@@ -416,8 +416,8 @@
     "popularity": 4,
     "description": "The cradle of Western civilization with ancient ruins and vibrant streets.",
     "image": "../destImages/Athens.jpeg",
-    "rating": 4,
-    "count": 1
+    "rating": 2.5,
+    "count": 2
   },
   {
     "id": 36,
