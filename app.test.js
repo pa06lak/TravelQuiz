@@ -1,6 +1,7 @@
 const request = require('supertest');
 const app = require('./app');
 const fs = require('fs');
+const path = require('path');
 
 
 describe('Test the travel quiz', () => {
@@ -56,6 +57,19 @@ describe('Test the travel quiz', () => {
                 expect(response.text).toContain('Unexpected token');
             });
     });
+    test('should return 500 if fs.readFile fails', () => {
+        const filePath = path.join(__dirname, 'Assets/destinations.json');
+        fs.readFile.mockImplementationOnce((filePath, encoding, callback) => {
+            callback(new Error('Error reading destinations file'));
+        });
+
+        return request(app)
+            .get('/api/destinationsRead')
+            .expect(500)
+            .then((response) => {
+                expect(response.text).toBe('Error reading destinations file'); // Verify the error message.
+            });
+    });
 
 
 
@@ -88,7 +102,7 @@ describe('Test the travel quiz', () => {
             expect(response.body.destination.count).toBeGreaterThan(0);
           });
       });
-      test('Invalid request - Missing userRating', () => {
+    test('Invalid request - Missing userRating', () => {
         return request(app)
           .post('/api/update-rating')
           .send({ destinationName: 'Paris' })

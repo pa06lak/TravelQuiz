@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1738064279627" clover="3.2.0">
-  <project timestamp="1738064279627" name="All files">
-    <metrics statements="68" coveredstatements="64" conditionals="26" coveredconditionals="20" methods="12" coveredmethods="12" elements="106" coveredelements="96" complexity="0" loc="68" ncloc="68" packages="1" files="1" classes="1"/>
+<coverage generated="1738065511734" clover="3.2.0">
+  <project timestamp="1738065511735" name="All files">
+    <metrics statements="68" coveredstatements="65" conditionals="26" coveredconditionals="21" methods="12" coveredmethods="12" elements="106" coveredelements="98" complexity="0" loc="68" ncloc="68" packages="1" files="1" classes="1"/>
     <file name="app.js" path="/Users/palak/Documents/University/progblack_2425/coursework/app.js">
-      <metrics statements="68" coveredstatements="64" conditionals="26" coveredconditionals="20" methods="12" coveredmethods="12"/>
+      <metrics statements="68" coveredstatements="65" conditionals="26" coveredconditionals="21" methods="12" coveredmethods="12"/>
       <line num="2" count="1" type="stmt"/>
       <line num="3" count="1" type="stmt"/>
       <line num="4" count="1" type="stmt"/>
@@ -22,10 +22,10 @@
       <line num="26" count="5" type="stmt"/>
       <line num="27" count="5" type="stmt"/>
       <line num="34" count="1" type="stmt"/>
-      <line num="35" count="2" type="stmt"/>
-      <line num="37" count="2" type="stmt"/>
-      <line num="38" count="2" type="cond" truecount="1" falsecount="1"/>
-      <line num="39" count="0" type="stmt"/>
+      <line num="35" count="3" type="stmt"/>
+      <line num="37" count="3" type="stmt"/>
+      <line num="38" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="39" count="1" type="stmt"/>
       <line num="41" count="2" type="stmt"/>
       <line num="49" count="1" type="stmt"/>
       <line num="50" count="1" type="stmt"/>
