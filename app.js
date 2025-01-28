@@ -25,6 +25,9 @@ app.get('/api/destinations', (req, res) => {
     )
     travelDestinations;
     res.json(filteredDestinations);
+    if (ids.some(id => isNaN(id))) {
+      return res.status(400).json({ error: "Invalid 'ids' query parameter" });
+  }
   });
 //--------------------------------------------------------------------------------------------------------------------------------
 
@@ -87,7 +90,13 @@ app.post('/api/update-rating', (req, res) => {
 const questions = JSON.parse(fs.readFileSync(path.join(__dirname, 'Assets/questions.json'), 'utf-8'));
 
 app.get('/api/questions', (req, res) => {
+  try {
+  // If successful, return the questions with a 200 OK status
   res.status(200).json(questions);
+} catch (err) {
+  // If there's an error reading or parsing the file, return a 500 status code with an error message
+  res.status(500).json({ error: 'Error reading or parsing questions file' });
+}
 });
 
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -11,6 +11,14 @@
     <h1> This or That Quiz (Travel Edition)</h1>
   </header>
 
+
+
+
+
+
+
+
+  
   <main>
     <!-- GET Destinations Based on IDs -->
     <section>
@@ -42,7 +50,25 @@
     "count": "number"
   }
 ]</code></pre>
+  </div>
+  <h3>Success Response</h3>
+  <p><strong>Status Code:</strong> 200 OK</p>
+  <p>Returns a JSON array of destination objects matching the provided IDs.</p>
     </section>
+  </div>
+  <h3>Unsuccessful Response</h3>
+  <h4>400 Bad Request</h4>
+  <p>This error occurs if the <code>ids</code> query parameter is missing or invalid.</p>
+  <h5>Example Response:</h5>
+  <div class="example">
+      <pre><code>{
+"error": "Invalid ID query parameter"
+}</code></pre>
+  </div>
+</div>
+
+
+
 
     <!-- GET List of Travel Destinations -->
     <section>
@@ -65,7 +91,26 @@
     "count": 0
   }
 ]</code></pre>
+</div>
+<h3>Success Response</h3>
+<p><strong>Status Code:</strong> 200 OK</p>
+<p>Returns all the destinations from the JSON file</p>
+  </section>
+</div>
+<h3>Unsuccessful Response</h3>
+<h4>500 Bad Request</h4>
+<p>The error occurs if the server is unable to read the destinations file</p>
+<h5>Example Response:</h5>
+<div class="example">
+    <pre><code>{
+      "error": "Error reading destinations file"
+    }</code></pre>
+</div>
+</div>
     </section>
+
+
+
 
     <!-- GET Question Options -->
     <section>
@@ -82,8 +127,25 @@
     "count": 0
   }
 ]</code></pre>
+</div>
+<h3>Success Response</h3>
+<p><strong>Status Code:</strong> 200 OK</p>
+<p>Returns the Questions from the JSON file</p>
+  </section>
+</div>
+<h3>Unsuccessful Response</h3>
+<h4>500 Internal Server Error</h4>
+<p>This error occurs if there is an issue reading the <code>questions.json</code> file or parsing the data.</p>
+<h5>Example Response:</h5>
+<div class="example">
+    <pre><code>{
+      "error": "Error reading or parsing questions file"
+    }</code></pre>
     </section>
 
+
+
+    
     <!-- POST Update Destination Ratings -->
     <section>
       <h2>4. POST Update Destination Ratings</h2>
@@ -105,7 +167,38 @@
     "count": "number"
   }
 }</code></pre>
+</section>
+</div>
+<h3>Success Response</h3>
+<p><strong>Status Code:</strong> 200 OK</p>
+<p>Updates the count and ratings of the JSON file</p>
+</div>
+<h3>Unsuccessful Response</h3>
+<h4>400 - Invalid Request Payload</h4>
+  <p>If the request payload is missing required fields or if they are incorrect, the server will return a 400 status code.</p>
+  <pre><code>{
+    "error": "Invalid request payload"
+  }</code></pre>
+
+  <h4>404 - Destination Not Found</h4>
+  <p>If the destination name does not exist in the database, the server will return a 404 status code.</p>
+  <pre><code>{
+    "error": "Destination not found"
+  }</code></pre>
+
+  <h4>500 - Internal Server Error</h4>
+  <p>If there is an error while writing to the destinations file, the server will return a 500 status code.</p>
+  <pre><code>{
+    "error": "Internal server error occurred"
+  }</code></pre>
+
     </section>
+
+
+
+
+
+
 
     <!-- POST Update Count of Question Options -->
     <section>
@@ -128,6 +221,42 @@
   }
 }</code></pre>
     </section>
+  </div>
+  <h3>Success Response</h3>
+  <p><strong>Status Code:</strong> 200 OK</p>
+  <p>Updates the count of the question options in the JSON file</p>
+  </div>
+  <h3>Unsuccessful Response</h3>
+  <h4>400 - ID is required</h4>
+  <p>If the request body does not include an ID, the server will return a 400 status code.</p>
+    <pre><code>{
+      "error": "ID is required"
+    }</code></pre>
+  
+    <h4>404 - Question Not Found</h4>
+    <p>If the question with the given ID is not found in the data, the server will return a 404 status code.</p>
+    <pre><code>{
+      "error": "Question not found"
+    }</code></pre>
+  
+    <h4>500 - Error Reading File</h4>
+      <p>If there is an error while reading the file, the server will return a 500 status code.</p>
+      <pre><code>{
+        "error": "Error reading file"
+      }</code></pre>
+
+    <h4>500 - Error Parsing JSON</h4>
+    <p>If there is an error while parsing the JSON data from the file, the server will return a 500 status code.</p>
+    <pre><code>{
+      "error": "Error parsing JSON"
+    }</code></pre>
+
+    <h4>500 - Error Writing File</h4>
+    <p>If there is an error while writing to the file, the server will return a 500 status code.</p>
+    <pre><code>{
+      "error": "Error writing file"
+    }</code></pre>
+
   </main>
 
 </body>

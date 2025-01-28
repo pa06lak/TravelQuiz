@@ -1,3 +1,4 @@
+
 const request = require('supertest');
 const app = require('./app');
 const fs = require('fs');
@@ -5,7 +6,7 @@ const path = require('path');
 
 
 describe('Test the travel quiz', () => {
-    // 1. API Destinations Searching Testing ----------------------------------------------------------------
+    // 1. API Destinations Searching Testing
     test('Should return a 200 response for /api/destinations', () => {
         return request(app)
 	    .get('/api/destinations')
@@ -118,7 +119,6 @@ describe('Test the travel quiz', () => {
 
 
       // 4. API Question Count Update
-      //Sample Data
     test('Should return a 400 if the request body is missing an id', () => {
         return request(app)
            .post('/api/update-count')
@@ -146,7 +146,6 @@ describe('Test the travel quiz', () => {
           });
       });
     test('POST /api/update-count should return 500 if JSON parsing fails', () => {
-        // Simulate JSON parsing error
         fs.readFile.mockImplementationOnce((filePath, encoding, callback) => {
           callback(null, 'invalid JSON data');
         });
