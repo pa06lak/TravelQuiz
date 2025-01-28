@@ -58,7 +58,7 @@ describe('Test the travel quiz', () => {
                 expect(response.text).toContain('Unexpected token');
             });
     });
-    test('should return 500 if fs.readFile fails', () => {
+    test('Should return 500 if fs.readFile fails', () => {
         const filePath = path.join(__dirname, 'Assets/destinations.json');
         fs.readFile.mockImplementationOnce((filePath, encoding, callback) => {
             callback(new Error('Error reading destinations file'));
@@ -89,7 +89,7 @@ describe('Test the travel quiz', () => {
            .send({ destinationName: 'Not a real destination', userRating: 5 })
            .expect(404);
     });
-    test('Valid request - Rating updated successfully', () => {
+    test('Should return a message valid request - Rating updated successfully', () => {
         const destinationName = 'Paris';
         const userRating = 4.5;
     
@@ -103,7 +103,7 @@ describe('Test the travel quiz', () => {
             expect(response.body.destination.count).toBeGreaterThan(0);
           });
       });
-    test('Invalid request - Missing userRating', () => {
+    test('Should return a message invalid request - Missing userRating', () => {
         return request(app)
           .post('/api/update-rating')
           .send({ destinationName: 'Paris' })
@@ -131,7 +131,7 @@ describe('Test the travel quiz', () => {
            .send({ id: 'Not a real id' })
            .expect(404);
     });
-    test('POST /api/update-count should return 500 if file reading fails', () => {
+    test('Should return 500 if file reading fails', () => {
         // Simulate file reading error
         fs.readFile.mockImplementationOnce((filePath, encoding, callback) => {
           callback(new Error('File read error'), null);
@@ -145,7 +145,7 @@ describe('Test the travel quiz', () => {
             expect(response.body.message).toBe('Error reading file');
           });
       });
-    test('POST /api/update-count should return 500 if JSON parsing fails', () => {
+    test('Should return 500 if JSON parsing fails', () => {
         fs.readFile.mockImplementationOnce((filePath, encoding, callback) => {
           callback(null, 'invalid JSON data');
         });
@@ -158,7 +158,7 @@ describe('Test the travel quiz', () => {
             expect(response.body.message).toBe('Error parsing JSON');
         });
     });
-    test('POST /api/update-count should return 200 if question count is updated successfully', () => {
+    test('Should return 200 if question count is updated successfully', () => {
         const requestBody = { id: 'plane' };
         return request(app)
          .post('/api/update-count')
@@ -177,12 +177,12 @@ describe('Test the travel quiz', () => {
 
 
       // 5. API Listing Questions from JSON
-      test('GET /api/questions should return a 200', () => {
+      test('Should return a 200', () => {
         return request(app)
          .get('/api/questions')
          .expect(200)
       });
-      test('GET /api/questions should return an error if the questions file contains invalid JSON', () => {
+      test('Should return an error if the questions file contains invalid JSON', () => {
         // Simulate file reading error
         fs.readFile.mockImplementationOnce((filePath, encoding, callback) => {
           callback(new Error('File read error'), null);

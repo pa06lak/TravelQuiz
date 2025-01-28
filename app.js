@@ -54,6 +54,8 @@ let destinationInteractive = require('./Assets/destinations.json');
 
 
 
+
+
 // ------------------------------------------------------------------------------------------------
 // Endpoint to update the rating of a destination
 app.post('/api/update-rating', (req, res) => {

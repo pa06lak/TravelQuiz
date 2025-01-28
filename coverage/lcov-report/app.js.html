@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">93.05% </span>
+                <span class="strong">92.2% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>67/72</span>
+                <span class='fraction'>71/77</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80.76% </span>
+                <span class="strong">82.14% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>21/26</span>
+                <span class='fraction'>23/28</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>12/12</span>
+                <span class='fraction'>13/13</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">95.58% </span>
+                <span class="strong">94.44% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>65/68</span>
+                <span class='fraction'>68/72</span>
             </div>
         
             
@@ -196,7 +196,18 @@
 <a name='L131'></a><a href='#L131'>131</a>
 <a name='L132'></a><a href='#L132'>132</a>
 <a name='L133'></a><a href='#L133'>133</a>
-<a name='L134'></a><a href='#L134'>134</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L134'></a><a href='#L134'>134</a>
+<a name='L135'></a><a href='#L135'>135</a>
+<a name='L136'></a><a href='#L136'>136</a>
+<a name='L137'></a><a href='#L137'>137</a>
+<a name='L138'></a><a href='#L138'>138</a>
+<a name='L139'></a><a href='#L139'>139</a>
+<a name='L140'></a><a href='#L140'>140</a>
+<a name='L141'></a><a href='#L141'>141</a>
+<a name='L142'></a><a href='#L142'>142</a>
+<a name='L143'></a><a href='#L143'>143</a>
+<a name='L144'></a><a href='#L144'>144</a>
+<a name='L145'></a><a href='#L145'>145</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -223,6 +234,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -246,6 +260,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -286,6 +302,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -356,6 +378,9 @@ app.get('/api/destinations', (req, res) =&gt; {
     )
     travelDestinations;
     res.json(filteredDestinations);
+    if (ids.some(id =&gt; isNaN(id))) {
+      return res.status(400).json({ error: "Invalid 'ids' query parameter" });
+  }
   });
 //--------------------------------------------------------------------------------------------------------------------------------
 &nbsp;
@@ -379,6 +404,8 @@ app.get('/api/destinations', (req, res) =&gt; {
 // Load the destinations data from the JSON file
 app.use(express.json());
 let destinationInteractive = require('./Assets/destinations.json');
+&nbsp;
+&nbsp;
 &nbsp;
 &nbsp;
 &nbsp;
@@ -418,7 +445,13 @@ app.post('/api/update-rating', (req, res) =&gt; {
 const questions = JSON.parse(fs.readFileSync(path.join(__dirname, 'Assets/questions.json'), 'utf-8'));
 &nbsp;
 app.get('/api/questions', (req, res) =&gt; {
+  try {
+  // If successful, return the questions with a 200 OK status
   res.status(200).json(questions);
+} catch (err) {
+  // If there's an error reading or parsing the file, return a 500 status code with an error message
+<span class="cstat-no" title="statement not covered" >  res.status(500).json({ error: 'Error reading or parsing questions file' });</span>
+}
 });
 &nbsp;
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -469,7 +502,7 @@ module.exports = app;  // Export the app object
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-01-28T12:19:47.063Z
+                at 2025-01-28T22:28:25.887Z
             </div>
         <script src="prettify.js"></script>
         <script>
