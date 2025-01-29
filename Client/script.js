@@ -77,12 +77,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   // Form submission handler
   const form = document.getElementById("quizForm");
-  optionCount += "Please scroll through the website to find your ideal destination.";
   form.addEventListener("submit", (event) => {
-    if (optionCount !== "") {
-      alert(optionCount)
-      optionCount = ""
-    }
+    
     event.preventDefault();
     const questions = document.querySelectorAll(".question");
     const answers = [];
@@ -95,6 +91,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (answers.length < questions.length) {
       alert("Please answer all the questions!");
       return;
+    }
+    if (optionCount !== "") {
+      optionCount += "........................................................    Please scroll through the website to find your ideal destination  :)";
+      alert(optionCount)
+      optionCount = ""
     }
     //console.log(selectedDestinations);
     // This is the website I have referenced for the error testing is -> "https://stackoverflow.com/questions/39297345/fetch-resolves-even-if-404"

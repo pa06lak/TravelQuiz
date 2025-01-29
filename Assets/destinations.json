@@ -116,8 +116,8 @@
     "popularity": 4,
     "description": "A city known for its vibrant street life and ornate temples.",
     "image": "../destImages/Bangkok.jpeg",
-    "rating": 3.76,
-    "count": 17
+    "rating": 3.77,
+    "count": 18
   },
   {
     "id": 11,
@@ -128,8 +128,8 @@
     "popularity": 4,
     "description": "A sprawling city known for Hollywood, beaches, and entertainment.",
     "image": "../destImages/LA.jpeg",
-    "rating": 3,
-    "count": 8
+    "rating": 3.22,
+    "count": 9
   },
   {
     "id": 12,
