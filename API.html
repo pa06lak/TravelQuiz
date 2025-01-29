@@ -173,7 +173,7 @@
 <p><strong>Status Code:</strong> 200 OK</p>
 <p>Updates the count and ratings of the JSON file</p>
 </div>
-<h3>Unsuccessful Response</h3>
+<h3>Unsuccessful Responses</h3>
 <h4>400 - Invalid Request Payload</h4>
   <p>If the request payload is missing required fields or if they are incorrect, the server will return a 400 status code.</p>
   <pre><code>{
@@ -226,7 +226,7 @@
   <p><strong>Status Code:</strong> 200 OK</p>
   <p>Updates the count of the question options in the JSON file</p>
   </div>
-  <h3>Unsuccessful Response</h3>
+  <h3>Unsuccessful Responses</h3>
   <h4>400 - ID is required</h4>
   <p>If the request body does not include an ID, the server will return a 400 status code.</p>
     <pre><code>{
@@ -256,6 +256,35 @@
     <pre><code>{
       "error": "Error writing file"
     }</code></pre>
+
+    <!-- GET Question Options Counts -->
+    <section>
+      <h2>6. GET Count values for each Question Option</h2>
+      <p>Retrieve the count values for each question option to be shown to the user.</p>
+      <h3>Endpoint</h3>
+      <p><code>GET /api/get-option-info</code></p>
+      <h3>Response</h3>
+      <pre><code>[
+  {
+    "question": "",
+    "count": 0
+  }
+]</code></pre>
+</div>
+<h3>Success Response</h3>
+<p><strong>Status Code:</strong> 200 OK</p>
+<p>Returns the count for each option from the JSON file</p>
+  </section>
+</div>
+<h3>Unsuccessful Response</h3>
+<h4>500 Internal Server Error</h4>
+<p>When the ID does not exist</p>
+<h5>Example Response:</h5>
+<div class="example">
+    <pre><code>{
+      "error": "Option not found"
+    }</code></pre>
+    </section>
 
   </main>
 

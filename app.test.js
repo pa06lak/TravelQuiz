@@ -188,5 +188,35 @@ describe('Test the travel quiz', () => {
           callback(new Error('File read error'), null);
         });
     });
+
+
+
+    // 6. API Getting Count Values for Question Options
+    test('Should return a 200', (done) => {
+      request(app)
+        .get('/api/get-option-info')
+        .query({ id: 'plane' }) 
+        .expect(200) 
+        .end((err, res) => {
+          if (err) {
+            done(err); 
+          } else {
+            done(); 
+          }
+        });
+    });
+    test('Should return an error if the question ID is not found', (done) => {
+      request(app)
+       .get('/api/get-option-info')
+       .query({ id: 'not-a-question' })
+       .expect(404)
+       .end((err, res) => {
+          if (err) {
+            done(err); 
+          } else {
+            done(); 
+          }
+        });
+    });
     
 });

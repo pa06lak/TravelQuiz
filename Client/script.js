@@ -9,7 +9,7 @@
 // This would gracefully handle server disconnection, send useful error messages and recommend on server restart
 // This is the webiste I have referenced for the server connection -> "https://stackoverflow.com/questions/42304996/javascript-using-promises-on-websocket"
 
-let optionCount = "Here is the list of the number of people who chose each option -> "; // This is for my question.json output. It has been put here because it is going to be used by the submit function
+let optionCount = "Here is the list of the number of people who chose each option apart from yourself-> "; // This is for my question.json output. It has been put here because it is going to be used by the submit function
 
 
 function checkServerConnection() {
@@ -78,6 +78,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Form submission handler
   const form = document.getElementById("quizForm");
   form.addEventListener("submit", (event) => {
+    optionCount += "Please scroll through the website to find your ideal destination.";
+    alert(optionCount)
     event.preventDefault();
     const questions = document.querySelectorAll(".question");
     const answers = [];
@@ -394,6 +396,26 @@ fetch('/api/questions')
   })
   .catch(error => {
     console.error('Error fetching questions:', error);
+  });
+
+  document.querySelectorAll('.option-img').forEach(image => {
+    // Fetch the updated option info when iterating over each image
+    fetch(`/api/get-option-info?id=${image.id}`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Failed to fetch option info: ${response.status} ${response.statusText}`);
+        }
+        return response.json();
+      })
+      .then(optionInfo => {
+        const count = parseInt(optionInfo.message.match(/\d+/)[0], 10); // Extract count as a number
+        const optionName = image.id; // Use the image ID as the option name
+        optionCount += `${optionName}: ${count}, `;
+        //console.log(optionCount); // Logs the option counts as a string
+      })
+      .catch(error => {
+        console.error('Error fetching option info:', error);
+      });
   });
 
 
