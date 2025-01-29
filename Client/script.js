@@ -7,11 +7,10 @@
 //--------------------------------------------------------------------------------------------------------------------------------
 //This is all to check the server connection
 // This would gracefully handle server disconnection, send useful error messages and recommend on server restart
-// This is the webiste I have referenced for the server connection -> "https://stackoverflow.com/questions/42304996/javascript-using-promises-on-websocket"
 
 var optionCount = "Here is the list of the number of people who chose each option apart from yourself-> "; // This is for my question.json output. It has been put here because it is going to be used by the submit function
 
-
+// This is the website I have referenced for the server connection -> "https://stackoverflow.com/questions/42304996/javascript-using-promises-on-websocket"
 function checkServerConnection() {
   fetch('/api/destinationsRead')
     .then(response => {
@@ -160,9 +159,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     else {
     displayDestinationsInteractive(filteredDestinations, resultDiv);
-    const searchBar = document.getElementById('searchBar'); // Assuming the search bar has an ID 'searchBar'
+    const searchBar = document.getElementById('searchBar');
     if (searchBar) {
-    searchBar.style.display = 'none'; // Hide the search bar
+    searchBar.style.display = 'none';
     }
   }
   }
@@ -284,13 +283,11 @@ document.addEventListener("DOMContentLoaded", () => {
       modal.style.display = 'none';
     };
   
-    // Handle "Yes" button click
     yesButton.onclick = () => {
       modalPrompt.textContent = 'Please rate this destination (1-5):';
       ratingInputContainer.style.display = 'block';
     };
   
-    // Handle "No" button click
     noButton.onclick = () => {
       modalPrompt.textContent = 'Have a pleasant trip!';
       ratingInputContainer.style.display = 'none';
@@ -300,7 +297,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 2000); 
     };
   
-    // Submit rating
     submitRatingButton.onclick = () => {
       const userRating = parseInt(ratingInput.value);
       if (!isNaN(userRating) && userRating >= 1 && userRating <= 5) {
@@ -357,22 +353,18 @@ fetch('/api/questions')
       image.addEventListener('click', () => {
         // Find the question corresponding to the clicked image
         const question = questions.find(q => q.id === image.id);
-      
         if (question && question.destinationIds) {
           selectedDestinations = [...new Set([...selectedDestinations, ...question.destinationIds])];
           // console.log(selectedDestinations); // Log the updated selected destinations
         } else {
           console.error('No destinationIds found for the clicked image');
         }
-      
         // Extract the selected ID from the clicked image
         const selectedId = image.id;
-      
         if (!selectedId) {
           console.error('No ID found for the clicked image');
           return;
         }
-      
         // Send a POST request to update the count for the selected ID
         fetch('/api/update-count', {
           method: 'POST',
@@ -389,7 +381,6 @@ fetch('/api/questions')
           })
           .then(data => {
             console.log('Count updated successfully:', data);
-
           })
           .catch(error => {
             console.error('Error updating count:', error);
@@ -401,7 +392,6 @@ fetch('/api/questions')
   .catch(error => {
     console.error('Error fetching questions:', error);
   });
-
   document.querySelectorAll('.option-img').forEach(image => {
     // Fetch the updated option info when iterating over each image
     fetch(`/api/get-option-info?id=${image.id}`)
@@ -453,8 +443,7 @@ function fetchDestinationsByIds(ids) {
       console.error('Error fetching destination data:', error);
       throw error; 
     });
-}
-
+  }
 // Function to fetch destination data from the server and return it as a string with the destination data
 function displayDestinations(data) {
   if (isFiltered) {
@@ -503,7 +492,6 @@ function displayDestinations(data) {
       rating.textContent = `Rating: ${item.rating}`;
       rating.classList.add('destination-rating');
 
-      // Append all details to the detailsDiv
       detailsDiv.appendChild(name);
       detailsDiv.appendChild(description);
       detailsDiv.appendChild(location);

@@ -6,7 +6,6 @@ const fs = require('fs');
 
 app.use(express.static('public'));
 app.use(express.static(path.join(__dirname, 'client')));
-// Serve static files from the 'Assets' folder
 app.use(express.static(path.join(__dirname, 'Assets')));
 app.use(express.json());
 const travelDestinations = JSON.parse(
@@ -35,8 +34,7 @@ app.get('/api/destinations', (req, res) => {
 // --------------------------------------------------------------------------------------------------------------------
 // Build the destination list for the specified options selected by the user
   app.get('/api/destinationsRead', (req, res) => {
-    const filePath = path.join(__dirname, 'Assets/destinations.json');
-    
+    const filePath = path.join(__dirname, 'Assets/destinations.json'); 
     fs.readFile(filePath, 'utf8', (err, data) => {
       if (err) {
         return res.status(500).send('Error reading destinations file');
@@ -90,13 +88,10 @@ app.post('/api/update-rating', (req, res) => {
 // --------------------------------------------------------------------------------------------------------------------
 // Get request for the question.json file to get the destinations
 const questions = JSON.parse(fs.readFileSync(path.join(__dirname, 'Assets/questions.json'), 'utf-8'));
-
 app.get('/api/questions', (req, res) => {
   try {
-  // If successful, return the questions with a 200 OK status
   res.status(200).json(questions);
 } catch (err) {
-  // If there's an error reading or parsing the file, return a 500 status code with an error message
   res.status(500).json({ error: 'Error reading or parsing questions file' });
 }
 });
