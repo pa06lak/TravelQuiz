@@ -9,7 +9,7 @@
 // This would gracefully handle server disconnection, send useful error messages and recommend on server restart
 // This is the webiste I have referenced for the server connection -> "https://stackoverflow.com/questions/42304996/javascript-using-promises-on-websocket"
 
-let optionCount = "Here is the list of the number of people who chose each option apart from yourself-> "; // This is for my question.json output. It has been put here because it is going to be used by the submit function
+var optionCount = "Here is the list of the number of people who chose each option apart from yourself-> "; // This is for my question.json output. It has been put here because it is going to be used by the submit function
 
 
 function checkServerConnection() {
@@ -77,9 +77,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   // Form submission handler
   const form = document.getElementById("quizForm");
+  optionCount += "Please scroll through the website to find your ideal destination.";
   form.addEventListener("submit", (event) => {
-    optionCount += "Please scroll through the website to find your ideal destination.";
-    alert(optionCount)
+    if (optionCount !== "") {
+      alert(optionCount)
+      optionCount = ""
+    }
     event.preventDefault();
     const questions = document.querySelectorAll(".question");
     const answers = [];
