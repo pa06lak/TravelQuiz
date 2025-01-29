@@ -7,7 +7,7 @@
       11,
       16
     ],
-    "count": 41
+    "count": 62
   },
   {
     "id": "train",
@@ -18,7 +18,7 @@
       44,
       37
     ],
-    "count": 4
+    "count": 8
   },
   {
     "id": "friends",
@@ -29,7 +29,7 @@
       29,
       36
     ],
-    "count": 7
+    "count": 20
   },
   {
     "id": "family",
@@ -40,10 +40,10 @@
       45,
       49
     ],
-    "count": 11
+    "count": 15
   },
   {
-    "id": "dolphin",
+    "id": "dolphins",
     "question": "Do you enjoy swimming with dolphins?",
     "destinationIds": [
       14,
@@ -51,7 +51,7 @@
       7,
       9
     ],
-    "count": 0
+    "count": 7
   },
   {
     "id": "bungee",
@@ -60,7 +60,7 @@
       6,
       34
     ],
-    "count": 9
+    "count": 11
   },
   {
     "id": "city",
@@ -72,7 +72,7 @@
       22,
       27
     ],
-    "count": 9
+    "count": 16
   },
   {
     "id": "countryside",
@@ -92,17 +92,17 @@
       39,
       45
     ],
-    "count": 11
+    "count": 14
   },
   {
-    "id": "eat",
+    "id": "eatout",
     "question": "Do you enjoy eating out?",
     "destinationIds": [
       5,
       9,
       10
     ],
-    "count": 0
+    "count": 4
   },
   {
     "id": "photographer",
@@ -113,7 +113,7 @@
       26,
       41
     ],
-    "count": 10
+    "count": 17
   },
   {
     "id": "chef",
@@ -123,7 +123,7 @@
       14,
       28
     ],
-    "count": 7
+    "count": 8
   },
   {
     "id": "ancient",
@@ -136,7 +136,7 @@
       46,
       47
     ],
-    "count": 12
+    "count": 18
   },
   {
     "id": "modern",
@@ -148,7 +148,7 @@
       32,
       34
     ],
-    "count": 5
+    "count": 6
   },
   {
     "id": "pool",
@@ -157,7 +157,7 @@
       15,
       29
     ],
-    "count": 7
+    "count": 12
   },
   {
     "id": "beach",
@@ -168,7 +168,7 @@
       25,
       26
     ],
-    "count": 9
+    "count": 10
   },
   {
     "id": "night",
@@ -179,7 +179,7 @@
       27,
       48
     ],
-    "count": 5
+    "count": 12
   },
   {
     "id": "day",
@@ -190,7 +190,7 @@
       42,
       50
     ],
-    "count": 11
+    "count": 12
   },
   {
     "id": "tropical",
@@ -200,7 +200,7 @@
       10,
       15
     ],
-    "count": 7
+    "count": 14
   },
   {
     "id": "snowy",

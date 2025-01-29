@@ -8,6 +8,10 @@
 //This is all to check the server connection
 // This would gracefully handle server disconnection, send useful error messages and recommend on server restart
 // This is the webiste I have referenced for the server connection -> "https://stackoverflow.com/questions/42304996/javascript-using-promises-on-websocket"
+
+let optionCount = "Here is the list of the number of people who chose each option -> "; // This is for my question.json output. It has been put here because it is going to be used by the submit function
+
+
 function checkServerConnection() {
   fetch('/api/destinationsRead')
     .then(response => {
@@ -106,7 +110,6 @@ document.addEventListener("DOMContentLoaded", () => {
     })
      .then(data => {
         //console.log(data)
-        
         displayDestinations(data); // Function to display the fetched data
       })
      .catch(error => console.error('Error:', error));
@@ -315,9 +318,9 @@ document.addEventListener("DOMContentLoaded", () => {
         })
           .then((data) => {
             if (data.error) {
-              console.error('Error updating rating:', data.error);
+              //console.error('Error updating rating:', data.error);
             } else {
-              console.log('Rating updated successfully:', data);
+              //console.log('Rating updated successfully:', data);
               destination.rating = data.destination.rating;
               ratingElement.textContent = `Rating: ${destination.rating.toFixed(2)}`;
             }
@@ -338,6 +341,7 @@ let isFiltered = true;
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Fetch all destinations initially
 let selectedDestinations = [];
+let selectedOptions = {}; // To store option names and their counts
 
 fetch('/api/questions')
   .then(response => response.json())
@@ -349,7 +353,6 @@ fetch('/api/questions')
         const question = questions.find(q => q.id === image.id);
       
         if (question && question.destinationIds) {
-          // Add the destination IDs to the selectedDestinations array
           selectedDestinations = [...new Set([...selectedDestinations, ...question.destinationIds])];
           // console.log(selectedDestinations); // Log the updated selected destinations
         } else {
@@ -380,6 +383,7 @@ fetch('/api/questions')
           })
           .then(data => {
             console.log('Count updated successfully:', data);
+
           })
           .catch(error => {
             console.error('Error updating count:', error);

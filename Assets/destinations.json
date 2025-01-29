@@ -20,8 +20,8 @@
     "popularity": 5,
     "description": "The city that never sleeps, famous for its skyline, Broadway shows, and diverse cuisine.",
     "image": "../destImages/NYC.jpeg",
-    "rating": 4.25,
-    "count": 4
+    "rating": 4.4,
+    "count": 5
   },
   {
     "id": 3,
@@ -45,7 +45,7 @@
     "description": "The city of love, renowned for its art, architecture, and cuisine.",
     "image": "../destImages/Paris.jpeg",
     "rating": 4.3,
-    "count": 75
+    "count": 77
   },
   {
     "id": 5,
@@ -116,8 +116,8 @@
     "popularity": 4,
     "description": "A city known for its vibrant street life and ornate temples.",
     "image": "../destImages/Bangkok.jpeg",
-    "rating": 3.64,
-    "count": 14
+    "rating": 3.73,
+    "count": 15
   },
   {
     "id": 11,
@@ -129,7 +129,7 @@
     "description": "A sprawling city known for Hollywood, beaches, and entertainment.",
     "image": "../destImages/LA.jpeg",
     "rating": 3,
-    "count": 7
+    "count": 8
   },
   {
     "id": 12,
